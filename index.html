@@ -49,6 +49,25 @@
                 height: auto;
                 z-index: 1;
             }
+
+            #social-icons {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                display: flex;
+                gap: 15px;
+                z-index: 2;
+            }
+
+            #social-icons img {
+                width: 40px;
+                height: 40px;
+                transition: transform 0.3s ease;
+            }
+
+            #social-icons img:hover {
+                transform: scale(1.2);
+            }
         </style>                                                             
     </head>
         
@@ -60,6 +79,18 @@
         </video>
 
         <img src="web-logo.png" alt="Logo" id="logo">
+
+        <div id="social-icons">
+            <a href="https://twitter.com" target="_blank">
+                <img src="x-icon.png" alt="X">
+            </a>
+            <a href="https://www.twitch.tv/mothnode" target="_blank">
+                <img src="twitch-icon.png" alt="Twitch">
+            </a>
+            <a href="https://www.instagram.com/mothnode" target="_blank">
+                <img src="insta-icon.png" alt="Instagram">
+            </a>
+        </div>
 
     </body>    
 </html>
