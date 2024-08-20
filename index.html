@@ -1,115 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset='UTF-8'>
-        <meta name='description' content='Trisight™ - Mass Experiences. The reality is warping.'/>
-        <meta name='keywords' content='mothnode, tim moth, helve, trisight, helve avr, hitech crime, microlabel, creative, agency, transmedia, red reality ops, kannibal, audio, visual, research' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta property="og:title" content="TRISIGHTᵐˣ">
-        <meta property="og:description" content="Mass Experiences. The reality is warping.">
-        <meta property="og:image" content="thumbnail.png">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='description' content='Trisight™ - Mass Experiences. The reality is warping.'/>
+    <meta name='keywords' content='mothnode, tim moth, helve, trisight, helve avr, hitech crime, microlabel, creative, agency, transmedia, red reality ops, kannibal, audio, visual, research' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta property="og:title" content="TRISIGHTᵐˣ">
+    <meta property="og:description" content="Mass Experiences. The reality is warping.">
+    <meta property="og:image" content="thumbnail.png">
 
-        <title>TRISIGHTᵐˣ</title>
+    <title>TRISIGHTᵐˣ</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-        <style>
-            * {
-                box-sizing: border-box;
-            }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-            body {
-                margin: 0;
-                font-family: Helvetica, Arial, sans-serif;
-                font-size: 17px;
-                overflow: hidden;
-                color: #fff;
-            }
+        body {
+            margin: 0;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+        }
 
-            #bg-video {
-                position: fixed;
-                left: 50%;
-                top: 50%;
-                width: 100vw;
-                height: 100vh;
-                object-fit: cover;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-            }
+        #bg-video {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
 
+        #logo {
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%) scale(2);
+            max-width: 30%;
+            height: auto;
+            z-index: 1;
+        }
+
+        #social-icons {
+            position: absolute;
+            left: 50%;
+            top: calc(50% + 175px); /* Adjust this value to move the icons further down */
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            z-index: 2;
+        }
+
+        #social-icons img {
+            width: 80px;
+            height: 80px;
+            transition: transform 0.3s ease;
+        }
+
+        #social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        #countdown {
+            position: absolute;
+            left: 50%;
+            top: calc(50% + 300px); /* Adjust this value to move the countdown below the social icons */
+            transform: translateX(-50%);
+            z-index: 3;
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
             #logo {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%) scale(2);
-                max-width: 30%;
-                height: auto;
-                z-index: 1;
-            }
-
-            #social-icons {
-                position: absolute;
-                left: 50%;
-                top: calc(50% + 175px); /* Adjust this value to move the icons further down */
-                transform: translateX(-50%);
-                display: flex;
-                flex-direction: row;
-                gap: 15px;
-                z-index: 2;
+                transform: translate(-50%, -50%) scale(1.5);
+                max-width: 50%;
             }
 
             #social-icons img {
-                width: 80px;
-                height: 80px;
-                transition: transform 0.3s ease;
+                width: 60px;
+                height: 60px;
             }
 
-            #social-icons img:hover {
-                transform: scale(1.2);
+            #countdown {
+                font-size: 20px;
             }
+        }
+    </style>
+</head>
+<body>
 
-            /* Responsive Design */
-            @media (max-width: 768px) {
-                #logo {
-                    transform: translate(-50%, -50%) scale(1.5);
-                    max-width: 50%;
-                }
+    <video autoplay loop muted id="bg-video">
+        <source src="trisight-bw-compressed.mp4" type="video/mp4">
+        <!-- Provide a fallback static image -->
+        <img src="trisight-fallback.png" alt="Background image">
+    </video>
 
-                #social-icons img {
-                    width: 60px;
-                    height: 60px;
-                }
+    <img src="web-logo.png" alt="Trisight Logo" id="logo">
+
+    <div id="social-icons">
+        <a href="https://twitter.com/mothnode" target="_blank" aria-label="X (formerly Twitter)">
+            <img src="x-icon.png" alt="X">
+        </a>
+        <a href="https://www.twitch.tv/mothnode" target="_blank" aria-label="Twitch">
+            <img src="twitch-icon.png" alt="Twitch">
+        </a>
+        <a href="https://www.instagram.com/mothnode" target="_blank" aria-label="Instagram">
+            <img src="insta-icon.png" alt="Instagram">
+        </a>
+    </div>
+
+    <div id="countdown"></div>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jan 1, 2025 00:00:00").getTime();
+
+        // Update the countdown every 1 second
+        var countdownFunction = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes, and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            // If the countdown is finished, write some text
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "HAPPY NEW YEAR!";
             }
-        </style>
-    </head>
-    <body>
+        }, 1000);
+    </script>
 
-        <video autoplay loop muted id="bg-video">
-            <source src="trisight-bw-compressed.mp4" type="video/mp4">
-            <!-- Provide a fallback static image -->
-            <img src="trisight-fallback.png" alt="Background image">
-        </video>
-
-        <img src="web-logo.png" alt="Trisight Logo" id="logo">
-
-        <div id="social-icons">
-            <a href="https://twitter.com/mothnode" target="_blank" aria-label="X (formerly Twitter)">
-                <img src="x-icon.png" alt="X">
-            </a>
-            <a href="https://www.twitch.tv/mothnode" target="_blank" aria-label="Twitch">
-                <img src="twitch-icon.png" alt="Twitch">
-            </a>
-            <a href="https://www.instagram.com/mothnode" target="_blank" aria-label="Instagram">
-                <img src="insta-icon.png" alt="Instagram">
-            </a>
-        </div>
-
-    </body>    
+</body>
 </html>
