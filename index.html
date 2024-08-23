@@ -68,12 +68,12 @@
         #social-icons {
             position: absolute;
             left: 50%;
-            top: calc(50% + 80px);
+            top: 20px; /* Move the icons to the top */
             transform: translateX(-50%);
             display: flex;
             flex-direction: row;
             gap: 15px;
-            z-index: 2;
+            z-index: 3; /* Make sure it's above other elements */
         }
 
         #social-icons img {
@@ -110,6 +110,18 @@
         <img src="trisight-fallback.png" alt="Background image">
     </video>
 
+    <div id="social-icons">
+        <a href="https://twitter.com/mothnode" target="_blank" aria-label="X (formerly Twitter)">
+            <img src="x-icon.png" alt="X">
+        </a>
+        <a href="https://www.twitch.tv/mothnode" target="_blank" aria-label="Twitch">
+            <img src="twitch-icon.png" alt="Twitch">
+        </a>
+        <a href="https://www.instagram.com/mothnode" target="_blank" aria-label="Instagram">
+            <img src="insta-icon.png" alt="Instagram">
+        </a>
+    </div>
+
     <img src="web-logo.png" alt="Trisight Logo" id="logo">
 
     <div id="countdown"></div>
@@ -137,18 +149,6 @@
             }
         }, 1000);
     </script>
-
-    <div id="social-icons">
-        <a href="https://twitter.com/mothnode" target="_blank" aria-label="X (formerly Twitter)">
-            <img src="x-icon.png" alt="X">
-        </a>
-        <a href="https://www.twitch.tv/mothnode" target="_blank" aria-label="Twitch">
-            <img src="twitch-icon.png" alt="Twitch">
-        </a>
-        <a href="https://www.instagram.com/mothnode" target="_blank" aria-label="Instagram">
-            <img src="insta-icon.png" alt="Instagram">
-        </a>
-    </div>
 
 </body>
 </html>
