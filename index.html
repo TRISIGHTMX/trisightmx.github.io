@@ -32,6 +32,10 @@
             overflow: hidden;
             color: #fff;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         #bg-video {
@@ -45,25 +49,38 @@
             z-index: -1;
         }
 
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
         #logo {
-            position: absolute;
-            left: 50%;
-            top: 40%;
-            transform: translate(-50%, -50%) scale(2);
             max-width: 30%;
             height: auto;
-            z-index: 1;
+            margin-bottom: 30px;
+        }
+
+        #image-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #image-grid img {
+            width: 200px; /* Set width for the images */
+            height: 120px; /* Set height for the images */
+            object-fit: cover;
         }
 
         #social-icons {
             position: absolute;
             left: 50%;
-            top: 20px; /* Move the icons to the top */
+            top: 20px;
             transform: translateX(-50%);
             display: flex;
             flex-direction: row;
             gap: 15px;
-            z-index: 3; /* Make sure it's above other elements */
+            z-index: 3;
         }
 
         #social-icons img {
@@ -78,13 +95,17 @@
 
         @media (max-width: 768px) {
             #logo {
-                transform: translate(-50%, -50%) scale(1.5);
                 max-width: 50%;
             }
 
             #social-icons img {
                 width: 60px;
                 height: 60px;
+            }
+
+            #image-grid img {
+                width: 150px;
+                height: 90px;
             }
         }
     </style>
@@ -95,6 +116,15 @@
         <source src="trisight-bw-compressed.mp4" type="video/mp4">
         <img src="trisight-fallback.png" alt="Background image">
     </video>
+
+    <div class="content">
+        <img src="web-logo.png" alt="Trisight Logo" id="logo">
+        <div id="image-grid">
+            <img src="helve-panel.png" alt="Image 1">
+            <img src="image2.png" alt="Image 2">
+            <img src="image3.png" alt="Image 3">
+        </div>
+    </div>
 
     <div id="social-icons">
         <a href="https://twitter.com/mothnode" target="_blank" aria-label="X (formerly Twitter)">
@@ -107,8 +137,6 @@
             <img src="insta-icon.png" alt="Instagram">
         </a>
     </div>
-
-    <img src="web-logo.png" alt="Trisight Logo" id="logo">
 
 </body>
 </html>
