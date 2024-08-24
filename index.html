@@ -60,21 +60,7 @@
         #logo {
             max-width: 100%;
             height: auto;
-            margin-bottom: 20px; /* Add some margin between the logo and the image grid */
-        }
-
-        #image-grid {
-            display: flex;
-            flex-direction: column; /* Stack images vertically */
-            align-items: center; /* Center the images horizontally */
-            gap: 20px; /* Space between the images */
-            margin-top: 0px; /* Ensure no extra margin at the top */
-        }
-
-        #image-grid img {
-            width: 1200px; /* Width of the images */
-            height: 900px; /* Height of the images */
-            object-fit: contain;
+            margin-bottom: 20px; /* Add some margin below the logo */
         }
 
         #social-icons {
@@ -107,11 +93,6 @@
                 width: 60px;
                 height: 60px;
             }
-
-            #image-grid img {
-                width: 100%; /* Make images responsive */
-                height: auto; /* Maintain aspect ratio */
-            }
         }
     </style>
 </head>
@@ -124,11 +105,6 @@
 
     <div class="content">
         <img src="web-logo.png" alt="Trisight Logo" id="logo">
-        <div id="image-grid">
-            <img src="helve-spotlight.png" alt="Helve">
-            <img src="image2.png" alt="Image 2">
-            <img src="image3.png" alt="Image 3">
-        </div>
     </div>
 
     <div id="social-icons">
