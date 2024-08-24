@@ -55,16 +55,6 @@
             z-index: 1;
         }
 
-        #countdown {
-            position: absolute;
-            left: 50%;
-            top: calc(50% + 175px);
-            transform: translateX(-50%);
-            z-index: 3;
-            font-size: 30px;
-            letter-spacing: 2px;
-        }
-
         #social-icons {
             position: absolute;
             left: 50%;
@@ -96,10 +86,6 @@
                 width: 60px;
                 height: 60px;
             }
-
-            #countdown {
-                font-size: 20px;
-            }
         }
     </style>
 </head>
@@ -123,32 +109,6 @@
     </div>
 
     <img src="web-logo.png" alt="Trisight Logo" id="logo">
-
-    <div id="countdown"></div>
-
-    <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date("Jan 1, 2025 00:00:00").getTime();
-
-        // Update the countdown every 1 second
-        var countdownFunction = setInterval(function() {
-
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the countdown date in seconds
-            var distance = Math.floor((countDownDate - now) / 1000);
-
-            // Display the result in the element with id="countdown"
-            document.getElementById("countdown").innerHTML = distance;
-
-            // If the countdown is finished, write some text
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                document.getElementById("countdown").innerHTML = "DEPLOYING MEMETICS";
-            }
-        }, 1000);
-    </script>
 
 </body>
 </html>
