@@ -39,61 +39,71 @@
         }
 
         #bg-video {
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-        }
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -2; /* Lower z-index so the overlay appears above the video */
+}
 
-        .content {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% transparent black */
+    z-index: -1; /* Keeps the overlay below the content but above the video */
+}
 
-        #logo {
-            max-width: 75%;
-            height: auto;
-            margin-bottom: 0px; /* Add some margin below the logo */
-        }
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        #social-icons {
-            position: absolute;
-            left: 50%;
-            top: 20px;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: row;
-            gap: 15px;
-            z-index: 3;
-        }
+#logo {
+    max-width: 75%;
+    height: auto;
+    margin-bottom: 0px; /* Adjust margin if necessary */
+}
 
-        #social-icons img {
-            width: 80px;
-            height: 80px;
-            transition: transform 0.3s ease;
-        }
+#social-icons {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    z-index: 3;
+}
 
-        #social-icons img:hover {
-            transform: scale(1.2);
-        }
+#social-icons img {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease;
+}
 
-        @media (max-width: 768px) {
-            #logo {
-                max-width: 100%;
-            }
+#social-icons img:hover {
+    transform: scale(1.2);
+}
 
-            #social-icons img {
-                width: 60px;
-                height: 60px;
-            }
-        }
+@media (max-width: 768px) {
+    #logo {
+        max-width: 100%;
+    }
+
+    #social-icons img {
+        width: 60px;
+        height: 60px;
+    }
+}
     </style>
 </head>
 <body>
@@ -102,6 +112,9 @@
         <source src="trisight-bw-compressed.mp4" type="video/mp4">
         <img src="trisight-fallback.png" alt="Background image">
     </video>
+
+    <!-- Transparent black overlay -->
+    <div class="overlay"></div>
 
     <div class="content">
         <img src="brand-logo.png" alt="Trisight Logo" id="logo">
