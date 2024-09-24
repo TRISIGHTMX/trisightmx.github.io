@@ -49,6 +49,7 @@
     z-index: -2; /* Lower z-index so the overlay appears above the video */
 }
 
+
 .overlay {
     position: fixed;
     left: 0;
@@ -104,6 +105,35 @@
         height: 30px; /* Previously 60px */
     }
 }
+
+          .project-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            max-width: 80%;
+        }
+
+        .project-gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .project-gallery img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -118,6 +148,16 @@
 
     <div class="content">
         <img src="brand-logo.png" alt="Trisight Logo" id="logo">
+        
+        <!-- New project gallery section -->
+        <div class="project-gallery">
+            <img src="project1.jpg" alt="Project 1">
+            <img src="project2.jpg" alt="Project 2">
+            <img src="project3.jpg" alt="Project 3">
+            <img src="project4.jpg" alt="Project 4">
+            <img src="project5.jpg" alt="Project 5">
+            <img src="project6.jpg" alt="Project 6">
+        </div>
     </div>
 
     <div id="social-icons">
