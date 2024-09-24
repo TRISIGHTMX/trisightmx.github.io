@@ -1,8 +1,3 @@
-Preview
-
-index.html
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,11 +58,13 @@ index.html
             display: flex;
             flex-direction: column;
             align-items: center;
+            max-width: 90%;
+            width: 100%;
         }
         #logo {
             max-width: 75%;
             height: auto;
-            margin-bottom: 0;
+            margin-bottom: 20px;
         }
         #social-icons {
             position: absolute;
@@ -92,17 +89,17 @@ index.html
             justify-content: center;
             gap: 20px;
             margin-top: 30px;
-            max-width: 80%;
+            width: 100%;
         }
         .project-gallery img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
             border-radius: 10px;
             transition: transform 0.3s ease;
         }
         .project-gallery img:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
         @media (max-width: 768px) {
             #logo { max-width: 100%; }
@@ -110,15 +107,17 @@ index.html
                 width: 30px;
                 height: 30px;
             }
+            .project-gallery {
+                gap: 10px;
+            }
             .project-gallery img {
-                width: 100px;
-                height: 100px;
+                max-width: calc(50% - 5px);
             }
         }
     </style>
 </head>
 <body>
-    <video autoplay loop muted id="bg-video">
+    <video autoplay loop muted playsinline id="bg-video">
         <source src="trisight-bw-compressed.mp4" type="video/mp4">
         <img src="trisight-fallback.png" alt="Background image">
     </video>
