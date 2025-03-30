@@ -62,38 +62,6 @@
             height: auto;
             margin-bottom: 0px; /* Add some margin below the logo */
         }
-
-        #social-icons {
-            position: absolute;
-            left: 50%;
-            top: 20px;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: row;
-            gap: 15px;
-            z-index: 3;
-        }
-
-        #social-icons img {
-            width: 80px;
-            height: 80px;
-            transition: transform 0.3s ease;
-        }
-
-        #social-icons img:hover {
-            transform: scale(1.2);
-        }
-
-        @media (max-width: 768px) {
-            #logo {
-                max-width: 100%;
-            }
-
-            #social-icons img {
-                width: 60px;
-                height: 60px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -105,18 +73,6 @@
 
     <div class="content">
         <img src="brand-logo.png" alt="Trisight Logo" id="logo">
-    </div>
-
-    <div id="social-icons">
-        <a href="https://twitter.com/mothnode" target="_blank" aria-label="X (formerly Twitter)">
-            <img src="x-icon.png" alt="X">
-        </a>
-        <a href="https://www.twitch.tv/mothnode" target="_blank" aria-label="Twitch">
-            <img src="twitch-icon.png" alt="Twitch">
-        </a>
-        <a href="https://www.instagram.com/mothnode" target="_blank" aria-label="Instagram">
-            <img src="insta-icon.png" alt="Instagram">
-        </a>
     </div>
 
 </body>
