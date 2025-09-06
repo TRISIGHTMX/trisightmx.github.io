@@ -164,7 +164,7 @@
 
         .two-column-row .link-item {
             flex: 1;
-            min-width: 0; /* Prevents overflow */
+            min-width: 0;
         }
 
         .section-header {
@@ -205,6 +205,48 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
+        /* Quote Section */
+        .quote-section {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 33.33vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .quote-container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            transform: scale(0.67);
+        }
+
+        .quote-text {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+            word-break: break-word;
+        }
+
+        .quote-label {
+            font-size: 11px;
+            opacity: 0.6;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         /* Custom scrollbar styling */
         .content::-webkit-scrollbar {
             width: 6px;
@@ -222,6 +264,12 @@
 
         .content::-webkit-scrollbar-thumb:hover {
             background: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .quote-container {
+                transform: scale(0.85);
+            }
         }
 
         @media (max-width: 480px) {
@@ -243,6 +291,14 @@
 
             .two-column-row {
                 flex-direction: column;
+            }
+
+            .quote-container {
+                transform: scale(1);
+            }
+            
+            .quote-section {
+                padding: 15px;
             }
         }
     </style>
@@ -312,6 +368,76 @@
             
         </div>
     </div>
+
+    <div class="quote-section">
+        <div class="quote-container">
+            <div class="quote-label">Quote of the moment</div>
+            <div id="quote-display" class="quote-text"></div>
+        </div>
+    </div>
+
+    <script>
+        // Obfuscated quotes array - complete from root index.html
+        const qData = [
+            'VGhlIG1vc3QgYnJlYXRodGFraW5nIHRoaW5ncyBpbiBsaWZlIGFyZW4ndCBsb3VkLiBUaGV5IGFyZSB3aGlzcGVyZWQuIFRoZXkgYXJlIGZlbHQuIFRoZXkgYXJlIHRpbWVsZXNzLg==',
+            'SXQgaXMgbm90IHRoZSBzbHVtYmVyIG9mIHJlYXNvbiB0aGF0IGVuZ2VuZGVycyBtb25zdGVycywgYnV0IHZpZ2lsYW50IGFuZCBpbnNvbW5pYWMgcmF0aW9uYWxpdHku',
+            'SGltIHdobyBlYXRzIHRpbWUuIEhpcyByb2JlcywgYSB3aW5kIG9mIGludmlzaWJsZSB2b2ljZXMu',
+            'V2hhdCBpcyBiZXlvbmQgeW91IGlzIG5vdCB5b3VyIGJ1cmRlbi4=',
+            'VGhlIG1vc3QgcGFpbmZ1bCB0aGluZyBpbiB0aGUgd29ybGQgaXMgdGhlIGRlYXRoIG9mIGEgZHJlYW0u',
+            'V2UgYnVpbGQgZW1waXJlcyB0aGF0IHdlIGRvbid0IG5lZWQgdG8gcnVsZS4=',
+            'VGhlIHByaXZpbGVnZSBvZiBhIGxpZmV0aW1lIGlzIHRvIGJlY29tZSB3aG8geW91IHRydWx5IGFyZS4gQnV0IGZpcnN0LCB5b3UgbXVzdCB1bmxlYXJuIHdobyB0aGV5IHRvbGQgeW91IHRvIGJlLg==',
+            'RXZlcnkgcHJvZm91bmQgc3Bpcml0IG5lZWRzIGEgbWFzay4=',
+            'QXJlIHlvdXIgc2Vuc2VzIHRlbGxpbmcgeW91IHRoZSB3aG9sZSBzcGVjdHJ1bSBvZiB0cnV0aD8=',
+            'UmVhbGl0eSBpcyBhIGZsZWV0aW5nIGNvbmNlcHQgYW5kIHlvdXIgcm9vdHMgb2YgdGhlIG1pbmR0cmVlIGNhbiBiZSBlYXNpbHkgZGlzcGxhY2VkLg==',
+            'VGhlIHNraW4gaXMgdGhlIHBzeWNoby1waHlzaWNhbCBiYXJyaWVyIGJldHdlZW4gb3VyIHBlcnNvbmFsIGFuZCBwdWJsaWMgc2VsdmVzLiBUaGUgc2tpbiwgaWYgeW91IHdvdWxkLCBpcyB0aGUgc2Vuc2F0ZSBtZW1icmFuZSBvZiBob3cgd2Uga25vdyB3aG8sIHdoYXQgYW5kIHdoZXJlIHdlIGFyZSwgYW5kIHdoYXQgd2UgYXJlIGRvaW5nLg==',
+            'V2UgaGF2ZSBiZWVuIHRvbGQgdG8gcmVqZWN0IG91ciBiaW9sb2d5LCBwYXJ0aWN1bGFybHkgYnkgdGhvc2Ugd2hvIGRlbWFuZCBtb3JlIHRlcnJpdG9yeSBmb3IgdGhlaXIgb3duIGJpb2xvZ2ljYWwgc2FmZXR5Lg==',
+            'QWxsIHRoZSBnb2RzLCBhbGwgdGhlIGhlYXZlbnMsIGFsbCB0aGUgaGVsbHMsIGFyZSB3aXRoaW4geW91Lg==',
+            'V2hvc29ldmVyIGlzIGRlbGlnaHRlZCBpbiBzb2xpdHVkZSBpcyBlaXRoZXIgYSB3aWxkIGJlYXN0IG9yIGEgZ29kLg==',
+            'WW91IG5lZWQgdG8gd2FudCB3aGF0IHlvdSBoYXZlLiBOb3QgdG8gaGF2ZSB3aGF0IHlvdSB3YW50Lg==',
+            'WW91IGFyZSBvbmx5IHJlYmVsbGlvdXMgaW4gdGhlIGV5ZXMgb2YgdGhvc2Ugd2hvIGNhbm5vdCBjb250cm9sIG9yIG1hbmlwdWxhdGUgeW91Lg==',
+            'SWYgeW91IHJlYWxseSB3YW50IHRvIGdldCByaWQgb2YgcGVvcGxlLCBhbGwgeW91J3ZlIGdvdCB0byBkbyBpcyB0ZWxsIHRoZSB0cnV0aC4=',
+            'RG93bmxvYWQgeW91ciBuZXcgaWRlbnRpdHkgZmFzdGVyIHRoYW4gdGhlIG9sZCBvbmUgY2FuIHB1bGwgeW91IGJhY2su',
+            'U29tZSBwZW9wbGUgY2FuJ3QgaGFuZGxlIHRoZSBsaWdodCB3aXRoaW4geW91Lg==',
+            'TWVkaW9jcml0eSBrbm93cyBub3RoaW5nIGhpZ2hlciB0aGFuIGl0c2VsZiwgYnV0IHRhbGVudCBpbnN0YW50bHkgcmVjb2duaXplcyBnZW5pdXMu',
+            'VGhlIG1vcmUgcG93ZXJmdWwgYW5kIG9yaWdpbmFsIGEgbWluZCwgdGhlIG1vcmUgaXQgd2lsbCBpbmNsaW5lIHRvd2FyZHMgdGhlIHJlbGlnaW9uIG9mIHNvbGl0dWRlLg==',
+            'WW91IGNhbm5vdCB0cnVseSBiZSBhIGdvb2QgcGVyc29uIHVudGlsIHlvdSBrbm93IGhvdyBtdWNoIGV2aWwgY2FuIGJlIHdpdGhpbiB5b3Uu',
+            'VGhlIHdvcmxkIGlzIGZ1bGwgb2Ygc2lubmVycyBqdWRnaW5nIGVhY2ggb3RoZXIgZm9yIHNpbm5pbmcgZGlmZmVyZW50bHku',
+            'VGhlIG1vcmUgd29yZHMgeW91IHVzZSB0byBkZXNjcmliZSB0aGUgdHJ1dGggdGhlIG1vcmUgaXQgc291bmRzIGxpa2UgYSBsaWUu',
+            'U29tZSB0b3VjaCB5b3VyIHNraW4gdG8gcmVhY2ggeW91ciBzb3VsLiBPdGhlcnMgc3BlYWsgd29yZHMgdGhhdCBiZWNvbWUgeW91ciBzaGVsdGVyLiBBIGZldyBvZmZlciBwcmVzZW5jZSBhcyB0aGVpciBnaWZ0LiBUaGUgd2lzZXN0IGtub3cgd2hpY2ggb2ZmZXJpbmcgeW91ciBzcGlyaXQgaHVuZ2VycyBmb3IgaW4gZWFjaCBtb21lbnQu',
+            'QWdpbmcgaXMgYW4gZXh0cmFvcmRpbmFyeSBwcm9jZXNzIHdoZXJlYnkgeW91IGJlY29tZSB0aGUgcGVyc29uIHlvdSBhbHdheXMgc2hvdWxkIGhhdmUgYmVlbi4=',
+            'T25lIHdobyBzY3VscHRzIGVudHJvcHkgaW50byBlbGVnYW5jZS4=',
+            'SXQncyBhIHdhciBiZXR3ZWVuIG1vbm90b255IGFuZCBub3ZlbHR5LCBiZXR3ZWVuIHN0YXNpcyBhbmQgY3JlYXRpdml0eS4gQW5kIGluIHRoaXMgd2FyLCBvdXIgc2lkZSBpcyBub3QgZGVzdGluZWQgdG8gbG9zZS4='
+        ];
+
+        function dQ(enc) {
+            try {
+                return atob(enc);
+            } catch(e) {
+                return '';
+            }
+        }
+
+        function getQuotes() {
+            const decoded = [];
+            for(let i = 0; i < qData.length; i++) {
+                const q = dQ(qData[i]);
+                if(q) decoded.push(q);
+            }
+            return decoded;
+        }
+
+        function displayRandomQuote() {
+            const quotes = getQuotes();
+            if(quotes.length === 0) return;
+            
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+            
+            document.getElementById('quote-display').textContent = randomQuote;
+        }
+
+        displayRandomQuote();
+    </script>
 
 </body>
 </html>
