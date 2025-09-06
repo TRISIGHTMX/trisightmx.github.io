@@ -64,14 +64,37 @@
             margin-bottom: 0px; /* Add some margin below the logo */
         }
 
-        #x {
+        .x-icon {
             position: fixed;
-            bottom: 10px;
-            right: 10px;
-            max-width: 150px;
-            height: auto;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
             z-index: 2;
-            transform: scale(0.25);
+        }
+
+        .x-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .x-icon img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
         }
 
         .links-icon {
@@ -115,8 +138,8 @@
         <img src="trisight-brand-logo.png" alt="Trisight Logo" id="logo">
     </div>
 
-    <a href="https://x.com/mothnode" target="_blank" rel="noopener noreferrer">
-        <img src="x-icon.png" alt="X" id="x">
+    <a href="https://x.com/mothnode" target="_blank" rel="noopener noreferrer" class="x-icon" title="Follow on X">
+        <img src="x-icon.png" alt="X">
     </a>
 
     <a href="uplinks" class="links-icon" title="Links">
