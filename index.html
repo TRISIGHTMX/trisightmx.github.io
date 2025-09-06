@@ -74,6 +74,34 @@
             transform: scale(0.25);
         }
 
+        .links-icon {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .links-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
     </style>
 </head>
 <body>
@@ -89,6 +117,10 @@
 
     <a href="https://x.com/mothnode" target="_blank" rel="noopener noreferrer">
         <img src="x-icon.png" alt="X" id="x">
+    </a>
+
+    <a href="uplinks.html" class="links-icon" title="Links">
+        ⛓
     </a>
 
 </body>
