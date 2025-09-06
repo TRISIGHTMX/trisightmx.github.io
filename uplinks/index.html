@@ -34,9 +34,9 @@
             text-align: center;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             min-height: 100vh;
-            padding: 40px 20px 20px;
+            padding: 20px;
             background-color: #000;
         }
 
@@ -61,6 +61,8 @@
             align-items: center;
             max-width: 600px;
             width: 100%;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
         }
 
         .profile-section {
@@ -72,7 +74,6 @@
             height: 120px;
             border-radius: 50%;
             margin-bottom: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
         .profile-symbol {
@@ -207,9 +208,32 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
+        /* Custom scrollbar styling */
+        .content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        .content::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
         @media (max-width: 480px) {
             body {
-                padding: 20px 15px;
+                padding: 15px;
+            }
+            
+            .content {
+                max-height: calc(100vh - 30px);
             }
             
             .social-icons {
@@ -236,7 +260,7 @@
     <div class="content">
         <div class="profile-section">
             <img src="/profile-avatar.png" alt="Profile" class="profile-image">
-            <div class="profile-symbol">⛬</div>
+            <div class="profile-symbol">⬡</div>
             <div class="profile-title">{ The Sacrificial Seer Of Aion }</div>
         </div>
 
@@ -269,17 +293,17 @@
             
             <a href="https://discord.gg/trisight" target="_blank" rel="noopener noreferrer" class="link-item">
                 <div class="link-icon">⬡</div>
-                <div class="link-text">{ ⛬TRISIGHTᵐˣ Discord }</div>
+                <div class="link-text">{ ⬡TRISIGHTᵐˣ Discord }</div>
                 <div class="menu-dots">⋯</div>
             </a>
             
             <a href="https://afterhours.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
                 <div class="link-icon">⬡</div>
-                <div class="link-text">{ ⛬TRISIGHTᵐˣ Afterhours }</div>
+                <div class="link-text">{ ⬡TRISIGHTᵐˣ Afterhours }</div>
                 <div class="menu-dots">⋯</div>
             </a>
             
-            <div class="section-header">⛬TRISIGHTᵐˣ MASS EXPERIENCES</div>
+            <div class="section-header">⬡TRISIGHTᵐˣ MASS EXPERIENCES</div>
             
             <a href="https://helve.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
                 <div class="link-icon">
