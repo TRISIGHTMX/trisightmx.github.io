@@ -20,6 +20,11 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             box-sizing: border-box;
@@ -27,7 +32,7 @@
 
         body {
             margin: 0;
-            font-family: Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             font-size: 17px;
             overflow: hidden;
             color: #fff;
@@ -64,7 +69,32 @@
         #logo {
             max-width: 75%;
             height: auto;
-            margin-bottom: 0px; /* Add some margin below the logo */
+            margin-bottom: 30px;
+        }
+
+        .countdown {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: #fff;
+            opacity: 0.9;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .x-icon {
@@ -124,6 +154,13 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
+        @media (max-width: 480px) {
+            .countdown {
+                font-size: 24px;
+                padding: 15px 20px;
+                letter-spacing: 1px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -135,6 +172,10 @@
 
     <div class="content">
         <img src="trisight-brand-logo.png" alt="Trisight Logo" id="logo">
+        <div class="countdown">
+            <div class="countdown-label">Countdown</div>
+            <div id="countdown-display">Loading...</div>
+        </div>
     </div>
 
     <a href="https://x.com/mothnode" target="_blank" rel="noopener noreferrer" class="x-icon" title="Follow on X">
@@ -144,6 +185,29 @@
     <a href="uplinks" class="links-icon" title="Links">
         ⛓
     </a>
+
+    <script>
+        // Fixed end date: 10 years from September 6, 2025 (adjust this date as needed)
+        const END_DATE = new Date('2035-09-06T00:00:00');
+
+        function updateCountdown() {
+            const now = Date.now();
+            const remainingSeconds = Math.max(0, Math.floor((END_DATE - now) / 1000));
+            
+            document.getElementById('countdown-display').textContent = remainingSeconds.toLocaleString();
+            
+            // When countdown reaches zero
+            if (remainingSeconds === 0) {
+                document.getElementById('countdown-display').textContent = "TIME'S UP!";
+            }
+        }
+
+        // Update immediately
+        updateCountdown();
+        
+        // Update every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
 
 </body>
 </html>
