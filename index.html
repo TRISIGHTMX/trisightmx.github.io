@@ -148,10 +148,24 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
+        @media (max-width: 768px) {
+            .content {
+                transform: scale(0.85);
+            }
+        }
+
         @media (max-width: 480px) {
+            .content {
+                transform: scale(1);
+            }
+            
             .countdown {
                 font-size: 24px;
                 letter-spacing: 1px;
+            }
+
+            #logo {
+                max-width: 90%;
             }
         }
     </style>
@@ -166,7 +180,7 @@
     <div class="content">
         <img src="trisight-brand-logo.png" alt="Trisight Logo" id="logo">
         <div class="countdown">
-            <div class="countdown-label">\ Emergence /</div>
+            <div class="countdown-label">Countdown</div>
             <div id="countdown-display">Loading...</div>
         </div>
     </div>
