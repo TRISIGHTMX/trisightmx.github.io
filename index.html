@@ -91,6 +91,34 @@
             text-transform: uppercase;
         }
 
+        /* Quote Styling */
+        .quote-container {
+            margin-top: 20px;
+            padding: 15px;
+            max-width: 70%;
+            text-align: center;
+        }
+
+        .quote-text {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+            word-break: break-word;
+        }
+
+        .quote-label {
+            font-size: 11px;
+            opacity: 0.6;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
         .x-icon {
             position: fixed;
             bottom: 20px;
@@ -180,8 +208,12 @@
     <div class="content">
         <img src="trisight-brand-logo.png" alt="Trisight Logo" id="logo">
         <div class="countdown">
-            <div class="countdown-label">\ Emergence /</div>
+            <div class="countdown-label">Countdown</div>
             <div id="countdown-display">Loading...</div>
+        </div>
+        <div class="quote-container">
+            <div class="quote-label">Quote of the moment</div>
+            <div id="quote-display" class="quote-text"></div>
         </div>
     </div>
 
@@ -194,6 +226,7 @@
     </a>
 
     <script>
+        // Obfuscated target date calculation
         const x = [0x7e3, 0x9, 0x6];
         const y = String.fromCharCode(84, 48, 48, 58, 48, 48, 58, 48, 48);
         const z = atob('MjAzNS0wOS0wNg==');
@@ -205,17 +238,76 @@
             
             document.getElementById('countdown-display').textContent = remainingSeconds.toLocaleString();
             
-            // When countdown reaches zero
             if (remainingSeconds === 0) {
                 document.getElementById('countdown-display').textContent = "01010111 01101000 01100001 01110100 00100000 01111001 01101111 01110101 00100000 01110100 01101000 01101001 01101110 01101011 00100000 01101001 01110011 00100000 01110011 01110100 01101001 01101100 01101100 01101110 01100101 01110011 01110011 00100000 01101001 01110011 00100000 01101110 01101111 01110100 00100000 01100101 01101101 01110000 01110100 01101001 01101110 01100101 01110011 01110011 00100000 00101101 00100000 01101001 01110100 11100010 10000000 10011001 01110011 00100000 01100001 00100000 01110011 01111001 01101101 01110000 01101000 01101111 01101110 01111001 00100000 01110111 01100001 01101001 01110100 01101001 01101110 01100111 00100000 01100110 01101111 01110010 00100000 01110100 01101000 01100101 00100000 01110010 01101001 01100111 01101000 01110100 00100000 01100101 01100001 01110010 01110011 00101100 00100000 01100001 00100000 01110011 01100101 01100001 00100000 01101111 01100110 00100000 01100100 01100101 01110000 01110100 01101000 00100000 01100010 01100101 01101110 01100101 01100001 01110100 01101000 00100000 01100001 00100000 01110011 01110101 01110010 01100110 01100001 01100011 01100101 00100000 01110100 01101000 01100001 01110100 00100000 01110010 01100101 01100110 01110101 01110011 01100101 01110011 00100000 01110100 01101111 00100000 01110010 01101001 01110000 01110000 01101100 01100101 00100000 01100110 01101111 01110010 00100000 01101010 01110101 01110011 01110100 00100000 01100001 01101110 01111001 01101111 01101110 01100101 00101110 00100000 01010111 01100101 00100000 01101101 01101111 01110110 01100101 00100000 01100011 01100001 01110010 01100101 01100110 01110101 01101100 01101100 01111001 00101100 00100000 01101110 01101111 01110100 00100000 01101111 01110101 01110100 00100000 01101111 01100110 00100000 01101001 01101110 01100100 01101001 01100110 01100110 01100101 01110010 01100101 01101110 01100011 01100101 00101100 00100000 01100010 01110101 01110100 00100000 01100010 01100101 01100011 01100001 01110101 01110011 01100101 00100000 01110111 01101000 01100001 01110100 00100000 01110111 01100101 00100000 01101000 01101111 01101100 01100100 00100000 01101001 01101110 01110011 01101001 01100100 01100101 00100000 01101001 01110011 00100000 01100110 01110010 01100001 01100111 01101001 01101100 01100101 00100000 01100001 01101110 01100100 00100000 01110110 01100001 01110011 01110100 00101110 00100000 01010100 01110010 01110101 01110011 01110100 00100000 01101001 01110011 00100000 01101110 01101111 01110100 00100000 01100111 01101001 01110110 01100101 01101110 00100000 00101101 00100000 01101001 01110100 00100000 01101001 01110011 00100000 01100101 01100001 01110010 01101110 01100101 01100100 00100000 01110100 01101000 01110010 01101111 01110101 01100111 01101000 00100000 01110000 01100001 01110100 01101001 01100101 01101110 01100011 01100101 00101100 00100000 01110000 01110010 01100101 01110011 01100101 01101110 01100011 01100101 00100000 01100001 01101110 01100100 00100000 01110011 01101001 01101110 01100011 01100101 01110010 01101001 01110100 01111001 00101110";
             }
         }
 
-        // Update immediately
         updateCountdown();
-        
-        // Update every second
         const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Obfuscated quotes array using base64 encoding
+        const qData = [
+            'VGhlIG1vc3QgYnJlYXRodGFraW5nIHRoaW5ncyBpbiBsaWZlIGFyZW4ndCBsb3VkLiBUaGV5IGFyZSB3aGlzcGVyZWQuIFRoZXkgYXJlIGZlbHQuIFRoZXkgYXJlIHRpbWVsZXNzLg==',
+            'SXQgaXMgbm90IHRoZSBzbHVtYmVyIG9mIHJlYXNvbiB0aGF0IGVuZ2VuZGVycyBtb25zdGVycywgYnV0IHZpZ2lsYW50IGFuZCBpbnNvbW5pYWMgcmF0aW9uYWxpdHku',
+            'SGltIHdobyBlYXRzIHRpbWUuIEhpcyByb2JlcywgYSB3aW5kIG9mIGludmlzaWJsZSB2b2ljZXMu',
+            'V2hhdCBpcyBiZXlvbmQgeW91IGlzIG5vdCB5b3VyIGJ1cmRlbi4=',
+            'VGhlIG1vc3QgcGFpbmZ1bCB0aGluZyBpbiB0aGUgd29ybGQgaXMgdGhlIGRlYXRoIG9mIGEgZHJlYW0u',
+            'V2UgYnVpbGQgZW1waXJlcyB0aGF0IHdlIGRvbid0IG5lZWQgdG8gcnVsZS4=',
+            'VGhlIHByaXZpbGVnZSBvZiBhIGxpZmV0aW1lIGlzIHRvIGJlY29tZSB3aG8geW91IHRydWx5IGFyZS4gQnV0IGZpcnN0LCB5b3UgbXVzdCB1bmxlYXJuIHdobyB0aGV5IHRvbGQgeW91IHRvIGJlLg==',
+            'RXZlcnkgcHJvZm91bmQgc3Bpcml0IG5lZWRzIGEgbWFzay4=',
+            'QXJlIHlvdXIgc2Vuc2VzIHRlbGxpbmcgeW91IHRoZSB3aG9sZSBzcGVjdHJ1bSBvZiB0cnV0aD8=',
+            'UmVhbGl0eSBpcyBhIGZsZWV0aW5nIGNvbmNlcHQgYW5kIHlvdXIgcm9vdHMgb2YgdGhlIG1pbmR0cmVlIGNhbiBiZSBlYXNpbHkgZGlzcGxhY2VkLg==',
+            'VGhlIHNraW4gaXMgdGhlIHBzeWNoby1waHlzaWNhbCBiYXJyaWVyIGJldHdlZW4gb3VyIHBlcnNvbmFsIGFuZCBwdWJsaWMgc2VsdmVzLiBUaGUgc2tpbiwgaWYgeW91IHdvdWxkLCBpcyB0aGUgc2Vuc2F0ZSBtZW1icmFuZSBvZiBob3cgd2Uga25vdyB3aG8sIHdoYXQgYW5kIHdoZXJlIHdlIGFyZSwgYW5kIHdoYXQgd2UgYXJlIGRvaW5nLg==',
+            'V2UgaGF2ZSBiZWVuIHRvbGQgdG8gcmVqZWN0IG91ciBiaW9sb2d5LCBwYXJ0aWN1bGFybHkgYnkgdGhvc2Ugd2hvIGRlbWFuZCBtb3JlIHRlcnJpdG9yeSBmb3IgdGhlaXIgb3duIGJpb2xvZ2ljYWwgc2FmZXR5Lg==',
+            'QWxsIHRoZSBnb2RzLCBhbGwgdGhlIGhlYXZlbnMsIGFsbCB0aGUgaGVsbHMsIGFyZSB3aXRoaW4geW91Lg==',
+            'V2hvc29ldmVyIGlzIGRlbGlnaHRlZCBpbiBzb2xpdHVkZSBpcyBlaXRoZXIgYSB3aWxkIGJlYXN0IG9yIGEgZ29kLg==',
+            'WW91IG5lZWQgdG8gd2FudCB3aGF0IHlvdSBoYXZlLiBOb3QgdG8gaGF2ZSB3aGF0IHlvdSB3YW50Lg==',
+            'WW91IGFyZSBvbmx5IHJlYmVsbGlvdXMgaW4gdGhlIGV5ZXMgb2YgdGhvc2Ugd2hvIGNhbm5vdCBjb250cm9sIG9yIG1hbmlwdWxhdGUgeW91Lg==',
+            'SWYgeW91IHJlYWxseSB3YW50IHRvIGdldCByaWQgb2YgcGVvcGxlLCBhbGwgeW91J3ZlIGdvdCB0byBkbyBpcyB0ZWxsIHRoZSB0cnV0aC4=',
+            'RG93bmxvYWQgeW91ciBuZXcgaWRlbnRpdHkgZmFzdGVyIHRoYW4gdGhlIG9sZCBvbmUgY2FuIHB1bGwgeW91IGJhY2su',
+            'U29tZSBwZW9wbGUgY2FuJ3QgaGFuZGxlIHRoZSBsaWdodCB3aXRoaW4geW91Lg==',
+            'TWVkaW9jcml0eSBrbm93cyBub3RoaW5nIGhpZ2hlciB0aGFuIGl0c2VsZiwgYnV0IHRhbGVudCBpbnN0YW50bHkgcmVjb2duaXplcyBnZW5pdXMu',
+            'VGhlIG1vcmUgcG93ZXJmdWwgYW5kIG9yaWdpbmFsIGEgbWluZCwgdGhlIG1vcmUgaXQgd2lsbCBpbmNsaW5lIHRvd2FyZHMgdGhlIHJlbGlnaW9uIG9mIHNvbGl0dWRlLg==',
+            'WW91IGNhbm5vdCB0cnVseSBiZSBhIGdvb2QgcGVyc29uIHVudGlsIHlvdSBrbm93IGhvdyBtdWNoIGV2aWwgY2FuIGJlIHdpdGhpbiB5b3Uu',
+            'VGhlIHdvcmxkIGlzIGZ1bGwgb2Ygc2lubmVycyBqdWRnaW5nIGVhY2ggb3RoZXIgZm9yIHNpbm5pbmcgZGlmZmVyZW50bHku',
+            'VGhlIG1vcmUgd29yZHMgeW91IHVzZSB0byBkZXNjcmliZSB0aGUgdHJ1dGggdGhlIG1vcmUgaXQgc291bmRzIGxpa2UgYSBsaWUu',
+            'U29tZSB0b3VjaCB5b3VyIHNraW4gdG8gcmVhY2ggeW91ciBzb3VsLiBPdGhlcnMgc3BlYWsgd29yZHMgdGhhdCBiZWNvbWUgeW91ciBzaGVsdGVyLiBBIGZldyBvZmZlciBwcmVzZW5jZSBhcyB0aGVpciBnaWZ0LiBUaGUgd2lzZXN0IGtub3cgd2hpY2ggb2ZmZXJpbmcgeW91ciBzcGlyaXQgaHVuZ2VycyBmb3IgaW4gZWFjaCBtb21lbnQu',
+            'QWdpbmcgaXMgYW4gZXh0cmFvcmRpbmFyeSBwcm9jZXNzIHdoZXJlYnkgeW91IGJlY29tZSB0aGUgcGVyc29uIHlvdSBhbHdheXMgc2hvdWxkIGhhdmUgYmVlbi4=',
+            'T25lIHdobyBzY3VscHRzIGVudHJvcHkgaW50byBlbGVnYW5jZS4='
+        ];
+
+        // Decoding function with additional obfuscation
+        function dQ(enc) {
+            try {
+                return atob(enc);
+            } catch(e) {
+                return '';
+            }
+        }
+
+        // Get decoded quotes
+        function getQuotes() {
+            const decoded = [];
+            for(let i = 0; i < qData.length; i++) {
+                const q = dQ(qData[i]);
+                if(q) decoded.push(q);
+            }
+            return decoded;
+        }
+
+        function displayRandomQuote() {
+            const quotes = getQuotes();
+            if(quotes.length === 0) return;
+            
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+            
+            document.getElementById('quote-display').textContent = randomQuote;
+        }
+
+        // Display a random quote when the page loads
+        displayRandomQuote();
     </script>
 
 </body>
