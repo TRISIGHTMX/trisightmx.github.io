@@ -91,12 +91,27 @@
             text-transform: uppercase;
         }
 
-        /* Quote Styling */
+        /* Quote Section - Positioned independently in bottom third */
+        .quote-section {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 33.33vh; /* Bottom third of viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            padding: 20px;
+        }
+
         .quote-container {
-            margin-top: 20px;
-            padding: 15px;
-            max-width: 70%;
+            max-width: 600px;
+            width: 100%;
             text-align: center;
+            transform: scale(0.67); /* Match the main content scaling */
         }
 
         .quote-text {
@@ -116,7 +131,6 @@
             margin-bottom: 5px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-top: 10px;
         }
 
         .x-icon {
@@ -180,6 +194,10 @@
             .content {
                 transform: scale(0.85);
             }
+            
+            .quote-container {
+                transform: scale(0.85);
+            }
         }
 
         @media (max-width: 480px) {
@@ -195,6 +213,14 @@
             #logo {
                 max-width: 90%;
             }
+            
+            .quote-container {
+                transform: scale(1);
+            }
+            
+            .quote-section {
+                padding: 15px;
+            }
         }
     </style>
 </head>
@@ -205,12 +231,17 @@
         <img src="trisight-fallback.png" alt="Background image">
     </video>
 
+    <!-- Main content: Logo and Countdown (centered) -->
     <div class="content">
         <img src="trisight-brand-logo.png" alt="Trisight Logo" id="logo">
         <div class="countdown">
             <div class="countdown-label">Countdown</div>
             <div id="countdown-display">Loading...</div>
         </div>
+    </div>
+
+    <!-- Quote section: Bottom third of page -->
+    <div class="quote-section">
         <div class="quote-container">
             <div class="quote-label">Quote of the moment</div>
             <div id="quote-display" class="quote-text"></div>
@@ -226,7 +257,6 @@
     </a>
 
     <script>
-        // Obfuscated target date calculation
         const x = [0x7e3, 0x9, 0x6];
         const y = String.fromCharCode(84, 48, 48, 58, 48, 48, 58, 48, 48);
         const z = atob('MjAzNS0wOS0wNg==');
@@ -246,7 +276,6 @@
         updateCountdown();
         const countdownInterval = setInterval(updateCountdown, 1000);
 
-        // Obfuscated quotes array using base64 encoding
         const qData = [
             'VGhlIG1vc3QgYnJlYXRodGFraW5nIHRoaW5ncyBpbiBsaWZlIGFyZW4ndCBsb3VkLiBUaGV5IGFyZSB3aGlzcGVyZWQuIFRoZXkgYXJlIGZlbHQuIFRoZXkgYXJlIHRpbWVsZXNzLg==',
             'SXQgaXMgbm90IHRoZSBzbHVtYmVyIG9mIHJlYXNvbiB0aGF0IGVuZ2VuZGVycyBtb25zdGVycywgYnV0IHZpZ2lsYW50IGFuZCBpbnNvbW5pYWMgcmF0aW9uYWxpdHku',
@@ -277,7 +306,6 @@
             'T25lIHdobyBzY3VscHRzIGVudHJvcHkgaW50byBlbGVnYW5jZS4='
         ];
 
-        // Decoding function with additional obfuscation
         function dQ(enc) {
             try {
                 return atob(enc);
@@ -285,8 +313,7 @@
                 return '';
             }
         }
-
-        // Get decoded quotes
+        
         function getQuotes() {
             const decoded = [];
             for(let i = 0; i < qData.length; i++) {
@@ -306,7 +333,6 @@
             document.getElementById('quote-display').textContent = randomQuote;
         }
 
-        // Display a random quote when the page loads
         displayRandomQuote();
     </script>
 
