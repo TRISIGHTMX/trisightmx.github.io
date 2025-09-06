@@ -115,6 +115,8 @@
             height: 50px;
             text-decoration: none;
             color: #fff;
+            font-size: 24px;
+            font-weight: bold;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             z-index: 2;
@@ -128,37 +130,6 @@
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .home-icon {
-            width: 20px;
-            height: 20px;
-            position: relative;
-        }
-
-        .home-icon::before {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 12px;
-            border: 2px solid currentColor;
-            border-top: none;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .home-icon::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 8px solid currentColor;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         @media (max-width: 480px) {
@@ -184,7 +155,7 @@
     </video>
 
     <a href="/" class="back-home" title="Back to Home">
-        <div class="home-icon"></div>
+        &lt;
     </a>
 
     <div class="content">
@@ -192,28 +163,23 @@
         
         <div class="links-container">
             <a href="https://x.com/mothnode" target="_blank" rel="noopener noreferrer" class="link-item">
-                <span class="title">X / Twitter</span>
+                <span class="title">X</span>
                 <span class="description">@mothnode - Follow our journey</span>
             </a>
             
             <a href="https://instagram.com/mothnode" target="_blank" rel="noopener noreferrer" class="link-item">
                 <span class="title">Instagram</span>
-                <span class="description">Visual experiences and behind the scenes</span>
+                <span class="description">Behind The Scenes of Mass Experiences</span>
             </a>
             
             <a href="https://youtube.com/@mothnode" target="_blank" rel="noopener noreferrer" class="link-item">
                 <span class="title">YouTube</span>
-                <span class="description">Video content and documentaries</span>
+                <span class="description">Video Content & Visual Essays</span>
             </a>
             
             <a href="https://soundcloud.com/mothnode" target="_blank" rel="noopener noreferrer" class="link-item">
                 <span class="title">SoundCloud</span>
-                <span class="description">Audio experiments and mixes</span>
-            </a>
-            
-            <a href="https://github.com/mothnode" target="_blank" rel="noopener noreferrer" class="link-item">
-                <span class="title">GitHub</span>
-                <span class="description">Open source projects and code</span>
+                <span class="description">Audio Experiments & Mixes</span>
             </a>
             
             <a href="mailto:contact@trisight.mx" class="link-item">
