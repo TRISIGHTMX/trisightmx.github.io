@@ -66,7 +66,7 @@
     /* Navigation Header */
     .nav-header {
         position: fixed;
-        top: 10vh;
+        top: 5vh;
         left: 0;
         right: 0;
         z-index: 10;
@@ -136,6 +136,26 @@
     .nav-link.active .sub-text {
         opacity: 0.8;
         text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Hover text that appears above certain nav items */
+    .nav-link.has-hover-text::before {
+        content: '⛬TRISIGHT';
+        font-size: 10px;
+        opacity: 0;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        text-transform: none;
+        position: absolute;
+        bottom: 100%;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .nav-link.has-hover-text:hover::before {
+        opacity: 0.6;
     }
 
     #bg-video {
@@ -259,41 +279,9 @@
         border-radius: 50%;
     }
 
-    .links-icon {
-        position: fixed;
-        bottom: 20px;
-        right: 90px; /* 50px (avatar width) + 20px (spacing) + 20px (avatar right margin) = 90px from right */
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        text-decoration: none;
-        font-size: 24px;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-        z-index: 2;
-    }
-
-    .links-icon:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .links-icon img {
-        width: 27px;
-        height: 27px;
-        opacity: 0.9;
-    }
-
     @media (max-width: 768px) {
         .nav-header {
-            top: 8vh;
+            top: 3vh;
         }
         
         .nav-links {
@@ -315,7 +303,7 @@
 
     @media (max-width: 480px) {
         .nav-header {
-            top: 6vh;
+            top: 1vh;
         }
         
         .nav-container {
@@ -331,6 +319,10 @@
         }
         
         .nav-link .sub-text {
+            font-size: 9px;
+        }
+        
+        .nav-link.has-hover-text::before {
             font-size: 9px;
         }
         
@@ -364,11 +356,12 @@
     <div class="nav-container">
         <ul class="nav-links">
             <li><a href="https://trisight.mx/" class="nav-link active">Home</a></li>
-            <li><a href="#" class="nav-link">Network State</a></li>
-            <li><a href="#" class="nav-link">Project Boutique</a></li>
-            <li><a href="#" class="nav-link">Capital</a></li>
-            <li><a href="#" class="nav-link">Manifesto</a></li>
-            <li><a href="#" class="nav-link">Communique<span class="sub-text">September 2025</span></a></li>
+            <li><a href="#" class="nav-link has-hover-text">Network State</a></li>
+            <li><a href="#" class="nav-link has-hover-text">Project Boutique</a></li>
+            <li><a href="#" class="nav-link has-hover-text">Capital</a></li>
+            <li><a href="#" class="nav-link has-hover-text">Manifesto</a></li>
+            <li><a href="#" class="nav-link has-hover-text">Communique<span class="sub-text">September 2025</span></a></li>
+            <li><a href="https://trisight.mx/uplinks/" class="nav-link">Uplinks</a></li>
             <li><a href="#" class="nav-link">About</a></li>
         </ul>
     </div>
@@ -396,10 +389,6 @@
 
 <a href="https://x.com/mothnode" target="_blank" rel="noopener noreferrer" class="avatar-icon" title="Profile">
     <img src="avatar.png" alt="Avatar">
-</a>
-
-<a href="uplinks" class="links-icon" title="Links">
-    <img src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' viewBox='0 0 24 24'%3e%3cpath d='M4 10a7.31 7.31 0 0 0 10 10Zm5 5 3-3m5 1a6 6 0 0 0-6-6m10 6A10 10 0 0 0 11 3'/%3e%3c/svg%3e" alt="Links">
 </a>
 
 <script>
