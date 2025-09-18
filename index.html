@@ -44,12 +44,29 @@
         height: 100vh;
         background-color: #000;
         cursor: crosshair;
+        position: relative;
+    }
+
+    /* Top radial blur overlay */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 30vh;
+        background: radial-gradient(ellipse 70% 100% at center top, 
+                                  rgba(0, 0, 0, 0.6) 0%, 
+                                  rgba(0, 0, 0, 0.3) 40%, 
+                                  transparent 80%);
+        z-index: 5;
+        pointer-events: none;
     }
 
     /* Navigation Header */
     .nav-header {
         position: fixed;
-        top: 0;
+        top: 10vh;
         left: 0;
         right: 0;
         z-index: 10;
@@ -275,6 +292,10 @@
     }
 
     @media (max-width: 768px) {
+        .nav-header {
+            top: 8vh;
+        }
+        
         .nav-links {
             gap: 25px;
         }
@@ -293,6 +314,10 @@
     }
 
     @media (max-width: 480px) {
+        .nav-header {
+            top: 6vh;
+        }
+        
         .nav-container {
             padding: 0 15px;
         }
