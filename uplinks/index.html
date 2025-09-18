@@ -39,9 +39,9 @@
             text-align: center;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px;
             background-color: #000;
             cursor: crosshair;
         }
@@ -151,12 +151,30 @@
             font-style: italic;
         }
 
+        .projects-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            text-align: left;
+            min-width: 140px;
+            flex-shrink: 0;
+            padding-top: 20px;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 15px;
-            width: 100%;
-            margin-bottom: 40px;
+            flex: 1;
         }
 
         .link-item {
@@ -175,7 +193,7 @@
             text-align: left;
             font-weight: 500;
             font-size: 16px;
-            min-height: 120px;
+            min-height: 80px;
         }
 
         .link-item:hover {
@@ -284,16 +302,6 @@
             51%, 100% { opacity: 0.3; }
         }
 
-        .section-header {
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin: 40px 0 20px 0;
-            opacity: 0.8;
-            text-align: center;
-            width: 100%;
-        }
-
         .back-home {
             position: fixed;
             top: 20px;
@@ -330,12 +338,23 @@
                 max-width: 400px;
             }
 
+            .projects-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .section-header {
+                text-align: center;
+                min-width: auto;
+                padding-top: 0;
+            }
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
 
             body {
-                padding: 15px;
+                padding: 20px 15px;
             }
         }
 
@@ -347,7 +366,11 @@
             
             .link-item {
                 padding: 12px 16px;
-                min-height: 100px;
+                min-height: 70px;
+            }
+
+            .projects-section {
+                gap: 15px;
             }
         }
     </style>
@@ -396,157 +419,159 @@
         <div class="main-title">⛬TRISIGHTᵐˣ</div>
         <div class="main-description">Network State, Project Boutique & Autonomous Capital</div>
 
-        <div class="section-header">CORE PROJECTS</div>
+        <div class="projects-section">
+            <div class="section-header">CORE PROJECTS</div>
+            <div class="projects-grid">
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">Network State Infrastructure</div>
+                        <div class="link-description">Foundation for Egregoric Societies.</div>
+                    </div>
+                    <div class="progress-indicator">
+                        <div class="progress-dot"></div>
+                        <span class="progress-text">In Progress</span>
+                    </div>
+                </a>
 
-        <div class="projects-grid">
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">Network State Infrastructure</div>
-                    <div class="link-description">Foundation for Egregoric Societies.</div>
-                </div>
-                <div class="progress-indicator">
-                    <div class="progress-dot"></div>
-                    <span class="progress-text">In Progress</span>
-                </div>
-            </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">Omma</div>
+                        <div class="link-description">On-chain Real-time Chat & Network Relay.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">Research</span>
+                    </div>
+                </a>
 
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">Omma</div>
-                    <div class="link-description">On-chain Real-time Chat & Network Relay.</div>
-                </div>
-                <div class="research-indicator">
-                    <div class="research-dot"></div>
-                    <span class="research-text">Research</span>
-                </div>
-            </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">Sightseer</div>
+                        <div class="link-description">Esoteric Crypto Wallet.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">Research</span>
+                    </div>
+                </a>
 
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">Sightseer</div>
-                    <div class="link-description">Esoteric Crypto Wallet.</div>
-                </div>
-                <div class="research-indicator">
-                    <div class="research-dot"></div>
-                    <span class="research-text">Research</span>
-                </div>
-            </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">Cryptarch</div>
+                        <div class="link-description">OS-integrated Fast Access Portfolio Management & Trading.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">Research</span>
+                    </div>
+                </a>
 
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">Cryptarch</div>
-                    <div class="link-description">OS-integrated Fast Access Portfolio Management & Trading.</div>
-                </div>
-                <div class="research-indicator">
-                    <div class="research-dot"></div>
-                    <span class="research-text">Research</span>
-                </div>
-            </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">Dion</div>
+                        <div class="link-description">Sigilized Engagement System.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">Research</span>
+                    </div>
+                </a>
 
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">Dion</div>
-                    <div class="link-description">Sigilized Engagement System.</div>
-                </div>
-                <div class="research-indicator">
-                    <div class="research-dot"></div>
-                    <span class="research-text">Research</span>
-                </div>
-            </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">Aion</div>
+                        <div class="link-description">Narrative Marketplace.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">Research</span>
+                    </div>
+                </a>
 
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">Aion</div>
-                    <div class="link-description">Narrative Marketplace.</div>
-                </div>
-                <div class="research-indicator">
-                    <div class="research-dot"></div>
-                    <span class="research-text">Research</span>
-                </div>
-            </a>
-
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">Crossover</div>
-                    <div class="link-description">Schizo Bridge.</div>
-                </div>
-                <div class="research-indicator">
-                    <div class="research-dot"></div>
-                    <span class="research-text">Research</span>
-                </div>
-            </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">Crossover</div>
+                        <div class="link-description">Schizo Bridge.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">Research</span>
+                    </div>
+                </a>
+            </div>
         </div>
 
         <div class="separator"></div>
         
-        <div class="section-header">MASS EXPERIENCES</div>
+        <div class="projects-section">
+            <div class="section-header">MASS EXPERIENCES</div>
+            <div class="projects-grid">
+                <a href="https://helve.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">HΞLVΞ</div>
+                        <div class="link-description">Augmented Reality Covert Agency.</div>
+                    </div>
+                    <div class="progress-indicator">
+                        <div class="progress-dot"></div>
+                        <span class="progress-text">In Progress</span>
+                    </div>
+                </a>
+                
+                <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">HITΞCH CRIMΞ</div>
+                        <div class="link-description">Cinematic Narrative Universe Microlabel.</div>
+                    </div>
+                    <div class="progress-indicator">
+                        <div class="progress-dot"></div>
+                        <span class="progress-text">In Progress</span>
+                    </div>
+                </a>
 
-        <div class="projects-grid">
-            <a href="https://helve.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">HΞLVΞ</div>
-                    <div class="link-description">Augmented Reality Covert Agency.</div>
-                </div>
-                <div class="progress-indicator">
-                    <div class="progress-dot"></div>
-                    <span class="progress-text">In Progress</span>
-                </div>
-            </a>
-            
-            <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">HITΞCH CRIMΞ</div>
-                    <div class="link-description">Cinematic Narrative Universe Microlabel.</div>
-                </div>
-                <div class="progress-indicator">
-                    <div class="progress-dot"></div>
-                    <span class="progress-text">In Progress</span>
-                </div>
-            </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">Voidcats</div>
+                        <div class="link-description">Cryptids from the Blockchain Abyss.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">Research</span>
+                    </div>
+                </a>
 
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">Voidcats</div>
-                    <div class="link-description">Cryptids from the Blockchain Abyss.</div>
-                </div>
-                <div class="research-indicator">
-                    <div class="research-dot"></div>
-                    <span class="research-text">Research</span>
-                </div>
-            </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">The Strand</div>
+                        <div class="link-description">On-chain Rhizomatic Essay.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">Research</span>
+                    </div>
+                </a>
 
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">The Strand</div>
-                    <div class="link-description">On-chain Rhizomatic Essay.</div>
-                </div>
-                <div class="research-indicator">
-                    <div class="research-dot"></div>
-                    <span class="research-text">Research</span>
-                </div>
-            </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">The Ritual</div>
+                        <div class="link-description">The Altar Of Egregore. VR App.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">Research</span>
+                    </div>
+                </a>
 
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">The Ritual</div>
-                    <div class="link-description">The Altar Of Egregore. VR App.</div>
-                </div>
-                <div class="research-indicator">
-                    <div class="research-dot"></div>
-                    <span class="research-text">Research</span>
-                </div>
-            </a>
-
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="link-title">Blvckbox</div>
-                    <div class="link-description">On-chain Interactive Art & Technology Museum. Also available in VR.</div>
-                </div>
-                <div class="research-indicator">
-                    <div class="research-dot"></div>
-                    <span class="research-text">Research</span>
-                </div>
-            </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">Blvckbox</div>
+                        <div class="link-description">On-chain Interactive Art & Technology Museum. Also available in VR.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">Research</span>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 
