@@ -228,6 +228,7 @@
         letter-spacing: 6px;
         text-transform: uppercase;
         opacity: 0.9;
+        animation: glow 2s ease-in-out infinite alternate;
     }
 
     .network-state-subtitle {
@@ -239,25 +240,21 @@
         margin-bottom: 20px;
     }
 
+    /* Creative Supremacy styling - modified to match second code's scaled content approach */
     .creative-supremacy-text {
-        font-size: 18px;
-        font-weight: 500;
-        letter-spacing: 1px;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
         opacity: 0.8;
-        max-width: 700px;
+        letter-spacing: 0.5px;
         line-height: 1.6;
-        text-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
-                     0 0 30px rgba(255, 255, 255, 0.4),
-                     0 0 45px rgba(255, 255, 255, 0.2);
-        animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    .separator {
-        width: 60%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-        margin: 30px 0;
-        max-width: 400px;
+        word-break: break-word;
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        transform: scale(0.67); /* Scaled content approach from second code */
+        margin-top: 20px;
     }
 
     @keyframes glow {
@@ -302,6 +299,7 @@
         }
 
         .creative-supremacy-text {
+            transform: scale(0.85);
             font-size: 16px;
             padding: 0 20px;
         }
@@ -352,6 +350,7 @@
         }
 
         .creative-supremacy-text {
+            transform: scale(1);
             font-size: 14px;
         }
     }
@@ -364,9 +363,9 @@
     <div class="nav-container">
         <ul class="nav-links">
             <li><a href="https://trisight.mx/" class="nav-link has-hover-text">Manifesto</a></li>
-            <li><a href="https://trisight.mx/network/" class="nav-link has-hover-text active">Network State</a></li>
+            <li><a href="https://trisight.mx/network/" class="nav-link has-hover-text">Network State</a></li>
             <li><a href="https://trisight.mx/boutique/" class="nav-link has-hover-text">Project Boutique</a></li>
-            <li><a href="https://trisight.mx/capital/" class="nav-link has-hover-text">Capital</a></li>
+            <li><a href="https://trisight.mx/capital/" class="nav-link has-hover-text active">Capital</a></li>
             <li><a href="https://trisight.mx/status/" class="nav-link">Status Board<span class="active-status"><span class="active-status-dot"></span><span class="active-status-text">Active</span></span></a></li>
             <li><a href="https://trisight.mx/communique/" class="nav-link has-hover-text">Communique<span class="sub-text">September 2025</span></a></li>
             <li><a href="https://trisight.mx/uplinks/" class="nav-link has-hover-text">Uplinks</a></li>
@@ -382,7 +381,6 @@
 <div class="hero-section">
     <div class="coming-soon-container">
         <div class="coming-soon-text">Coming Soon</div>
-        <div class="separator"></div>
         <div class="creative-supremacy-text">
           We believe in Creative Supremacy™ and innovation is our weapon.
         </div>
