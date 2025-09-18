@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='description' content='⛬TRISIGHTᵐˣ Capital'/>
+    <meta name='keywords' content='trisight, network state, digital sovereignty, decentralized governance, collective organization, digital nation, autonomous collective, mothnode, tim moth, helve' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta property="og:title" content="⛬TRISIGHTᵐˣ Capital">
+    <meta property="og:description" content="We believe in Creative Supremacy™ and innovation is our weapon.">
+    <meta property="og:image" content="/thumbnail.png">
+
+ <title>TRISIGHTᵐˣ Capital</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Inter Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 17px;
+        overflow: hidden;
+        color: #fff;
+        background-color: #000;
+        cursor: crosshair;
+        position: relative;
+        height: 100vh;
+    }
+
+    /* Top radial blur overlay */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 30vh;
+        background: radial-gradient(ellipse 70% 100% at center top, 
+                                  rgba(0, 0, 0, 0.6) 0%, 
+                                  rgba(0, 0, 0, 0.3) 40%, 
+                                  transparent 80%);
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    /* Navigation Header */
+    .nav-header {
+        position: fixed;
+        top: 5vh;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background: transparent;
+        padding: 20px 0;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #fff;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        opacity: 0.7;
+        transition: all 0.3s ease;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-transform: uppercase;
+    }
+
+    .nav-link:hover {
+        opacity: 1;
+        transform: translateY(-1px);
+    }
+
+    .nav-link.active {
+        opacity: 1;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                     0 0 20px rgba(255, 255, 255, 0.6),
+                     0 0 30px rgba(255, 255, 255, 0.4);
+    }
+
+    .nav-link .sub-text {
+        font-size: 10px;
+        opacity: 0.6;
+        margin-top: 4px;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        text-transform: none;
+        position: absolute;
+        top: 100%;
+        white-space: nowrap;
+    }
+
+    .nav-link.active .sub-text {
+        opacity: 0.8;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Hover text that appears above certain nav items */
+    .nav-link.has-hover-text::before {
+        content: '⛬TRISIGHT';
+        font-size: 10px;
+        opacity: 0;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        text-transform: none;
+        position: absolute;
+        bottom: 100%;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .nav-link.has-hover-text:hover::before {
+        opacity: 0.6;
+    }
+
+    /* Active status indicator for Status Board */
+    .nav-link .active-status {
+        position: absolute;
+        top: 100%;
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        white-space: nowrap;
+    }
+
+    .nav-link .active-status-dot {
+        width: 6px;
+        height: 6px;
+        background: #80FCFF;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #80FCFF, 0 0 16px #80FCFF;
+        animation: blink 1.5s infinite;
+    }
+
+    .nav-link .active-status-text {
+        color: #80FCFF;
+        font-size: 10px;
+        font-weight: 600;
+        text-shadow: 0 0 10px #80FCFF;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        opacity: 0.8;
+    }
+
+    #bg-video {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        opacity: 0.4;
+        filter: blur(10px) contrast(0.7);
+    }
+
+    .hero-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .coming-soon-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .coming-soon-text {
+        font-size: 80px;
+        font-weight: 700;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        opacity: 0.9;
+    }
+
+    .network-state-subtitle {
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        opacity: 0.7;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .creative-supremacy-text {
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        opacity: 0.8;
+        max-width: 700px;
+        line-height: 1.6;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
+                     0 0 30px rgba(255, 255, 255, 0.4),
+                     0 0 45px rgba(255, 255, 255, 0.2);
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .separator {
+        width: 60%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        margin: 30px 0;
+        max-width: 400px;
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
+                         0 0 30px rgba(255, 255, 255, 0.4),
+                         0 0 45px rgba(255, 255, 255, 0.2);
+        }
+        to {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                         0 0 40px rgba(255, 255, 255, 0.6),
+                         0 0 60px rgba(255, 255, 255, 0.4);
+        }
+    }
+
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0.3; }
+    }
+
+    @media (max-width: 768px) {
+        .nav-header {
+            top: 3vh;
+        }
+        
+        .nav-links {
+            gap: 25px;
+        }
+        
+        .nav-link {
+            font-size: 12px;
+        }
+
+        .coming-soon-text {
+            font-size: 60px;
+            letter-spacing: 4px;
+        }
+
+        .network-state-subtitle {
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .creative-supremacy-text {
+            font-size: 16px;
+            padding: 0 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .nav-header {
+            top: 1vh;
+        }
+        
+        .nav-container {
+            padding: 0 15px;
+        }
+        
+        .nav-links {
+            gap: 15px;
+        }
+        
+        .nav-link {
+            font-size: 11px;
+        }
+        
+        .nav-link .sub-text {
+            font-size: 9px;
+        }
+        
+        .nav-link.has-hover-text::before {
+            font-size: 9px;
+        }
+
+        .nav-link .active-status-text {
+            font-size: 9px;
+        }
+        
+        .nav-link .active-status-dot {
+            width: 5px;
+            height: 5px;
+        }
+
+        .coming-soon-text {
+            font-size: 40px;
+            letter-spacing: 2px;
+        }
+
+        .network-state-subtitle {
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .creative-supremacy-text {
+            font-size: 14px;
+        }
+    }
+</style>
+ </head>
+<body>
+
+ <!-- Navigation Header -->
+<nav class="nav-header">
+    <div class="nav-container">
+        <ul class="nav-links">
+            <li><a href="https://trisight.mx/" class="nav-link has-hover-text">Manifesto</a></li>
+            <li><a href="https://trisight.mx/network/" class="nav-link has-hover-text active">Network State</a></li>
+            <li><a href="https://trisight.mx/boutique/" class="nav-link has-hover-text">Project Boutique</a></li>
+            <li><a href="https://trisight.mx/capital/" class="nav-link has-hover-text">Capital</a></li>
+            <li><a href="https://trisight.mx/status/" class="nav-link">Status Board<span class="active-status"><span class="active-status-dot"></span><span class="active-status-text">Active</span></span></a></li>
+            <li><a href="https://trisight.mx/communique/" class="nav-link has-hover-text">Communique<span class="sub-text">September 2025</span></a></li>
+            <li><a href="https://trisight.mx/uplinks/" class="nav-link has-hover-text">Uplinks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<video autoplay loop muted id="bg-video">
+    <source src="/memetic-storm-bw.mp4" type="video/mp4">
+    <img src="/trisight-fallback.png" alt="Background image">
+</video>
+
+<div class="hero-section">
+    <div class="coming-soon-container">
+        <div class="coming-soon-text">Coming Soon</div>
+        <div class="separator"></div>
+        <div class="creative-supremacy-text">
+          We believe in Creative Supremacy™ and innovation is our weapon.
+        </div>
+    </div>
+</div>
+ </body>
+</html>
