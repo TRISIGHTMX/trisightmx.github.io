@@ -202,11 +202,12 @@
             max-width: 360px;
         }
 
-        .main-title {
-            font-size: 28px;
-            font-weight: 700;
+        .brand-logo {
+            height: 60px;
+            width: auto;
             margin-bottom: 15px;
-            text-align: center;
+            opacity: 0.9;
+            filter: brightness(1.1);
         }
 
         .main-description {
@@ -458,6 +459,10 @@
                 width: 20px;
                 height: 20px;
             }
+
+            .brand-logo {
+                height: 50px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -477,6 +482,10 @@
 
             .status-title {
                 font-size: 24px;
+            }
+
+            .brand-logo {
+                height: 40px;
             }
         }
     </style>
@@ -506,24 +515,24 @@
             <a href="https://instagram.com/mothnode" target="_blank" rel="noopener noreferrer" class="social-link">
                 Instagram
             </a>
-            <a href="https://afterhours.trisight.mx" target="_blank" rel="noopener noreferrer" class="social-link">
-                Afterhours
-            </a>
-            <a href="https://t.me/datascent" target="_blank" rel="noopener noreferrer" class="social-link">
-                Datascent (TG)
-            </a>
-            <a href="https://discord.gg/trisight" target="_blank" rel="noopener noreferrer" class="social-link">
-                Discord
-            </a>
             <a href="https://open.spotify.com/artist/1qXnwgOpt96mhs0vrnS2rx" target="_blank" rel="noopener noreferrer" class="social-link">
                 Spotify
             </a>
+            <a href="https://discord.gg/8CpzwgrUBQ" target="_blank" rel="noopener noreferrer" class="social-link">
+                Discord
+            </a>
+             <a href="https://t.me/datascent" target="_blank" rel="noopener noreferrer" class="social-link">
+                Datascent
+            </a>
+            <a href="https://twitch.tv/mothnode" target="_blank" rel="noopener noreferrer" class="social-link">
+                Afterhours
+            </a>   
         </div>
 
         <div class="hero-title-section">
             <div class="separator"></div>
             <br>
-            <div class="main-title">⛬TRISIGHTᵐˣ</div>
+            <img src="/trisight-brand-logo.png" alt="TRISIGHT" class="brand-logo">
             <div class="main-description">Network State, Project Boutique & Autonomous Capital</div>
         </div>
 
@@ -742,12 +751,10 @@
         // Handle scroll indicator visibility
         window.addEventListener('scroll', function() {
             const scrollIndicator = document.getElementById('scrollIndicator');
-            const heroSection = document.querySelector('.hero-section');
-            const heroHeight = heroSection.offsetHeight;
             const scrollPosition = window.scrollY;
             
-            // Hide indicator when scrolled past 80% of hero section
-            if (scrollPosition > heroHeight * 0.8) {
+            // Hide indicator as soon as user starts scrolling
+            if (scrollPosition > 0) {
                 scrollIndicator.classList.add('hidden');
             } else {
                 scrollIndicator.classList.remove('hidden');
