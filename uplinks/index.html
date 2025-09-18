@@ -152,6 +152,36 @@
             opacity: 0.6;
         }
 
+        /* Active status indicator for Status Board */
+        .nav-link .active-status {
+            position: absolute;
+            top: 100%;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+        .nav-link .active-status-dot {
+            width: 6px;
+            height: 6px;
+            background: #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00ff00, 0 0 16px #00ff00;
+            animation: blink 1.5s infinite;
+        }
+
+        .nav-link .active-status-text {
+            color: #00ff00;
+            font-size: 10px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #00ff00;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            opacity: 0.8;
+        }
+
         #bg-video {
             position: fixed;
             left: 50%;
@@ -700,6 +730,15 @@
                 font-size: 9px;
             }
 
+            .nav-link .active-status-text {
+                font-size: 9px;
+            }
+            
+            .nav-link .active-status-dot {
+                width: 5px;
+                height: 5px;
+            }
+
             .hero-section {
                 margin-top: 60px;
             }
@@ -740,13 +779,14 @@
         <div class="nav-container">
             <ul class="nav-links">
                 <li><a href="https://trisight.mx/" class="nav-link">Home</a></li>
-                <li><a href="#" class="nav-link has-hover-text">Manifesto</a></li>
                 <li><a href="#" class="nav-link has-hover-text">Network State</a></li>
                 <li><a href="#" class="nav-link has-hover-text">Project Boutique</a></li>
                 <li><a href="#" class="nav-link has-hover-text">Capital</a></li>
-                <li><a href="#" class="nav-link">Status Board</a></li>
+                <li><a href="#" class="nav-link has-hover-text">Manifesto</a></li>
+                <li><a href="#" class="nav-link">Status Board<span class="active-status"><span class="active-status-dot"></span><span class="active-status-text">Active</span></span></a></li>
                 <li><a href="#" class="nav-link has-hover-text">Communique<span class="sub-text">September 2025</span></a></li>
                 <li><a href="https://trisight.mx/uplinks/" class="nav-link has-hover-text active">Uplinks</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
             </ul>
         </div>
     </nav>
