@@ -36,12 +36,6 @@
             font-size: 17px;
             overflow-x: hidden;
             color: #fff;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 40px 20px;
             background-color: #000;
             cursor: crosshair;
         }
@@ -59,15 +53,29 @@
             filter: blur(10px) contrast(0.7);
         }
 
-        .content {
-            position: relative;
-            z-index: 1;
+        .hero-section {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
             max-width: 1200px;
+            margin: 0 auto;
             width: 100%;
-            padding-bottom: 40px;
         }
 
         .profile-section {
@@ -361,7 +369,11 @@
                 width: auto;
             }
 
-            body {
+            .hero-section {
+                padding: 20px 15px;
+            }
+
+            .content-section {
                 padding: 20px 15px;
             }
         }
@@ -394,7 +406,7 @@
         <
     </a>
 
-    <div class="content">
+    <div class="hero-section">
         <div class="profile-section">
             <img src="/avatar.png" alt="Profile" class="profile-image">
             <div class="profile-symbol">⛬</div>
@@ -420,8 +432,10 @@
             <a href="https://open.spotify.com/artist/1qXnwgOpt96mhs0vrnS2rx" target="_blank" rel="noopener noreferrer" class="social-link">
                 Spotify
             </a>
-            
         </div>
+    </div>
+
+    <div class="content-section">
         <div class="separator"></div>
         <br>
 
@@ -520,6 +534,7 @@
                             <div class="research-dot"></div>
                             <span class="research-text">Research</span>
                         </div>
+                    </a>
 
                     <a href="#" class="link-item">
                         <div class="link-content">
@@ -530,7 +545,6 @@
                             <div class="research-dot"></div>
                             <span class="research-text">Research</span>
                         </div>
-                        
                     </a>
                 </div>
             </div>
@@ -587,7 +601,7 @@
                     <a href="#" class="link-item">
                         <div class="link-content">
                             <div class="link-title">BLVCKLVNE</div>
-                            <div class="link-description">Pocket Audiophile’s Universe. Digital & VR Vinyl Shop & Cafe.</div>
+                            <div class="link-description">Pocket Audiophile's Universe. Digital & VR Vinyl Shop & Cafe.</div>
                         </div>
                         <div class="research-indicator">
                             <div class="research-dot"></div>
