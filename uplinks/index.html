@@ -39,7 +39,7 @@
             text-align: center;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
             padding: 20px;
             background-color: #000;
@@ -65,10 +65,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 600px;
+            max-width: 1200px;
             width: 100%;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
             padding-bottom: 40px;
         }
 
@@ -96,35 +94,46 @@
             font-style: italic;
         }
 
-        .social-icons {
-            display: flex;
-            gap: 20px;
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            width: 100%;
+            max-width: 800px;
             margin-bottom: 40px;
-            justify-content: center;
         }
 
-        .social-icon {
-            width: 40px;
-            height: 40px;
+        .social-link {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 12px;
+            padding: 15px 20px;
             text-decoration: none;
             color: #fff;
-            font-size: 18px;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: 500;
+            font-size: 16px;
+            min-height: 50px;
         }
 
-        .social-icon:hover {
+        .social-link:hover {
             background: rgba(255, 255, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .separator {
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            margin: 40px 0;
         }
 
         .main-title {
@@ -142,12 +151,12 @@
             font-style: italic;
         }
 
-        .links-container {
-            display: flex;
-            flex-direction: column;
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 15px;
             width: 100%;
-            max-width: 500px;
+            margin-bottom: 40px;
         }
 
         .link-item {
@@ -179,6 +188,8 @@
             display: flex;
             flex-direction: column;
             gap: 5px;
+            flex: 1;
+            min-width: 0;
         }
 
         .link-title {
@@ -192,28 +203,11 @@
             font-weight: 400;
         }
 
-        .link-item.center-text {
-            justify-content: center;
-            text-align: center;
-        }
-
-        .two-column-row {
-            display: flex;
-            gap: 15px;
-            width: 100%;
-        }
-
-        .two-column-row .link-item {
-            flex: 1;
-            min-width: 0;
-            justify-content: center;
-            text-align: center;
-        }
-
         .active-indicator {
             display: flex;
             align-items: center;
             gap: 8px;
+            flex-shrink: 0;
         }
 
         .active-dot {
@@ -238,6 +232,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            flex-shrink: 0;
         }
 
         .progress-dot {
@@ -262,6 +257,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            flex-shrink: 0;
         }
 
         .research-dot {
@@ -291,8 +287,10 @@
             font-size: 14px;
             font-weight: bold;
             letter-spacing: 1px;
-            margin: 30px 0 15px 0;
+            margin: 40px 0 20px 0;
             opacity: 0.8;
+            text-align: center;
+            width: 100%;
         }
 
         .back-home {
@@ -325,44 +323,29 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
-        /* Custom scrollbar styling */
-        .content::-webkit-scrollbar {
-            width: 6px;
-        }
+        @media (max-width: 768px) {
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 500px;
+            }
 
-        .content::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-        }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
 
-        .content::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 3px;
-        }
-
-        .content::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        @media (max-width: 480px) {
             body {
                 padding: 15px;
             }
-            
-            .content {
-                max-height: calc(100vh - 30px);
-            }
-            
-            .social-icons {
-                gap: 15px;
+        }
+
+        @media (max-width: 480px) {
+            .social-grid {
+                grid-template-columns: 1fr;
+                max-width: 300px;
             }
             
             .link-item {
                 padding: 12px 16px;
-            }
-
-            .two-column-row {
-                flex-direction: column;
             }
         }
     </style>
@@ -385,40 +368,36 @@
             <div class="profile-title">﹝𝘛𝘩𝘦 𝘚𝘢𝘤𝘳𝘪𝘧𝘪𝘤𝘪𝘢𝘭 𝘚𝘦𝘦𝘳 𝘖𝘧 𝘈𝘪𝘰𝘯﹞</div>
         </div>
 
-        <div class="social-icons">
-            <a href="https://x.com/mothnode" target="_blank" rel="noopener noreferrer" class="social-icon" title="X">
-                𝕏
+        <div class="social-grid">
+            <a href="https://x.com/mothnode" target="_blank" rel="noopener noreferrer" class="social-link">
+                X / Twitter
             </a>
-            <a href="https://instagram.com/mothnode" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
-                📷
+            <a href="https://instagram.com/mothnode" target="_blank" rel="noopener noreferrer" class="social-link">
+                Instagram
             </a>
-            <a href="https://t.me/datascent" target="_blank" rel="noopener noreferrer" class="social-icon" title="Telegram">
-                ✈️
+            <a href="https://t.me/datascent" target="_blank" rel="noopener noreferrer" class="social-link">
+                Telegram
             </a>
-            <a href="https://twitch.tv/mothnode" target="_blank" rel="noopener noreferrer" class="social-icon" title="Twitch">
-                📺
+            <a href="https://twitch.tv/mothnode" target="_blank" rel="noopener noreferrer" class="social-link">
+                Twitch
             </a>
-            <a href="https://open.spotify.com/artist/mothnode" target="_blank" rel="noopener noreferrer" class="social-icon" title="Spotify">
-                🎵
+            <a href="https://open.spotify.com/artist/mothnode" target="_blank" rel="noopener noreferrer" class="social-link">
+                Spotify
+            </a>
+            <a href="https://discord.gg/trisight" target="_blank" rel="noopener noreferrer" class="social-link">
+                Discord
+            </a>
+            <a href="https://afterhours.trisight.mx" target="_blank" rel="noopener noreferrer" class="social-link">
+                Afterhours
             </a>
         </div>
 
+        <div class="separator"></div>
+
         <div class="main-title">⛬TRISIGHTᵐˣ</div>
-        <div class="main-description">Network State, Project Boutique & Capital</div>
-        
-        <div class="links-container">
-            <div class="two-column-row">
-                <a href="https://discord.gg/trisight" target="_blank" rel="noopener noreferrer" class="link-item">
-                    Discord
-                </a>
-                
-                <a href="https://afterhours.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
-                    Afterhours
-                </a>
-            </div>
+        <div class="main-description">Network State, Project Boutique & Autonomous Capital</div>
 
-            <br>
-
+        <div class="projects-grid">
             <a href="#" class="link-item">
                 <div class="link-content">
                     <div class="link-title">Core Network State Infrastructure</div>
@@ -495,9 +474,11 @@
                     <span class="research-text">Research</span>
                 </div>
             </a>
-            
-            <div class="section-header">⛬TRISIGHTᵐˣ MASS EXPERIENCES</div>
+        </div>
+        
+        <div class="section-header">⛬TRISIGHTᵐˣ MASS EXPERIENCES</div>
 
+        <div class="projects-grid">
             <a href="https://helve.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
                 <div class="link-content">
                     <div class="link-title">HΞLVΞ</div>
@@ -514,7 +495,7 @@
                     <div class="link-title">HITΞCH CRIMΞ</div>
                     <div class="link-description">Cinematic Narrative Universe Microlabel.</div>
                 </div>
-              <div class="progress-indicator">
+                <div class="progress-indicator">
                     <div class="progress-dot"></div>
                     <span class="progress-text">In Progress</span>
                 </div>
@@ -563,7 +544,6 @@
                     <span class="research-text">Research</span>
                 </div>
             </a>
-            
         </div>
     </div>
 
