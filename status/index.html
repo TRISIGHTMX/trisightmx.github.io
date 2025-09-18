@@ -197,43 +197,50 @@
 
         .content-section {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 240px 20px 40px 20px; /* Increased from 140px to 240px (moved 10vh down) */
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 60px;
+            padding: 240px 20px 40px 20px;
             text-align: center;
             position: relative;
             z-index: 1;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             width: 100%;
         }
 
-        .projects-container {
+        .projects-section {
             width: 100%;
             max-width: 600px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-bottom: 40px;
         }
 
-        .projects-section {
+        .section-header-container {
+            text-align: center;
+            margin-bottom: 40px;
             width: 100%;
-            margin-bottom: 20px;
-            position: relative;
         }
 
         .section-header {
-            font-size: 14px;
+            font-size: 18px;
             font-weight: bold;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            text-align: center;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .section-subtext {
+            font-size: 12px;
+            opacity: 0.6;
+            font-weight: 400;
             letter-spacing: 1px;
-            opacity: 0.8;
-            text-align: left;
-            margin-bottom: 20px;
-            position: absolute;
-            left: -180px;
-            top: 20px;
-            width: 160px;
-            white-space: nowrap;
+            text-transform: uppercase;
         }
 
         .projects-grid {
@@ -406,6 +413,14 @@
             51%, 100% { opacity: 0.3; }
         }
 
+        @media (max-width: 1200px) {
+            .content-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-header {
                 top: 3vh;
@@ -419,20 +434,17 @@
                 font-size: 12px;
             }
 
-            .projects-container {
+            .content-section {
+                padding: 200px 15px 20px 15px;
+                gap: 30px;
+            }
+
+            .projects-section {
                 max-width: 400px;
             }
 
             .section-header {
-                position: static;
-                text-align: center;
-                margin-bottom: 15px;
-                white-space: normal;
-                width: auto;
-            }
-
-            .content-section {
-                padding: 200px 15px 20px 15px; /* Adjusted for mobile */
+                font-size: 16px;
             }
         }
 
@@ -470,7 +482,12 @@
                 height: 5px;
             }
 
-            .projects-container {
+            .content-section {
+                padding: 180px 15px 20px 15px;
+                gap: 20px;
+            }
+
+            .projects-section {
                 max-width: 300px;
             }
 
@@ -479,8 +496,8 @@
                 min-height: 70px;
             }
 
-            .content-section {
-                padding: 180px 15px 20px 15px; /* Adjusted for smallest screens */
+            .section-header {
+                font-size: 14px;
             }
         }
     </style>
@@ -508,262 +525,261 @@
     </video>
 
     <div class="content-section">
-        <div class="projects-container">
-            <div class="projects-section">
-                <div class="section-header">CORE PROJECTS</div>
-                <div class="projects-grid">
-                        <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">WEBSITE V1</div>
-                            <div class="link-description">First Iteration of ⛬TRISIGHTᵐˣ Website.</div>
-                        </div>
-                        <div class="live-indicator">
-                            <div class="live-dot"></div>
-                            <span class="live-text">Live</span>
-                        </div>
-                    </a>
-
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">DISCORD COMMUNITY</div>
-                            <div class="link-description">Social Hub For ⛬TRISIGHTᵐˣ Users.</div>
-                        </div>
-                        <div class="live-indicator">
-                            <div class="live-dot"></div>
-                            <span class="live-text">Live</span>
-                        </div>
-                    </a>
-
-                     <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">⛬TRISIGHTᵐˣ MANIFESTO</div>
-                            <div class="link-description">Our Vision & Creative Supremacy Philosophy.</div>
-                        </div>
-                        <div class="development-indicator">
-                            <div class="development-dot"></div>
-                            <span class="development-text">In Development</span>
-                        </div>
-                    </a>
-
-                     <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">COMMUNIQUE</div>
-                            <div class="link-description">Monthly ⛬TRISIGHTᵐˣ Updates.</div>
-                        </div>
-                        <div class="development-indicator">
-                            <div class="development-dot"></div>
-                            <span class="development-text">In Development</span>
-                        </div>
-                    </a>
-
-                     <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">NETWORK STATE INFRASTRUCTURE</div>
-                            <div class="link-description">Foundation for Decentralized Egregoric Societies.</div>
-                        </div>
-                        <div class="development-indicator">
-                            <div class="development-dot"></div>
-                            <span class="development-text">In Development</span>
-                        </div>
-                    </a>
-
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">OMMA [ὄμμα]</div>
-                            <div class="link-description">On-chain Real-time Chat & Network Relay.</div>
-                        </div>
-                       <div class="research-indicator">
-                            <div class="research-dot"></div>
-                            <span class="research-text">In Research</span>
-                        </div>
-                    </a>
-
-                     <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">SUNROOT & BLOOM</div>
-                            <div class="link-description">Farming protocol on Chia Network.</div>
-                        </div>
-                        <div class="research-indicator">
-                            <div class="research-dot"></div>
-                            <span class="research-text">In Research</span>
-                        </div>
-                    </a>
-
-                     <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">BLVCKBOX™</div>
-                            <div class="link-description">Interactive Art & On-chain Technology Museum - Physical & VR.</div>
-                        </div>
-                         <div class="planned-indicator">
-                            <div class="planned-dot"></div>
-                            <span class="planned-text">Planned</span>
-                        </div>
-                    </a>
-
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">SIGHTSEER</div>
-                            <div class="link-description">Esoteric Crypto Wallet.</div>
-                        </div>
-                        <div class="planned-indicator">
-                            <div class="planned-dot"></div>
-                            <span class="planned-text">Planned</span>
-                        </div>
-                    </a>
-
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">CRYPTARCH</div>
-                            <div class="link-description">OS-integrated Fast Access Portfolio Management & Trading.</div>
-                        </div>
-                        <div class="planned-indicator">
-                            <div class="planned-dot"></div>
-                            <span class="planned-text">Planned</span>
-                        </div>
-                    </a>
-
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">OVERSEER</div>
-                            <div class="link-description">Take The Universe With You - Mobile Mass Experiences App.</div>
-                        </div>
-                        <div class="planned-indicator">
-                            <div class="planned-dot"></div>
-                            <span class="planned-text">Planned</span>
-                        </div>
-                    </a>
-
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">DION</div>
-                            <div class="link-description">Sigilized Engagement System.</div>
-                        </div>
-                        <div class="planned-indicator">
-                            <div class="planned-dot"></div>
-                            <span class="planned-text">Planned</span>
-                        </div>
-                    </a>
-
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">AION</div>
-                            <div class="link-description">Narrative Marketplace.</div>
-                        </div>
-                        <div class="planned-indicator">
-                            <div class="planned-dot"></div>
-                            <span class="planned-text">Planned</span>
-                        </div>
-                    </a>
-
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">CROSSOVER</div>
-                            <div class="link-description">Schizo Bridge.</div>
-                        </div>
-                        <div class="planned-indicator">
-                            <div class="planned-dot"></div>
-                            <span class="planned-text">Planned</span>
-                        </div>
-                    </a>
-
-                </div>
+        <div class="projects-section">
+            <div class="section-header-container">
+                <div class="section-header">NETWORK STATE</div>
+                <div class="section-subtext">Core Projects</div>
             </div>
-            <div class="separator"></div>
-            <br>
+            <div class="projects-grid">
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">WEBSITE V1</div>
+                        <div class="link-description">First Iteration of ⛬TRISIGHTᵐˣ Website.</div>
+                    </div>
+                    <div class="live-indicator">
+                        <div class="live-dot"></div>
+                        <span class="live-text">Live</span>
+                    </div>
+                </a>
 
-            <div class="projects-section">
-                <div class="section-header">MASS EXPERIENCES</div>
-                <div class="projects-grid">
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">DISCORD COMMUNITY</div>
+                        <div class="link-description">Social Hub For ⛬TRISIGHTᵐˣ Users.</div>
+                    </div>
+                    <div class="live-indicator">
+                        <div class="live-dot"></div>
+                        <span class="live-text">Live</span>
+                    </div>
+                </a>
 
-                    <a href="https://helve.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">HΞLVΞ™</div>
-                            <div class="link-description">Augmented Reality Covert Agency.</div>
-                        </div>
-                        <div class="development-indicator">
-                            <div class="development-dot"></div>
-                            <span class="development-text">In Development</span>
-                        </div>
-                    </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">⛬TRISIGHTᵐˣ MANIFESTO</div>
+                        <div class="link-description">Our Vision & Creative Supremacy Philosophy.</div>
+                    </div>
+                    <div class="development-indicator">
+                        <div class="development-dot"></div>
+                        <span class="development-text">In Development</span>
+                    </div>
+                </a>
 
-                    <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">HITΞCH CRIMΞ™</div>
-                            <div class="link-description">Cinematic Narrative Universe Microlabel.</div>
-                        </div>
-                        <div class="development-indicator">
-                            <div class="development-dot"></div>
-                            <span class="development-text">In Development</span>
-                        </div>
-                    </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">COMMUNIQUE</div>
+                        <div class="link-description">Monthly ⛬TRISIGHTᵐˣ Updates.</div>
+                    </div>
+                    <div class="development-indicator">
+                        <div class="development-dot"></div>
+                        <span class="development-text">In Development</span>
+                    </div>
+                </a>
 
-                     <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">KΛNNIBΛL™</div>
-                            <div class="link-description">Stealth Narrative Techwear & Accessories.</div>
-                        </div>
-                        <div class="development-indicator">
-                            <div class="development-dot"></div>
-                            <span class="development-text">In Development</span>
-                        </div>
-                    </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">NETWORK STATE INFRASTRUCTURE</div>
+                        <div class="link-description">Foundation for Decentralized Egregoric Societies.</div>
+                    </div>
+                    <div class="development-indicator">
+                        <div class="development-dot"></div>
+                        <span class="development-text">In Development</span>
+                    </div>
+                </a>
 
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">VOIDCATS</div>
-                            <div class="link-description">Cryptids from the Blockchain Abyss.</div>
-                        </div>
-                        <div class="research-indicator">
-                            <div class="research-dot"></div>
-                            <span class="research-text">In Research</span>
-                        </div>
-                    </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">OMMA [ὄμμα]</div>
+                        <div class="link-description">On-chain Real-time Chat & Network Relay.</div>
+                    </div>
+                   <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">In Research</span>
+                    </div>
+                </a>
 
-                     <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">RELLIK™</div>
-                            <div class="link-description">On-chain Narrative Animated Series.</div>
-                        </div>
-                        <div class="planned-indicator">
-                            <div class="planned-dot"></div>
-                            <span class="planned-text">Planned</span>
-                        </div>
-                    </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">SUNROOT & BLOOM</div>
+                        <div class="link-description">Farming protocol on Chia Network.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">In Research</span>
+                    </div>
+                </a>
 
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">BLVCKLVNE™</div>
-                            <div class="link-description">Audiophile's Pocket Universe. Digital & VR Vinyl Shop & Cafe.</div>
-                        </div>
-                         <div class="planned-indicator">
-                            <div class="planned-dot"></div>
-                            <span class="planned-text">Planned</span>
-                        </div>
-                    </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">BLVCKBOX™</div>
+                        <div class="link-description">Interactive Art & On-chain Technology Museum - Physical & VR.</div>
+                    </div>
+                     <div class="planned-indicator">
+                        <div class="planned-dot"></div>
+                        <span class="planned-text">Planned</span>
+                    </div>
+                </a>
 
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">THE STRAND</div>
-                            <div class="link-description">On-chain Rhizomatic Essay.</div>
-                        </div>
-                        <div class="planned-indicator">
-                            <div class="planned-dot"></div>
-                            <span class="planned-text">Planned</span>
-                        </div>
-                    </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">SIGHTSEER</div>
+                        <div class="link-description">Esoteric Crypto Wallet.</div>
+                    </div>
+                    <div class="planned-indicator">
+                        <div class="planned-dot"></div>
+                        <span class="planned-text">Planned</span>
+                    </div>
+                </a>
 
-                    <a href="#" class="link-item">
-                        <div class="link-content">
-                            <div class="link-title">THE RITUAL</div>
-                            <div class="link-description">The Altar Of Egregore - VR App.</div>
-                        </div>
-                        <div class="planned-indicator">
-                            <div class="planned-dot"></div>
-                            <span class="planned-text">Planned</span>
-                        </div>
-                    </a>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">CRYPTARCH</div>
+                        <div class="link-description">OS-integrated Fast Access Portfolio Management & Trading.</div>
+                    </div>
+                    <div class="planned-indicator">
+                        <div class="planned-dot"></div>
+                        <span class="planned-text">Planned</span>
+                    </div>
+                </a>
 
-                </div>
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">OVERSEER</div>
+                        <div class="link-description">Take The Universe With You - Mobile Mass Experiences App.</div>
+                    </div>
+                    <div class="planned-indicator">
+                        <div class="planned-dot"></div>
+                        <span class="planned-text">Planned</span>
+                    </div>
+                </a>
+
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">DION</div>
+                        <div class="link-description">Sigilized Engagement System.</div>
+                    </div>
+                    <div class="planned-indicator">
+                        <div class="planned-dot"></div>
+                        <span class="planned-text">Planned</span>
+                    </div>
+                </a>
+
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">AION</div>
+                        <div class="link-description">Narrative Marketplace.</div>
+                    </div>
+                    <div class="planned-indicator">
+                        <div class="planned-dot"></div>
+                        <span class="planned-text">Planned</span>
+                    </div>
+                </a>
+
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">CROSSOVER</div>
+                        <div class="link-description">Schizo Bridge.</div>
+                    </div>
+                    <div class="planned-indicator">
+                        <div class="planned-dot"></div>
+                        <span class="planned-text">Planned</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="projects-section">
+            <div class="section-header-container">
+                <div class="section-header">PROJECT BOUTIQUE</div>
+                <div class="section-subtext">Mass Experiences</div>
+            </div>
+            <div class="projects-grid">
+                <a href="https://helve.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">HΞLVΞ™</div>
+                        <div class="link-description">Augmented Reality Covert Agency.</div>
+                    </div>
+                    <div class="development-indicator">
+                        <div class="development-dot"></div>
+                        <span class="development-text">In Development</span>
+                    </div>
+                </a>
+
+                <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">HITΞCH CRIMΞ™</div>
+                        <div class="link-description">Cinematic Narrative Universe Microlabel.</div>
+                    </div>
+                    <div class="development-indicator">
+                        <div class="development-dot"></div>
+                        <span class="development-text">In Development</span>
+                    </div>
+                </a>
+
+                <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">KΛNNIBΛL™</div>
+                        <div class="link-description">Stealth Narrative Techwear & Accessories.</div>
+                    </div>
+                    <div class="development-indicator">
+                        <div class="development-dot"></div>
+                        <span class="development-text">In Development</span>
+                    </div>
+                </a>
+
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">VOIDCATS</div>
+                        <div class="link-description">Cryptids from the Blockchain Abyss.</div>
+                    </div>
+                    <div class="research-indicator">
+                        <div class="research-dot"></div>
+                        <span class="research-text">In Research</span>
+                    </div>
+                </a>
+
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">RELLIK™</div>
+                        <div class="link-description">On-chain Narrative Animated Series.</div>
+                    </div>
+                    <div class="planned-indicator">
+                        <div class="planned-dot"></div>
+                        <span class="planned-text">Planned</span>
+                    </div>
+                </a>
+
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">BLVCKLVNE™</div>
+                        <div class="link-description">Audiophile's Pocket Universe. Digital & VR Vinyl Shop & Cafe.</div>
+                    </div>
+                     <div class="planned-indicator">
+                        <div class="planned-dot"></div>
+                        <span class="planned-text">Planned</span>
+                    </div>
+                </a>
+
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">THE STRAND</div>
+                        <div class="link-description">On-chain Rhizomatic Essay.</div>
+                    </div>
+                    <div class="planned-indicator">
+                        <div class="planned-dot"></div>
+                        <span class="planned-text">Planned</span>
+                    </div>
+                </a>
+
+                <a href="#" class="link-item">
+                    <div class="link-content">
+                        <div class="link-title">THE RITUAL</div>
+                        <div class="link-description">The Altar Of Egregore - VR App.</div>
+                    </div>
+                    <div class="planned-indicator">
+                        <div class="planned-dot"></div>
+                        <span class="planned-text">Planned</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
