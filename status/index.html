@@ -1,1 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='description' content='⛬TRISIGHTᵐˣ - Mass Experiences. The reality is warping.'/>
+    <meta name='keywords' content='mothnode, tim moth, helve, trisight, helve avr, hitech crime, microlabel, creative, agency, transmedia, red reality ops, kannibal, audio, visual, research' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta property="og:title" content="⛬TRISIGHTᵐˣ Status Board">
+    <meta property="og:description" content="Mass Experiences. The reality is warping.">
+    <meta property="og:image" content="/thumbnail.png">
 
+    <title>TRISIGHTᵐˣ Status Board</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 17px;
+            overflow-x: hidden;
+            color: #fff;
+            background-color: #000;
+            cursor: crosshair;
+            position: relative;
+        }
+
+        /* Top radial blur overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30vh;
+            background: radial-gradient(ellipse 70% 100% at center top, 
+                                      rgba(0, 0, 0, 0.6) 0%, 
+                                      rgba(0, 0, 0, 0.3) 40%, 
+                                      transparent 80%);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Navigation Header */
+        .nav-header {
+            position: fixed;
+            top: 5vh;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            background: transparent;
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        .nav-link:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            opacity: 1;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                         0 0 20px rgba(255, 255, 255, 0.6),
+                         0 0 30px rgba(255, 255, 255, 0.4);
+        }
+
+        .nav-link .sub-text {
+            font-size: 10px;
+            opacity: 0.6;
+            margin-top: 4px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            text-transform: none;
+            position: absolute;
+            top: 100%;
+            white-space: nowrap;
+        }
+
+        .nav-link.active .sub-text {
+            opacity: 0.8;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Hover text that appears above certain nav items */
+        .nav-link.has-hover-text::before {
+            content: '⛬TRISIGHT';
+            font-size: 10px;
+            opacity: 0;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            text-transform: none;
+            position: absolute;
+            bottom: 100%;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .nav-link.has-hover-text:hover::before {
+            opacity: 0.6;
+        }
+
+        /* Active status indicator for Status Board */
+        .nav-link .active-status {
+            position: absolute;
+            top: 100%;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+        .nav-link .active-status-dot {
+            width: 6px;
+            height: 6px;
+            background: #80FCFF;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #80FCFF, 0 0 16px #80FCFF;
+            animation: blink 1.5s infinite;
+        }
+
+        .nav-link .active-status-text {
+            color: #80FCFF;
+            font-size: 10px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #80FCFF;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            opacity: 0.8;
+        }
+
+        #bg-video {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0.4;
+            filter: blur(10px) contrast(0.7);
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 20px 20px 20px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 100px; /* Account for nav header */
+        }
+
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .hero-title-section {
+            margin: 30px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .separator {
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            margin: 20px 0;
+            max-width: 360px;
+        }
+
+        .brand-logo-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .brand-logo {
+            height: 72px;
+            width: auto;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            filter: brightness(1.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .brand-logo-link:hover .brand-logo {
+            filter: brightness(1.3) drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+            transform: translateY(-2px);
+        }
+
+        .main-description {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 0;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .content-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .status-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .status-separator {
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            margin: 20px 0 40px 0;
+            max-width: 500px;
+        }
+
+        .projects-container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .projects-section {
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-header {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            text-align: left;
+            margin-bottom: 20px;
+            position: absolute;
+            left: -180px;
+            top: 20px;
+            width: 160px;
+            white-space: nowrap;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .link-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            font-weight: 500;
+            font-size: 16px;
+            min-height: 80px;
+            width: 100%;
+        }
+
+        .link-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .link-title {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .link-description {
+            font-size: 12px;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        /* Live Status - Green */
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            animation: blink 1.5s infinite;
+        }
+
+        .live-text {
+            color: #00ff00;
+            font-size: 12px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #00ff00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* In Development Status - Orange */
+        .development-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .development-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff8c00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00;
+            animation: blink 1.5s infinite;
+        }
+
+        .development-text {
+            color: #ff8c00;
+            font-size: 12px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #ff8c00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* In Research Status - Purple */
+        .research-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .research-dot {
+            width: 8px;
+            height: 8px;
+            background: #9932cc;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #9932cc, 0 0 20px #9932cc;
+            animation: blink 1.5s infinite;
+        }
+
+        .research-text {
+            color: #9932cc;
+            font-size: 12px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #9932cc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Planned Status - White */
+        .planned-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .planned-dot {
+            width: 8px;
+            height: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+            animation: blink 1.5s infinite;
+        }
+
+        .planned-text {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-header {
+                top: 3vh;
+            }
+            
+            .nav-links {
+                gap: 25px;
+            }
+            
+            .nav-link {
+                font-size: 12px;
+            }
+
+            .hero-section {
+                margin-top: 80px;
+                min-height: 60vh;
+            }
+
+            .projects-container {
+                max-width: 400px;
+            }
+
+            .section-header {
+                position: static;
+                text-align: center;
+                margin-bottom: 15px;
+                white-space: normal;
+                width: auto;
+            }
+
+            .hero-section {
+                padding: 20px 15px 15px 15px;
+            }
+
+            .content-section {
+                padding: 20px 15px 20px 15px;
+            }
+
+            .status-title {
+                font-size: 30px;
+            }
+
+            .brand-logo {
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-header {
+                top: 1vh;
+            }
+            
+            .nav-container {
+                padding: 0 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-link {
+                font-size: 11px;
+            }
+            
+            .nav-link .sub-text {
+                font-size: 9px;
+            }
+            
+            .nav-link.has-hover-text::before {
+                font-size: 9px;
+            }
+
+            .nav-link .active-status-text {
+                font-size: 9px;
+            }
+            
+            .nav-link .active-status-dot {
+                width: 5px;
+                height: 5px;
+            }
+
+            .hero-section {
+                margin-top: 60px;
+                min-height: 50vh;
+            }
+
+            .projects-container {
+                max-width: 300px;
+            }
+
+            .link-item {
+                padding: 12px 16px;
+                min-height: 70px;
+            }
+
+            .status-title {
+                font-size: 24px;
+            }
+
+            .brand-logo {
+                height: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="https://trisight.mx/" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link has-hover-text">Network State</a></li>
+                <li><a href="#" class="nav-link has-hover-text">Project Boutique</a></li>
+                <li><a href="#" class="nav-link has-hover-text">Capital</a></li>
+                <li><a href="#" class="nav-link has-hover-text">Manifesto</a></li>
+                <li><a href="#" class="nav-link active">Status Board<span class="active-status"><span class="active-status-dot"></span><span class="active-status-text">Active</span></span></a></li>
+                <li><a href="#" class="nav-link has-hover-text">Communique<span class="sub-text">September 2025</span></a></li>
+                <li><a href="https://trisight.mx/uplinks/" class="nav-link has-hover-text">Uplinks</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <video autoplay loop muted id="bg-video">
+        <source src="/memetic-storm-bw.mp4" type="video/mp4">
+        <img src="/trisight-fallback.png" alt="Background image">
+    </video>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="hero-title-section">
+                <div class="separator"></div>
+                <br>
+                <a href="https://trisight.mx/" target="_blank" rel="noopener noreferrer" class="brand-logo-link">
+                    <img src="/trisight-brand-logo.png" alt="TRISIGHT" class="brand-logo">
+                </a>
+                <div class="main-description">Network State, Project Boutique & Capital</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="status-title">STATUS BOARD</div>
+        <div class="status-separator"></div>
+
+        <div class="projects-container">
+            <div class="projects-section">
+                <div class="section-header">CORE PROJECTS</div>
+                <div class="projects-grid">
+                        <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">WEBSITE V1</div>
+                            <div class="link-description">First Iteration of ⛬TRISIGHTᵐˣ Website.</div>
+                        </div>
+                        <div class="live-indicator">
+                            <div class="live-dot"></div>
+                            <span class="live-text">Live</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">DISCORD COMMUNITY</div>
+                            <div class="link-description">Social Hub For ⛬TRISIGHTᵐˣ Users.</div>
+                        </div>
+                        <div class="live-indicator">
+                            <div class="live-dot"></div>
+                            <span class="live-text">Live</span>
+                        </div>
+                    </a>
+
+                     <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">⛬TRISIGHTᵐˣ MANIFESTO</div>
+                            <div class="link-description">Our Vision & Creative Supremacy Philosophy.</div>
+                        </div>
+                        <div class="development-indicator">
+                            <div class="development-dot"></div>
+                            <span class="development-text">In Development</span>
+                        </div>
+                    </a>
+
+                     <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">COMMUNIQUE</div>
+                            <div class="link-description">Monthly ⛬TRISIGHTᵐˣ Updates.</div>
+                        </div>
+                        <div class="development-indicator">
+                            <div class="development-dot"></div>
+                            <span class="development-text">In Development</span>
+                        </div>
+                    </a>
+
+                     <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">NETWORK STATE INFRASTRUCTURE</div>
+                            <div class="link-description">Foundation for Decentralized Egregoric Societies.</div>
+                        </div>
+                        <div class="development-indicator">
+                            <div class="development-dot"></div>
+                            <span class="development-text">In Development</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">OMMA [ὄμμα]</div>
+                            <div class="link-description">On-chain Real-time Chat & Network Relay.</div>
+                        </div>
+                       <div class="research-indicator">
+                            <div class="research-dot"></div>
+                            <span class="research-text">In Research</span>
+                        </div>
+                    </a>
+
+                     <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">SUNROOT & BLOOM</div>
+                            <div class="link-description">Farming protocol on Chia Network.</div>
+                        </div>
+                        <div class="research-indicator">
+                            <div class="research-dot"></div>
+                            <span class="research-text">In Research</span>
+                        </div>
+                    </a>
+
+                     <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">BLVCKBOX™</div>
+                            <div class="link-description">Interactive Art & On-chain Technology Museum - Physical & VR.</div>
+                        </div>
+                         <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">SIGHTSEER</div>
+                            <div class="link-description">Esoteric Crypto Wallet.</div>
+                        </div>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">CRYPTARCH</div>
+                            <div class="link-description">OS-integrated Fast Access Portfolio Management & Trading.</div>
+                        </div>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">OVERSEER</div>
+                            <div class="link-description">Take The Universe With You - Mobile Mass Experiences App.</div>
+                        </div>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">DION</div>
+                            <div class="link-description">Sigilized Engagement System.</div>
+                        </div>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">AION</div>
+                            <div class="link-description">Narrative Marketplace.</div>
+                        </div>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">CROSSOVER</div>
+                            <div class="link-description">Schizo Bridge.</div>
+                        </div>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <div class="separator"></div>
+            <br>
+
+            <div class="projects-section">
+                <div class="section-header">MASS EXPERIENCES</div>
+                <div class="projects-grid">
+
+                    <a href="https://helve.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">HΞLVΞ™</div>
+                            <div class="link-description">Augmented Reality Covert Agency.</div>
+                        </div>
+                        <div class="development-indicator">
+                            <div class="development-dot"></div>
+                            <span class="development-text">In Development</span>
+                        </div>
+                    </a>
+
+                    <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">HITΞCH CRIMΞ™</div>
+                            <div class="link-description">Cinematic Narrative Universe Microlabel.</div>
+                        </div>
+                        <div class="development-indicator">
+                            <div class="development-dot"></div>
+                            <span class="development-text">In Development</span>
+                        </div>
+                    </a>
+
+                     <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">KΛNNIBΛL™</div>
+                            <div class="link-description">Stealth Narrative Techwear & Accessories.</div>
+                        </div>
+                        <div class="development-indicator">
+                            <div class="development-dot"></div>
+                            <span class="development-text">In Development</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">VOIDCATS</div>
+                            <div class="link-description">Cryptids from the Blockchain Abyss.</div>
+                        </div>
+                        <div class="research-indicator">
+                            <div class="research-dot"></div>
+                            <span class="research-text">In Research</span>
+                        </div>
+                    </a>
+
+                     <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">RELLIK™</div>
+                            <div class="link-description">On-chain Narrative Animated Series.</div>
+                        </div>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">BLVCKLVNE™</div>
+                            <div class="link-description">Audiophile's Pocket Universe. Digital & VR Vinyl Shop & Cafe.</div>
+                        </div>
+                         <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">THE STRAND</div>
+                            <div class="link-description">On-chain Rhizomatic Essay.</div>
+                        </div>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="link-item">
+                        <div class="link-content">
+                            <div class="link-title">THE RITUAL</div>
+                            <div class="link-description">The Altar Of Egregore - VR App.</div>
+                        </div>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
