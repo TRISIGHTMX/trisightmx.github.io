@@ -69,6 +69,7 @@
             width: 100%;
             max-height: calc(100vh - 40px);
             overflow-y: auto;
+            padding-bottom: 40px;
         }
 
         .profile-section {
@@ -126,6 +127,21 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
+        .main-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .main-description {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            text-align: center;
+            font-style: italic;
+        }
+
         .links-container {
             display: flex;
             flex-direction: column;
@@ -157,6 +173,23 @@
             border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .link-title {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .link-description {
+            font-size: 12px;
+            opacity: 0.7;
+            font-weight: 400;
         }
 
         .link-item.center-text {
@@ -197,6 +230,54 @@
             font-size: 12px;
             font-weight: 600;
             text-shadow: 0 0 10px #00ff00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .progress-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff8c00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00;
+            animation: blink 1.5s infinite;
+        }
+
+        .progress-text {
+            color: #ff8c00;
+            font-size: 12px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #ff8c00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .research-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .research-dot {
+            width: 8px;
+            height: 8px;
+            background: #8a2be2;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2;
+            animation: blink 1.5s infinite;
+        }
+
+        .research-text {
+            color: #8a2be2;
+            font-size: 12px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #8a2be2;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -244,48 +325,6 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
-        /* Quote Section */
-        .quote-section {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 33.33vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-            padding: 20px;
-        }
-
-        .quote-container {
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-            transform: scale(0.67);
-        }
-
-        .quote-text {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 16px;
-            font-weight: 400;
-            color: #fff;
-            opacity: 0.8;
-            letter-spacing: 0.5px;
-            line-height: 1.6;
-            word-break: break-word;
-        }
-
-        .quote-label {
-            font-size: 11px;
-            opacity: 0.6;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
         /* Custom scrollbar styling */
         .content::-webkit-scrollbar {
             width: 6px;
@@ -303,12 +342,6 @@
 
         .content::-webkit-scrollbar-thumb:hover {
             background: rgba(255, 255, 255, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .quote-container {
-                transform: scale(0.85);
-            }
         }
 
         @media (max-width: 480px) {
@@ -330,14 +363,6 @@
 
             .two-column-row {
                 flex-direction: column;
-            }
-
-            .quote-container {
-                transform: scale(1);
-            }
-            
-            .quote-section {
-                padding: 15px;
             }
         }
     </style>
@@ -377,12 +402,11 @@
                 🎵
             </a>
         </div>
+
+        <div class="main-title">⛬TRISIGHTᵐˣ</div>
+        <div class="main-description">Network State, Project Boutique & Autonomous Capital</div>
         
         <div class="links-container">
-            <a href="https://network.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item center-text">
-                Network State, Project Boutique & Capital
-            </a>
-            
             <div class="two-column-row">
                 <a href="https://discord.gg/trisight" target="_blank" rel="noopener noreferrer" class="link-item">
                     Discord
@@ -392,11 +416,90 @@
                     Afterhours
                 </a>
             </div>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="link-title">Core Network State Infrastructure</div>
+                </div>
+                <div class="progress-indicator">
+                    <div class="progress-dot"></div>
+                    <span class="progress-text">In Progress</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="link-title">Omma</div>
+                    <div class="link-description">On-chain Real-time Chat & Network Relay</div>
+                </div>
+                <div class="research-indicator">
+                    <div class="research-dot"></div>
+                    <span class="research-text">Researching</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="link-title">Sightseer</div>
+                    <div class="link-description">Esoteric Crypto Wallet.</div>
+                </div>
+                <div class="research-indicator">
+                    <div class="research-dot"></div>
+                    <span class="research-text">Researching</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="link-title">Cryptarch</div>
+                    <div class="link-description">Your OS-integrated Fast Access Portfolio Management & Trading.</div>
+                </div>
+                <div class="research-indicator">
+                    <div class="research-dot"></div>
+                    <span class="research-text">Researching</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="link-title">Dion</div>
+                    <div class="link-description">Sigilized Engagement System</div>
+                </div>
+                <div class="research-indicator">
+                    <div class="research-dot"></div>
+                    <span class="research-text">Researching</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="link-title">Aion</div>
+                    <div class="link-description">Narrative Marketplace</div>
+                </div>
+                <div class="research-indicator">
+                    <div class="research-dot"></div>
+                    <span class="research-text">Researching</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="link-title">Crossover</div>
+                    <div class="link-description">Schizo Bridge</div>
+                </div>
+                <div class="research-indicator">
+                    <div class="research-dot"></div>
+                    <span class="research-text">Researching</span>
+                </div>
+            </a>
             
             <div class="section-header">⛬TRISIGHTᵐˣ MASS EXPERIENCES</div>
 
             <a href="https://helve.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
-                <span>HΞLVΞ</span>
+                <div class="link-content">
+                    <div class="link-title">HΞLVΞ</div>
+                    <div class="link-description">Augmented Reality Covert Agency.</div>
+                </div>
                 <div class="active-indicator">
                     <div class="active-dot"></div>
                     <span class="active-text">Active</span>
@@ -404,84 +507,65 @@
             </a>
             
             <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
-                <span>HITΞCH CRIMΞ</span>
+                <div class="link-content">
+                    <div class="link-title">HITΞCH CRIMΞ</div>
+                    <div class="link-description">Cinematic Narrative Universe Microlabel</div>
+                </div>
                 <div class="active-indicator">
                     <div class="active-dot"></div>
                     <span class="active-text">Active</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="link-title">Voidcats</div>
+                    <div class="link-description">Cryptids from the blockchain abyss.</div>
+                </div>
+                <div class="research-indicator">
+                    <div class="research-dot"></div>
+                    <span class="research-text">Researching</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="link-title">The Strand</div>
+                    <div class="link-description">On-chain Rhizomatic Essay</div>
+                </div>
+                <div class="research-indicator">
+                    <div class="research-dot"></div>
+                    <span class="research-text">Researching</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="link-title">The Ritual</div>
+                    <div class="link-description">The Altar Of Egregore. VR App.</div>
+                </div>
+                <div class="research-indicator">
+                    <div class="research-dot"></div>
+                    <span class="research-text">Researching</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="link-title">Blvckbox</div>
+                    <div class="link-description">Experimental On-chain Interactive Art & Technology Museum. Also available in VR.</div>
+                </div>
+                <div class="research-indicator">
+                    <div class="research-dot"></div>
+                    <span class="research-text">Researching</span>
                 </div>
             </a>
             
         </div>
     </div>
 
-    <div class="quote-section">
-        <div class="quote-container">
-            <div class="quote-label">IN GNOSIM CONFIDIMUS</div>
-            <div id="quote-display" class="quote-text"></div>
-        </div>
-    </div>
-
     <script>
-        // Obfuscated quotes array - complete from root index.html
-        const qData = [
-            'VGhlIG1vc3QgYnJlYXRodGFraW5nIHRoaW5ncyBpbiBsaWZlIGFyZW4ndCBsb3VkLiBUaGV5IGFyZSB3aGlzcGVyZWQuIFRoZXkgYXJlIGZlbHQuIFRoZXkgYXJlIHRpbWVsZXNzLg==',
-            'SXQgaXMgbm90IHRoZSBzbHVtYmVyIG9mIHJlYXNvbiB0aGF0IGVuZ2VuZGVycyBtb25zdGVycywgYnV0IHZpZ2lsYW50IGFuZCBpbnNvbW5pYWMgcmF0aW9uYWxpdHku',
-            'SGltIHdobyBlYXRzIHRpbWUuIEhpcyByb2JlcywgYSB3aW5kIG9mIGludmlzaWJsZSB2b2ljZXMu',
-            'V2hhdCBpcyBiZXlvbmQgeW91IGlzIG5vdCB5b3VyIGJ1cmRlbi4=',
-            'VGhlIG1vc3QgcGFpbmZ1bCB0aGluZyBpbiB0aGUgd29ybGQgaXMgdGhlIGRlYXRoIG9mIGEgZHJlYW0u',
-            'V2UgYnVpbGQgZW1waXJlcyB0aGF0IHdlIGRvbid0IG5lZWQgdG8gcnVsZS4=',
-            'VGhlIHByaXZpbGVnZSBvZiBhIGxpZmV0aW1lIGlzIHRvIGJlY29tZSB3aG8geW91IHRydWx5IGFyZS4gQnV0IGZpcnN0LCB5b3UgbXVzdCB1bmxlYXJuIHdobyB0aGV5IHRvbGQgeW91IHRvIGJlLg==',
-            'RXZlcnkgcHJvZm91bmQgc3Bpcml0IG5lZWRzIGEgbWFzay4=',
-            'QXJlIHlvdXIgc2Vuc2VzIHRlbGxpbmcgeW91IHRoZSB3aG9sZSBzcGVjdHJ1bSBvZiB0cnV0aD8=',
-            'UmVhbGl0eSBpcyBhIGZsZWV0aW5nIGNvbmNlcHQgYW5kIHlvdXIgcm9vdHMgb2YgdGhlIG1pbmR0cmVlIGNhbiBiZSBlYXNpbHkgZGlzcGxhY2VkLg==',
-            'VGhlIHNraW4gaXMgdGhlIHBzeWNoby1waHlzaWNhbCBiYXJyaWVyIGJldHdlZW4gb3VyIHBlcnNvbmFsIGFuZCBwdWJsaWMgc2VsdmVzLiBUaGUgc2tpbiwgaWYgeW91IHdvdWxkLCBpcyB0aGUgc2Vuc2F0ZSBtZW1icmFuZSBvZiBob3cgd2Uga25vdyB3aG8sIHdoYXQgYW5kIHdoZXJlIHdlIGFyZSwgYW5kIHdoYXQgd2UgYXJlIGRvaW5nLg==',
-            'V2UgaGF2ZSBiZWVuIHRvbGQgdG8gcmVqZWN0IG91ciBiaW9sb2d5LCBwYXJ0aWN1bGFybHkgYnkgdGhvc2Ugd2hvIGRlbWFuZCBtb3JlIHRlcnJpdG9yeSBmb3IgdGhlaXIgb3duIGJpb2xvZ2ljYWwgc2FmZXR5Lg==',
-            'QWxsIHRoZSBnb2RzLCBhbGwgdGhlIGhlYXZlbnMsIGFsbCB0aGUgaGVsbHMsIGFyZSB3aXRoaW4geW91Lg==',
-            'V2hvc29ldmVyIGlzIGRlbGlnaHRlZCBpbiBzb2xpdHVkZSBpcyBlaXRoZXIgYSB3aWxkIGJlYXN0IG9yIGEgZ29kLg==',
-            'WW91IG5lZWQgdG8gd2FudCB3aGF0IHlvdSBoYXZlLiBOb3QgdG8gaGF2ZSB3aGF0IHlvdSB3YW50Lg==',
-            'WW91IGFyZSBvbmx5IHJlYmVsbGlvdXMgaW4gdGhlIGV5ZXMgb2YgdGhvc2Ugd2hvIGNhbm5vdCBjb250cm9sIG9yIG1hbmlwdWxhdGUgeW91Lg==',
-            'SWYgeW91IHJlYWxseSB3YW50IHRvIGdldCByaWQgb2YgcGVvcGxlLCBhbGwgeW91J3ZlIGdvdCB0byBkbyBpcyB0ZWxsIHRoZSB0cnV0aC4=',
-            'RG93bmxvYWQgeW91ciBuZXcgaWRlbnRpdHkgZmFzdGVyIHRoYW4gdGhlIG9sZCBvbmUgY2FuIHB1bGwgeW91IGJhY2su',
-            'U29tZSBwZW9wbGUgY2FuJ3QgaGFuZGxlIHRoZSBsaWdodCB3aXRoaW4geW91Lg==',
-            'TWVkaW9jcml0eSBrbm93cyBub3RoaW5nIGhpZ2hlciB0aGFuIGl0c2VsZiwgYnV0IHRhbGVudCBpbnN0YW50bHkgcmVjb2duaXplcyBnZW5pdXMu',
-            'VGhlIG1vcmUgcG93ZXJmdWwgYW5kIG9yaWdpbmFsIGEgbWluZCwgdGhlIG1vcmUgaXQgd2lsbCBpbmNsaW5lIHRvd2FyZHMgdGhlIHJlbGlnaW9uIG9mIHNvbGl0dWRlLg==',
-            'WW91IGNhbm5vdCB0cnVseSBiZSBhIGdvb2QgcGVyc29uIHVudGlsIHlvdSBrbm93IGhvdyBtdWNoIGV2aWwgY2FuIGJlIHdpdGhpbiB5b3Uu',
-            'VGhlIHdvcmxkIGlzIGZ1bGwgb2Ygc2lubmVycyBqdWRnaW5nIGVhY2ggb3RoZXIgZm9yIHNpbm5pbmcgZGlmZmVyZW50bHku',
-            'VGhlIG1vcmUgd29yZHMgeW91IHVzZSB0byBkZXNjcmliZSB0aGUgdHJ1dGggdGhlIG1vcmUgaXQgc291bmRzIGxpa2UgYSBsaWUu',
-            'U29tZSB0b3VjaCB5b3VyIHNraW4gdG8gcmVhY2ggeW91ciBzb3VsLiBPdGhlcnMgc3BlYWsgd29yZHMgdGhhdCBiZWNvbWUgeW91ciBzaGVsdGVyLiBBIGZldyBvZmZlciBwcmVzZW5jZSBhcyB0aGVpciBnaWZ0LiBUaGUgd2lzZXN0IGtub3cgd2hpY2ggb2ZmZXJpbmcgeW91ciBzcGlyaXQgaHVuZ2VycyBmb3IgaW4gZWFjaCBtb21lbnQu',
-            'QWdpbmcgaXMgYW4gZXh0cmFvcmRpbmFyeSBwcm9jZXNzIHdoZXJlYnkgeW91IGJlY29tZSB0aGUgcGVyc29uIHlvdSBhbHdheXMgc2hvdWxkIGhhdmUgYmVlbi4=',
-            'T25lIHdobyBzY3VscHRzIGVudHJvcHkgaW50byBlbGVnYW5jZS4=',
-            'SXQncyBhIHdhciBiZXR3ZWVuIG1vbm90b255IGFuZCBub3ZlbHR5LCBiZXR3ZWVuIHN0YXNpcyBhbmQgY3JlYXRpdml0eS4gQW5kIGluIHRoaXMgd2FyLCBvdXIgc2lkZSBpcyBub3QgZGVzdGluZWQgdG8gbG9zZS4='
-        ];
-
-        function dQ(enc) {
-            try {
-                return atob(enc);
-            } catch(e) {
-                return '';
-            }
-        }
-
-        function getQuotes() {
-            const decoded = [];
-            for(let i = 0; i < qData.length; i++) {
-                const q = dQ(qData[i]);
-                if(q) decoded.push(q);
-            }
-            return decoded;
-        }
-
-        function displayRandomQuote() {
-            const quotes = getQuotes();
-            if(quotes.length === 0) return;
-            
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            const randomQuote = quotes[randomIndex];
-            
-            document.getElementById('quote-display').textContent = randomQuote;
-        }
-
-        displayRandomQuote();
+        // No quotes needed since quote section was removed
     </script>
 
 </body>
