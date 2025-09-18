@@ -73,24 +73,30 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            opacity: 0.7;
+            gap: 12px;
+            opacity: 0.8;
             animation: bounce 2s infinite;
             z-index: 2;
             cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .scroll-text {
-            font-size: 11px;
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
 
         .scroll-arrow {
-            width: 18px;
-            height: 18px;
-            border: 2px solid #fff;
+            width: 24px;
+            height: 24px;
+            border: 3px solid #fff;
             border-left: none;
             border-top: none;
             transform: rotate(45deg);
@@ -101,10 +107,10 @@
                 transform: translateX(-50%) translateY(0);
             }
             40% {
-                transform: translateX(-50%) translateY(-8px);
+                transform: translateX(-50%) translateY(-10px);
             }
             60% {
-                transform: translateX(-50%) translateY(-4px);
+                transform: translateX(-50%) translateY(-5px);
             }
         }
 
@@ -212,10 +218,11 @@
         }
 
         .status-title {
-            font-size: 28px;
+            font-size: 36px;
             font-weight: 700;
             margin-bottom: 40px;
             text-align: center;
+            letter-spacing: 2px;
         }
 
         .projects-container {
@@ -438,6 +445,19 @@
             .scroll-indicator {
                 bottom: 10px;
             }
+
+            .status-title {
+                font-size: 30px;
+            }
+
+            .scroll-text {
+                font-size: 12px;
+            }
+
+            .scroll-arrow {
+                width: 20px;
+                height: 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -453,6 +473,10 @@
             .link-item {
                 padding: 12px 16px;
                 min-height: 70px;
+            }
+
+            .status-title {
+                font-size: 24px;
             }
         }
     </style>
@@ -503,7 +527,7 @@
             <div class="main-description">Network State, Project Boutique & Autonomous Capital</div>
         </div>
 
-        <div class="scroll-indicator" onclick="document.querySelector('.content-section').scrollIntoView({behavior: 'smooth'});">
+        <div class="scroll-indicator" id="scrollIndicator" onclick="document.querySelector('.content-section').scrollIntoView({behavior: 'smooth'});">
             <span class="scroll-text">Status Board</span>
             <div class="scroll-arrow"></div>
         </div>
@@ -624,7 +648,7 @@
                 <div class="projects-grid">
                     <a href="https://helve.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
                         <div class="link-content">
-                            <div class="link-title">HΞLVΞ</div>
+                            <div class="link-title">HΞLVΞ™</div>
                             <div class="link-description">Augmented Reality Covert Agency.</div>
                         </div>
                         <div class="progress-indicator">
@@ -635,7 +659,7 @@
                     
                     <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
                         <div class="link-content">
-                            <div class="link-title">HITΞCH CRIMΞ</div>
+                            <div class="link-title">HITΞCH CRIMΞ™</div>
                             <div class="link-description">Cinematic Narrative Universe Microlabel.</div>
                         </div>
                         <div class="progress-indicator">
@@ -646,7 +670,7 @@
 
                      <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
                         <div class="link-content">
-                            <div class="link-title">KΛNNIBΛL</div>
+                            <div class="link-title">KΛNNIBΛL™</div>
                             <div class="link-description">Stealth Narrative Techwear & Accessories.</div>
                         </div>
                         <div class="progress-indicator">
@@ -668,7 +692,7 @@
 
                     <a href="#" class="link-item">
                         <div class="link-content">
-                            <div class="link-title">BLVCKLVNE</div>
+                            <div class="link-title">BLVCKLVNE™</div>
                             <div class="link-description">Pocket Audiophile's Universe. Digital & VR Vinyl Shop & Cafe.</div>
                         </div>
                         <div class="research-indicator">
@@ -701,7 +725,7 @@
 
                     <a href="#" class="link-item">
                         <div class="link-content">
-                            <div class="link-title">Blvckbox</div>
+                            <div class="link-title">BLVCKBOX™</div>
                             <div class="link-description">On-chain Interactive Art & Technology Museum. Also available in VR.</div>
                         </div>
                         <div class="research-indicator">
@@ -713,6 +737,23 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Handle scroll indicator visibility
+        window.addEventListener('scroll', function() {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const heroSection = document.querySelector('.hero-section');
+            const heroHeight = heroSection.offsetHeight;
+            const scrollPosition = window.scrollY;
+            
+            // Hide indicator when scrolled past 80% of hero section
+            if (scrollPosition > heroHeight * 0.8) {
+                scrollIndicator.classList.add('hidden');
+            } else {
+                scrollIndicator.classList.remove('hidden');
+            }
+        });
+    </script>
 
 </body>
 </html>
