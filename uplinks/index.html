@@ -202,12 +202,25 @@
             max-width: 360px;
         }
 
+        .brand-logo-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
         .brand-logo {
             height: 72px;
             width: auto;
             margin-bottom: 15px;
             opacity: 0.9;
             filter: brightness(1.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .brand-logo-link:hover .brand-logo {
+            filter: brightness(1.3) drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+            transform: translateY(-2px);
         }
 
         .main-description {
@@ -475,36 +488,6 @@
             51%, 100% { opacity: 0.3; }
         }
 
-        .back-home {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            text-decoration: none;
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .back-home:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
-
         @media (max-width: 768px) {
             .social-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -589,10 +572,6 @@
         <img src="/trisight-fallback.png" alt="Background image">
     </video>
 
-    <a href="/" class="back-home" title="Back to Home">
-        <
-    </a>
-
     <div class="hero-section">
         <div class="profile-section">
             <img src="/avatar.png" alt="Profile" class="profile-image">
@@ -624,7 +603,9 @@
         <div class="hero-title-section">
             <div class="separator"></div>
             <br>
-            <img src="/trisight-brand-logo.png" alt="TRISIGHT" class="brand-logo">
+            <a href="https://trisight.mx/" target="_blank" rel="noopener noreferrer" class="brand-logo-link">
+                <img src="/trisight-brand-logo.png" alt="TRISIGHT" class="brand-logo">
+            </a>
             <div class="main-description">Network State, Project Boutique & Autonomous Capital</div>
         </div>
 
