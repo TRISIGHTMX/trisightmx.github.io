@@ -126,11 +126,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 15px 15px 25px 15px;
+            padding: 20px 20px 40px 20px;
             text-align: center;
             position: relative;
             z-index: 1;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             width: 100%;
         }
@@ -240,9 +240,9 @@
         }
 
         .status-title {
-            font-size: 28px;
+            font-size: 36px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: center;
             letter-spacing: 2px;
         }
@@ -251,13 +251,13 @@
             width: 80%;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            margin: 10px 0 25px 0;
+            margin: 20px 0 40px 0;
             max-width: 500px;
         }
 
         .projects-container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 600px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -270,246 +270,231 @@
         }
 
         .section-header {
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bold;
             letter-spacing: 1px;
             opacity: 0.8;
-            text-align: center;
-            margin-bottom: 15px;
+            text-align: left;
+            margin-bottom: 20px;
+            position: absolute;
+            left: -180px;
+            top: 20px;
+            width: 160px;
+            white-space: nowrap;
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
+            grid-template-columns: 1fr;
+            gap: 15px;
             width: 100%;
         }
 
         .link-item {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            padding: 8px 10px;
+            border-radius: 12px;
+            padding: 15px 20px;
             text-decoration: none;
             color: #fff;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
-            text-align: center;
+            align-items: center;
+            text-align: left;
             font-weight: 500;
-            font-size: 12px;
-            min-height: 85px;
+            font-size: 16px;
+            min-height: 80px;
             width: 100%;
         }
 
         .link-item:hover {
             background: rgba(255, 255, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .link-content {
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            gap: 5px;
             flex: 1;
             min-width: 0;
-            margin-bottom: 6px;
         }
 
         .link-title {
-            font-weight: 600;
-            font-size: 12px;
-            margin-bottom: 2px;
-            line-height: 1.2;
+            font-weight: 500;
+            font-size: 16px;
         }
 
         .link-description {
-            font-size: 9px;
+            font-size: 12px;
             opacity: 0.7;
             font-weight: 400;
-            line-height: 1.2;
+
         }
 
         .active-indicator {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 4px;
+            gap: 8px;
             flex-shrink: 0;
         }
 
         .active-dot {
-            width: 4px;
-            height: 4px;
+            width: 8px;
+            height: 8px;
             background: #00ff00;
             border-radius: 50%;
-            box-shadow: 0 0 4px #00ff00, 0 0 8px #00ff00;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
             animation: blink 1.5s infinite;
         }
 
         .active-text {
             color: #00ff00;
-            font-size: 8px;
+            font-size: 12px;
             font-weight: 600;
-            text-shadow: 0 0 4px #00ff00;
+            text-shadow: 0 0 10px #00ff00;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         /* Live Status - Green */
         .live-indicator {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 4px;
+            gap: 8px;
             flex-shrink: 0;
         }
 
         .live-dot {
-            width: 4px;
-            height: 4px;
+            width: 8px;
+            height: 8px;
             background: #00ff00;
             border-radius: 50%;
-            box-shadow: 0 0 4px #00ff00, 0 0 8px #00ff00;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
             animation: blink 1.5s infinite;
         }
 
         .live-text {
             color: #00ff00;
-            font-size: 8px;
+            font-size: 12px;
             font-weight: 600;
-            text-shadow: 0 0 4px #00ff00;
+            text-shadow: 0 0 10px #00ff00;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         /* In Development Status - Orange */
         .development-indicator {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 4px;
+            gap: 8px;
             flex-shrink: 0;
         }
 
         .development-dot {
-            width: 4px;
-            height: 4px;
+            width: 8px;
+            height: 8px;
             background: #ff8c00;
             border-radius: 50%;
-            box-shadow: 0 0 4px #ff8c00, 0 0 8px #ff8c00;
+            box-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00;
             animation: blink 1.5s infinite;
         }
 
         .development-text {
             color: #ff8c00;
-            font-size: 8px;
+            font-size: 12px;
             font-weight: 600;
-            text-shadow: 0 0 4px #ff8c00;
+            text-shadow: 0 0 10px #ff8c00;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         /* In Research Status - Purple */
         .research-indicator {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 4px;
+            gap: 8px;
             flex-shrink: 0;
         }
 
         .research-dot {
-            width: 4px;
-            height: 4px;
+            width: 8px;
+            height: 8px;
             background: #9932cc;
             border-radius: 50%;
-            box-shadow: 0 0 4px #9932cc, 0 0 8px #9932cc;
+            box-shadow: 0 0 10px #9932cc, 0 0 20px #9932cc;
             animation: blink 1.5s infinite;
         }
 
         .research-text {
             color: #9932cc;
-            font-size: 8px;
+            font-size: 12px;
             font-weight: 600;
-            text-shadow: 0 0 4px #9932cc;
+            text-shadow: 0 0 10px #9932cc;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         /* Planned Status - White */
         .planned-indicator {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 4px;
+            gap: 8px;
             flex-shrink: 0;
         }
 
         .planned-dot {
-            width: 4px;
-            height: 4px;
+            width: 8px;
+            height: 8px;
             background: #ffffff;
             border-radius: 50%;
-            box-shadow: 0 0 4px #ffffff, 0 0 8px #ffffff;
+            box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
             animation: blink 1.5s infinite;
         }
 
         .planned-text {
             color: #ffffff;
-            font-size: 8px;
+            font-size: 12px;
             font-weight: 600;
-            text-shadow: 0 0 4px #ffffff;
+            text-shadow: 0 0 10px #ffffff;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         /* Legacy upcoming classes for compatibility */
         .upcoming-indicator {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 4px;
+            gap: 8px;
             flex-shrink: 0;
         }
 
         .upcoming-dot {
-            width: 4px;
-            height: 4px;
+            width: 8px;
+            height: 8px;
             background: #ffffff;
             border-radius: 50%;
-            box-shadow: 0 0 4px #ffffff, 0 0 8px #ffffff;
+            box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
             animation: blink 1.5s infinite;
         }
 
         .upcoming-text {
             color: #ffffff;
-            font-size: 8px;
+            font-size: 12px;
             font-weight: 600;
-            text-shadow: 0 0 4px #ffffff;
+            text-shadow: 0 0 10px #ffffff;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         @keyframes blink {
             0%, 50% { opacity: 1; }
             51%, 100% { opacity: 0.3; }
-        }
-
-        @media (max-width: 1024px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 6px;
-            }
-
-            .content-section {
-                max-width: 800px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -519,12 +504,15 @@
             }
 
             .projects-container {
-                max-width: 600px;
+                max-width: 400px;
             }
 
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 6px;
+            .section-header {
+                position: static;
+                text-align: center;
+                margin-bottom: 15px;
+                white-space: normal;
+                width: auto;
             }
 
             .hero-section {
@@ -532,12 +520,11 @@
             }
 
             .content-section {
-                padding: 10px 10px 15px 10px;
-                max-width: 100%;
+                padding: 15px 15px 20px 15px;
             }
 
             .status-title {
-                font-size: 24px;
+                font-size: 30px;
             }
 
             .scroll-text {
@@ -558,10 +545,9 @@
                 padding-bottom: 30px;
             }
 
-            .link-item {
-                min-height: 75px;
-                padding: 6px 8px;
-            }
+
+
+
         }
 
         @media (max-width: 480px) {
@@ -571,21 +557,16 @@
             }
 
             .projects-container {
-                max-width: 100%;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 6px;
+                max-width: 300px;
             }
 
             .link-item {
-                padding: 6px 8px;
+                padding: 12px 16px;
                 min-height: 70px;
             }
 
             .status-title {
-                font-size: 20px;
+                font-size: 24px;
             }
 
             .brand-logo {
@@ -597,13 +578,13 @@
                 padding-bottom: 25px;
             }
 
-            .link-title {
-                font-size: 11px;
-            }
 
-            .link-description {
-                font-size: 8px;
-            }
+
+
+
+
+
+
         }
     </style>
 </head>
@@ -677,7 +658,7 @@
                             <span class="live-text">Live</span>
                         </div>
                     </a>
-                    
+
                     <a href="#" class="link-item">
                         <div class="link-content">
                             <div class="link-title">DISCORD COMMUNITY</div>
@@ -825,11 +806,11 @@
             </div>
             <div class="separator"></div>
             <br>
-            
+
             <div class="projects-section">
                 <div class="section-header">MASS EXPERIENCES</div>
                 <div class="projects-grid">
-                    
+
                     <a href="https://helve.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
                         <div class="link-content">
                             <div class="link-title">HΞLVΞ™</div>
@@ -840,7 +821,7 @@
                             <span class="development-text">In Development</span>
                         </div>
                     </a>
-                    
+
                     <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
                         <div class="link-content">
                             <div class="link-title">HITΞCH CRIMΞ™</div>
@@ -928,7 +909,7 @@
         window.addEventListener('scroll', function() {
             const scrollIndicator = document.getElementById('scrollIndicator');
             const scrollPosition = window.scrollY;
-            
+
             // Hide indicator as soon as user starts scrolling
             if (scrollPosition > 0) {
                 scrollIndicator.classList.add('hidden');
