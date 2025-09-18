@@ -144,8 +144,10 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-            display: block;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
             font-weight: 500;
             font-size: 16px;
         }
@@ -157,6 +159,11 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
+        .link-item.center-text {
+            justify-content: center;
+            text-align: center;
+        }
+
         .two-column-row {
             display: flex;
             gap: 15px;
@@ -166,6 +173,37 @@
         .two-column-row .link-item {
             flex: 1;
             min-width: 0;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .active-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .active-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            animation: blink 1.5s infinite;
+        }
+
+        .active-text {
+            color: #00ff00;
+            font-size: 12px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #00ff00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
         }
 
         .section-header {
@@ -341,7 +379,7 @@
         </div>
         
         <div class="links-container">
-            <a href="https://network.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
+            <a href="https://network.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item center-text">
                 Network State, Project Boutique & Capital
             </a>
             
@@ -357,15 +395,21 @@
             
             <div class="section-header">⛬TRISIGHTᵐˣ MASS EXPERIENCES</div>
 
-             <div class="two-column-row">
             <a href="https://helve.trisight.mx" target="_blank" rel="noopener noreferrer" class="link-item">
-                HΞLVΞ
+                <span>HΞLVΞ</span>
+                <div class="active-indicator">
+                    <div class="active-dot"></div>
+                    <span class="active-text">Active</span>
+                </div>
             </a>
             
-           <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
-                HITΞCH CRIMΞ
+            <a href="https://hitechcri.me" target="_blank" rel="noopener noreferrer" class="link-item">
+                <span>HITΞCH CRIMΞ</span>
+                <div class="active-indicator">
+                    <div class="active-dot"></div>
+                    <span class="active-text">Active</span>
+                </div>
             </a>
-             </div>
             
         </div>
     </div>
