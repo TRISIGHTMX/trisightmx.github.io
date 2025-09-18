@@ -199,29 +199,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 140px 20px 40px 20px; /* Increased top padding to account for nav */
+            padding: 240px 20px 40px 20px; /* Increased from 140px to 240px (moved 10vh down) */
             text-align: center;
             position: relative;
             z-index: 1;
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
-        }
-
-        .status-title {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-align: center;
-            letter-spacing: 2px;
-        }
-
-        .status-separator {
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            margin: 20px 0 40px 0;
-            max-width: 500px;
         }
 
         .projects-container {
@@ -448,11 +432,7 @@
             }
 
             .content-section {
-                padding: 120px 15px 20px 15px;
-            }
-
-            .status-title {
-                font-size: 30px;
+                padding: 200px 15px 20px 15px; /* Adjusted for mobile */
             }
         }
 
@@ -499,12 +479,8 @@
                 min-height: 70px;
             }
 
-            .status-title {
-                font-size: 24px;
-            }
-
             .content-section {
-                padding: 100px 15px 20px 15px;
+                padding: 180px 15px 20px 15px; /* Adjusted for smallest screens */
             }
         }
     </style>
@@ -532,9 +508,6 @@
     </video>
 
     <div class="content-section">
-        <div class="status-title">STATUS BOARD</div>
-        <div class="status-separator"></div>
-
         <div class="projects-container">
             <div class="projects-section">
                 <div class="section-header">CORE PROJECTS</div>
