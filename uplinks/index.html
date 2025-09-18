@@ -340,6 +340,33 @@
             letter-spacing: 1px;
         }
 
+        /* Live Status - Green */
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            animation: blink 1.5s infinite;
+        }
+
+        .live-text {
+            color: #00ff00;
+            font-size: 12px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #00ff00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* In Development Status - Orange */
         .development-indicator {
             display: flex;
             align-items: center;
@@ -350,21 +377,22 @@
         .development-dot {
             width: 8px;
             height: 8px;
-            background: #00ff00;
+            background: #ff8c00;
             border-radius: 50%;
-            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            box-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00;
             animation: blink 1.5s infinite;
         }
 
         .development-text {
-            color: #00ff00;
+            color: #ff8c00;
             font-size: 12px;
             font-weight: 600;
-            text-shadow: 0 0 10px #00ff00;
+            text-shadow: 0 0 10px #ff8c00;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
+        /* In Research Status - Purple */
         .research-indicator {
             display: flex;
             align-items: center;
@@ -375,21 +403,48 @@
         .research-dot {
             width: 8px;
             height: 8px;
-            background: #ff8c00;
+            background: #9932cc;
             border-radius: 50%;
-            box-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00;
+            box-shadow: 0 0 10px #9932cc, 0 0 20px #9932cc;
             animation: blink 1.5s infinite;
         }
 
         .research-text {
-            color: #ff8c00;
+            color: #9932cc;
             font-size: 12px;
             font-weight: 600;
-            text-shadow: 0 0 10px #ff8c00;
+            text-shadow: 0 0 10px #9932cc;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
+        /* Planned Status - White */
+        .planned-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .planned-dot {
+            width: 8px;
+            height: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+            animation: blink 1.5s infinite;
+        }
+
+        .planned-text {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Legacy upcoming classes for compatibility */
         .upcoming-indicator {
             display: flex;
             align-items: center;
@@ -592,9 +647,9 @@
                             <div class="link-title">WEBSITE V1</div>
                             <div class="link-description">First Iteration of ⛬TRISIGHTᵐˣ Website.</div>
                         </div>
-                        <div class="development-indicator">
-                            <div class="development-dot"></div>
-                            <span class="development-text">Live</span>
+                        <div class="live-indicator">
+                            <div class="live-dot"></div>
+                            <span class="live-text">Live</span>
                         </div>
                     </a>
                     
@@ -603,9 +658,9 @@
                             <div class="link-title">DISCORD COMMUNITY</div>
                             <div class="link-description">Social Hub For ⛬TRISIGHTᵐˣ Users.</div>
                         </div>
-                        <div class="development-indicator">
-                            <div class="development-dot"></div>
-                            <span class="development-text">Live</span>
+                        <div class="live-indicator">
+                            <div class="live-dot"></div>
+                            <span class="live-text">Live</span>
                         </div>
                     </a>
 
@@ -669,9 +724,9 @@
                             <div class="link-title">BLVCKBOX™</div>
                             <div class="link-description">Interactive Art & On-chain Technology Museum - Physical & VR.</div>
                         </div>
-                         <div class="upcoming-indicator">
-                            <div class="upcoming-dot"></div>
-                            <span class="upcoming-text">Upcoming</span>
+                         <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
                         </div>
                     </a>
 
@@ -680,9 +735,9 @@
                             <div class="link-title">SIGHTSEER</div>
                             <div class="link-description">Esoteric Crypto Wallet.</div>
                         </div>
-                        <div class="upcoming-indicator">
-                            <div class="upcoming-dot"></div>
-                            <span class="upcoming-text">Upcoming</span>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
                         </div>
                     </a>
 
@@ -691,9 +746,9 @@
                             <div class="link-title">CRYPTARCH</div>
                             <div class="link-description">OS-integrated Fast Access Portfolio Management & Trading.</div>
                         </div>
-                        <div class="upcoming-indicator">
-                            <div class="upcoming-dot"></div>
-                            <span class="upcoming-text">Upcoming</span>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
                         </div>
                     </a>
 
@@ -702,9 +757,9 @@
                             <div class="link-title">OVERSEER</div>
                             <div class="link-description">Take The Universe With You - Mobile Mass Experiences App.</div>
                         </div>
-                        <div class="upcoming-indicator">
-                            <div class="upcoming-dot"></div>
-                            <span class="upcoming-text">Upcoming</span>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
                         </div>
                     </a>
 
@@ -713,9 +768,9 @@
                             <div class="link-title">DION</div>
                             <div class="link-description">Sigilized Engagement System.</div>
                         </div>
-                        <div class="upcoming-indicator">
-                            <div class="upcoming-dot"></div>
-                            <span class="upcoming-text">Upcoming</span>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
                         </div>
                     </a>
 
@@ -724,9 +779,9 @@
                             <div class="link-title">AION</div>
                             <div class="link-description">Narrative Marketplace.</div>
                         </div>
-                        <div class="upcoming-indicator">
-                            <div class="upcoming-dot"></div>
-                            <span class="upcoming-text">Upcoming</span>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
                         </div>
                     </a>
 
@@ -735,9 +790,9 @@
                             <div class="link-title">CROSSOVER</div>
                             <div class="link-description">Schizo Bridge.</div>
                         </div>
-                        <div class="upcoming-indicator">
-                            <div class="upcoming-dot"></div>
-                            <span class="upcoming-text">Upcoming</span>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
                         </div>
                     </a>
 
@@ -799,9 +854,9 @@
                             <div class="link-title">RELLIK™</div>
                             <div class="link-description">On-chain narrative animated series.</div>
                         </div>
-                        <div class="upcoming-indicator">
-                            <div class="upcoming-dot"></div>
-                            <span class="upcoming-text">Upcoming</span>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
                         </div>
                     </a>
 
@@ -810,9 +865,9 @@
                             <div class="link-title">BLVCKLVNE™</div>
                             <div class="link-description">Pocket Audiophile's Universe. Digital & VR Vinyl Shop & Cafe.</div>
                         </div>
-                         <div class="upcoming-indicator">
-                            <div class="upcoming-dot"></div>
-                            <span class="upcoming-text">Upcoming</span>
+                         <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
                         </div>
                     </a>
 
@@ -821,9 +876,9 @@
                             <div class="link-title">THE STRAND</div>
                             <div class="link-description">On-chain Rhizomatic Essay.</div>
                         </div>
-                        <div class="upcoming-indicator">
-                            <div class="upcoming-dot"></div>
-                            <span class="upcoming-text">Upcoming</span>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
                         </div>
                     </a>
 
@@ -832,9 +887,9 @@
                             <div class="link-title">THE RITUAL</div>
                             <div class="link-description">The Altar Of Egregore - VR App.</div>
                         </div>
-                        <div class="upcoming-indicator">
-                            <div class="upcoming-dot"></div>
-                            <span class="upcoming-text">Upcoming</span>
+                        <div class="planned-indicator">
+                            <div class="planned-dot"></div>
+                            <span class="planned-text">Planned</span>
                         </div>
                     </a>
 
