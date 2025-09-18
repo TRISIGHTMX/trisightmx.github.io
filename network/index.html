@@ -228,6 +228,7 @@
         letter-spacing: 6px;
         text-transform: uppercase;
         opacity: 0.9;
+        animation: glow 2s ease-in-out infinite alternate;
     }
 
     .network-state-subtitle {
@@ -254,14 +255,6 @@
         text-align: center;
         transform: scale(0.67); /* Scaled content approach from second code */
         margin-top: 20px;
-    }
-
-    .separator {
-        width: 60%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-        margin: 30px 0;
-        max-width: 400px;
     }
 
     @keyframes glow {
@@ -388,7 +381,6 @@
 <div class="hero-section">
     <div class="coming-soon-container">
         <div class="coming-soon-text">Coming Soon</div>
-        <div class="separator"></div>
         <div class="creative-supremacy-text">
           We believe in Creative Supremacy™ and innovation is our weapon.
         </div>
