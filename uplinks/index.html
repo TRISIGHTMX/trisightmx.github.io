@@ -67,7 +67,7 @@
 
         .scroll-indicator {
             position: absolute;
-            bottom: 15px;
+            bottom: 35%;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -221,9 +221,17 @@
         .status-title {
             font-size: 36px;
             font-weight: 700;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             text-align: center;
             letter-spacing: 2px;
+        }
+
+        .status-separator {
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            margin: 20px 0 40px 0;
+            max-width: 500px;
         }
 
         .projects-container {
@@ -444,7 +452,7 @@
             }
 
             .scroll-indicator {
-                bottom: 10px;
+                bottom: 30%;
             }
 
             .status-title {
@@ -486,6 +494,10 @@
 
             .brand-logo {
                 height: 40px;
+            }
+
+            .scroll-indicator {
+                bottom: 25%;
             }
         }
     </style>
@@ -544,6 +556,7 @@
 
     <div class="content-section">
         <div class="status-title">STATUS BOARD</div>
+        <div class="status-separator"></div>
 
         <div class="projects-container">
             <div class="projects-section">
