@@ -65,6 +65,49 @@
             z-index: 1;
         }
 
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .scroll-text {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fff;
+            border-left: none;
+            border-top: none;
+            transform: rotate(45deg);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
         .content-section {
             display: flex;
             flex-direction: column;
@@ -376,6 +419,10 @@
             .content-section {
                 padding: 20px 15px;
             }
+
+            .scroll-indicator {
+                bottom: 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -432,6 +479,11 @@
             <a href="https://open.spotify.com/artist/1qXnwgOpt96mhs0vrnS2rx" target="_blank" rel="noopener noreferrer" class="social-link">
                 Spotify
             </a>
+        </div>
+
+        <div class="scroll-indicator" onclick="document.querySelector('.content-section').scrollIntoView({behavior: 'smooth'});">
+            <span class="scroll-text">More Below</span>
+            <div class="scroll-arrow"></div>
         </div>
     </div>
 
