@@ -325,9 +325,22 @@
             word-break: break-word;
         }
 
-        /* Combined segments section */
+        /* Vertical guide line */
+        .guide-line {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.5);
+            z-index: 2;
+        }
+
+        /* Combined segments section - now includes boxed segments */
         #combined-segments {
-            height: 100vh;
+            height: auto;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -399,14 +412,15 @@
             opacity: 1;
         }
 
-        /* Side by side boxed segments */
-        #boxed-segments {
-            height: 100vh;
+        /* Boxed segments container within combined-segments */
+        .boxed-segments-container {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 40px;
-            padding: 100px 40px 80px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 40px;
         }
 
         .boxed-segment {
@@ -508,10 +522,9 @@
                 gap: 30px;
             }
 
-            #boxed-segments {
+            .boxed-segments-container {
                 flex-direction: column;
                 gap: 30px;
-                padding: 100px 20px 80px;
             }
 
             .boxed-segment {
@@ -621,6 +634,9 @@
             <div id="quote-display" class="quote-text"></div>
         </div>
     </div>
+    
+    <!-- Vertical guide line -->
+    <div class="guide-line"></div>
 </section>
 
 <section class="section" id="combined-segments">
@@ -638,17 +654,18 @@
         <h2 class="vp-title">20+ Years of <span class="glow">Transmedia Storytelling</span> Experience</h2>
         <p class="vp-description">From small indie game studios to business entities - your <span class="egregore" id="egregore-text">egregore</span> deserves to propagate through the network.</p>
     </div>
-</section>
 
-<section class="section" id="boxed-segments">
-    <div class="boxed-segment">
-        <h2 class="vp-title">Unlock Our Manifesto</h2>
-        <div class="coming-soon-text">COMING SOON</div>
-    </div>
+    <!-- Boxed segments now directly below -->
+    <div class="boxed-segments-container">
+        <div class="boxed-segment">
+            <h2 class="vp-title">Unlock Our Manifesto</h2>
+            <div class="coming-soon-text">COMING SOON</div>
+        </div>
 
-    <div class="boxed-segment">
-        <h2 class="vp-title">Join Project Waitlist</h2>
-        <div class="coming-soon-text">COMING SOON</div>
+        <div class="boxed-segment">
+            <h2 class="vp-title">Join Project Waitlist</h2>
+            <div class="coming-soon-text">COMING SOON</div>
+        </div>
     </div>
 </section>
 
