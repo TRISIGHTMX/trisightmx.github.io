@@ -332,8 +332,10 @@
             left: 50%;
             transform: translateX(-50%);
             width: 1px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.5);
+            height: 160px;
+            background: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
+                        0 0 20px rgba(255, 255, 255, 0.3);
             z-index: 2;
         }
 
@@ -487,6 +489,10 @@
             #combined-segments {
                 gap: 40px;
             }
+
+            .guide-line {
+                height: 140px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -534,6 +540,10 @@
 
             .boxed-segment .vp-title {
                 font-size: 20px;
+            }
+
+            .guide-line {
+                height: 120px;
             }
         }
 
@@ -591,6 +601,10 @@
             .boxed-segment .vp-title {
                 font-size: 16px;
             }
+
+            .guide-line {
+                height: 100px;
+            }
         }
     </style>
 </head>
@@ -642,7 +656,7 @@
 <section class="section" id="combined-segments">
     <div class="segment-item">
         <h2 class="vp-title">Build <span class="glow">Multi-layered Narratives</span> On-chain</h2>
-        <p class="vp-description">Deepen the connection with your visions through emergent rhizomatic approach to telling persistent stories.</p>
+        <p class="vp-description">Spark a unique connection with your visions through emergent and persistent stories.</p>
     </div>
 
     <div class="segment-item">
@@ -652,7 +666,7 @@
 
     <div class="segment-item">
         <h2 class="vp-title">20+ Years of <span class="glow">Transmedia Storytelling</span> Experience</h2>
-        <p class="vp-description">From small indie game studios to business entities - your <span class="egregore" id="egregore-text">egregore</span> deserves to propagate through the network.</p>
+        <p class="vp-description">Your <span class="egregore" id="egregore-text">egregore</span> deserves to propagate through the network.</p>
     </div>
 
     <!-- Boxed segments now directly below -->
@@ -664,7 +678,7 @@
 
         <div class="boxed-segment">
             <h2 class="vp-title">Join Project Waitlist</h2>
-            <div class="coming-soon-text">COMING SOON</div>
+            <div class="coming-soon-text">STANDBY FOR INSTRUCTIONS</div>
         </div>
     </div>
 </section>
