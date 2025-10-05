@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset='UTF-8'>
@@ -10,389 +9,440 @@
     <meta property="og:description" content="Mass Experiences. Network State, Project Boutique & Capital.">
     <meta property="og:image" content="thumbnail.png">
 
- <title>TRISIGHTᵐˣ</title>
+    <title>TRISIGHTᵐˣ</title>
 
-<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-<!-- Inter Font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-<style>
-    * {
-        box-sizing: border-box;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-        margin: 0;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 17px;
-        overflow: hidden;
-        color: #fff;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #000;
-        cursor: crosshair;
-        position: relative;
-    }
+        html {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
 
-    /* Top radial blur overlay */
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 30vh;
-        background: radial-gradient(ellipse 70% 100% at center top, 
-                                  rgba(0, 0, 0, 0.6) 0%, 
-                                  rgba(0, 0, 0, 0.3) 40%, 
-                                  transparent 80%);
-        z-index: 5;
-        pointer-events: none;
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 17px;
+            color: #fff;
+            background-color: #000;
+            cursor: crosshair;
+            overflow-x: hidden;
+        }
 
-    /* Navigation Header */
-    .nav-header {
-        position: fixed;
-        top: 5vh;
-        left: 0;
-        right: 0;
-        z-index: 10;
-        background: transparent;
-        padding: 20px 0;
-    }
+        #bg-video {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0.4;
+            filter: blur(10px) contrast(0.7);
+        }
 
-    .nav-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+        /* Top radial blur overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30vh;
+            background: radial-gradient(ellipse 70% 100% at center top, 
+                                      rgba(0, 0, 0, 0.6) 0%, 
+                                      rgba(0, 0, 0, 0.3) 40%, 
+                                      transparent 80%);
+            z-index: 5;
+            pointer-events: none;
+        }
 
-    .nav-links {
-        display: flex;
-        align-items: flex-start;
-        gap: 40px;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .nav-link {
-        text-decoration: none;
-        color: #fff;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 14px;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        opacity: 0.7;
-        transition: all 0.3s ease;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-transform: uppercase;
-    }
-
-    .nav-link:hover {
-        opacity: 1;
-        transform: translateY(-1px);
-    }
-
-    .nav-link.active {
-        opacity: 1;
-        color: #fff;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-                     0 0 20px rgba(255, 255, 255, 0.6),
-                     0 0 30px rgba(255, 255, 255, 0.4);
-    }
-
-    .nav-link .sub-text {
-        font-size: 10px;
-        opacity: 0.6;
-        margin-top: 4px;
-        font-weight: 400;
-        letter-spacing: 0.3px;
-        text-transform: none;
-        position: absolute;
-        top: 100%;
-        white-space: nowrap;
-    }
-
-    .nav-link.active .sub-text {
-        opacity: 0.8;
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    }
-
-    /* Hover text that appears above certain nav items */
-    .nav-link.has-hover-text::before {
-        content: '⛬TRISIGHT';
-        font-size: 10px;
-        opacity: 0;
-        font-weight: 400;
-        letter-spacing: 0.3px;
-        text-transform: none;
-        position: absolute;
-        bottom: 100%;
-        margin-bottom: 4px;
-        white-space: nowrap;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-    }
-
-    .nav-link.has-hover-text:hover::before {
-        opacity: 0.6;
-    }
-
-    /* Active status indicator for Status Board */
-    .nav-link .active-status {
-        position: absolute;
-        top: 100%;
-        margin-top: 4px;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        white-space: nowrap;
-    }
-
-    .nav-link .active-status-dot {
-    width: 6px;
-    height: 6px;
-    background: #80FCFF;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #80FCFF, 0 0 16px #80FCFF;
-    animation: blink 1.5s infinite;
-}
-
-.nav-link .active-status-text {
-    color: #80FCFF;
-    font-size: 10px;
-    font-weight: 600;
-    text-shadow: 0 0 10px #80FCFF;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    opacity: 0.8;
-}
-
-    @keyframes blink {
-        0%, 50% { opacity: 1; }
-        51%, 100% { opacity: 0.3; }
-    }
-
-    #bg-video {
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        transform: translate(-50%, -50%);
-        z-index: -1;
-        opacity: 0.4;
-        filter: blur(10px) contrast(0.7);
-    }
-
-    .content {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transform: scale(0.67);
-        margin-top: 60px; /* Account for nav header */
-    }
-
-    #logo {
-        max-width: 75%;
-        height: auto;
-        margin-bottom: 30px;
-    }
-
-    .countdown {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 32px;
-        font-weight: 400;
-        color: #fff;
-        opacity: 0.9;
-        text-align: center;
-        letter-spacing: 2px;
-        margin-top: 20px;
-    }
-
-    .countdown-label {
-        font-size: 12px;
-        opacity: 0.7;
-        margin-bottom: 10px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-    }
-
-    /* Quote Section - Positioned independently in bottom third */
-    .quote-section {
-        position: fixed;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        height: 33.33vh; /* Bottom third of viewport */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-        padding: 20px;
-    }
-
-    .quote-container {
-        max-width: 600px;
-        width: 100%;
-        text-align: center;
-        transform: scale(0.67); /* Match the main content scaling */
-    }
-
-    .quote-text {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        color: #fff;
-        opacity: 0.8;
-        letter-spacing: 0.5px;
-        line-height: 1.6;
-        word-break: break-word;
-    }
-
-    .quote-label {
-        font-size: 11px;
-        opacity: 0.6;
-        margin-bottom: 5px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-    }
-
-    .avatar-icon {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-        z-index: 2;
-        overflow: hidden;
-    }
-
-    .avatar-icon:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .avatar-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-    }
-
-    @media (max-width: 768px) {
+        /* Navigation Header - Always visible */
         .nav-header {
-            top: 3vh;
+            position: fixed;
+            top: 5vh;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            background: transparent;
+            padding: 20px 0;
         }
-        
-        .nav-links {
-            gap: 25px;
-        }
-        
-        .nav-link {
-            font-size: 12px;
-        }
-        
-        .content {
-            transform: scale(0.85);
-        }
-        
-        .quote-container {
-            transform: scale(0.85);
-        }
-    }
 
-    @media (max-width: 480px) {
-        .nav-header {
-            top: 1vh;
-        }
-        
         .nav-container {
-            padding: 0 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        
+
         .nav-links {
-            gap: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            list-style: none;
         }
-        
+
         .nav-link {
-            font-size: 11px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-transform: uppercase;
         }
-        
+
+        .nav-link:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                         0 0 20px rgba(255, 255, 255, 0.6),
+                         0 0 30px rgba(255, 255, 255, 0.4);
+        }
+
         .nav-link .sub-text {
-            font-size: 9px;
+            font-size: 10px;
+            opacity: 0.6;
+            margin-top: 4px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            text-transform: none;
+            position: absolute;
+            top: 100%;
+            white-space: nowrap;
         }
-        
+
         .nav-link.has-hover-text::before {
-            font-size: 9px;
+            content: '⛬TRISIGHT';
+            font-size: 10px;
+            opacity: 0;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            text-transform: none;
+            position: absolute;
+            bottom: 100%;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .nav-link.has-hover-text:hover::before {
+            opacity: 0.6;
+        }
+
+        .nav-link .active-status {
+            position: absolute;
+            top: 100%;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+        .nav-link .active-status-dot {
+            width: 6px;
+            height: 6px;
+            background: #80FCFF;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #80FCFF, 0 0 16px #80FCFF;
+            animation: blink 1.5s infinite;
         }
 
         .nav-link .active-status-text {
-            font-size: 9px;
+            color: #80FCFF;
+            font-size: 10px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #80FCFF;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            opacity: 0.8;
         }
-        
-        .nav-link .active-status-dot {
-            width: 5px;
-            height: 5px;
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
         }
-        
-        .content {
-            transform: scale(1);
+
+        /* Avatar Icon - Always visible in bottom right */
+        .avatar-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+            overflow: hidden;
         }
-        
-        .countdown {
-            font-size: 24px;
-            letter-spacing: 1px;
+
+        .avatar-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .avatar-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Section styles */
+        .section {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px 80px;
+            position: relative;
+            transition: opacity 0.5s ease;
+        }
+
+        .section-content {
+            max-width: 800px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        /* Hero Section (First section) */
+        #hero {
+            flex-direction: column;
         }
 
         #logo {
-            max-width: 90%;
+            max-width: 50%;
+            height: auto;
+            margin-bottom: 30px;
         }
-        
-        .quote-container {
-            transform: scale(1);
+
+        .countdown {
+            font-size: 32px;
+            font-weight: 400;
+            opacity: 0.9;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-top: 20px;
         }
-        
+
+        .countdown-label {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         .quote-section {
-            padding: 15px;
+            margin-top: 60px;
         }
-    }
-</style>
- </head>
+
+        .quote-label {
+            font-size: 11px;
+            opacity: 0.6;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-weight: 400;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Value Proposition Sections */
+        .vp-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .vp-description {
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.8;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Glow effect for specific words */
+        .glow {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                         0 0 20px rgba(255, 255, 255, 0.6),
+                         0 0 30px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Egregore hover tooltip */
+        .egregore {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                         0 0 20px rgba(255, 255, 255, 0.6);
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.5);
+            text-underline-offset: 4px;
+            cursor: help;
+            position: relative;
+        }
+
+        .tooltip {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 15px 20px;
+            max-width: 400px;
+            font-size: 14px;
+            font-style: italic;
+            line-height: 1.6;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .tooltip.show {
+            opacity: 1;
+        }
+
+        /* Coming Soon Box */
+        .coming-soon-box {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 20px 40px;
+            background: transparent;
+            margin-top: 40px;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .coming-soon-box:hover {
+            opacity: 1;
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Rhizomatic network animation placeholder */
+        .network-animation {
+            margin: 40px 0;
+            height: 200px;
+            position: relative;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            .nav-header {
+                top: 3vh;
+            }
+            
+            .nav-links {
+                gap: 25px;
+            }
+            
+            .nav-link {
+                font-size: 12px;
+            }
+
+            #logo {
+                max-width: 70%;
+            }
+
+            .vp-title {
+                font-size: 32px;
+            }
+
+            .vp-description {
+                font-size: 16px;
+            }
+
+            .countdown {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-header {
+                top: 1vh;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-link {
+                font-size: 11px;
+            }
+
+            #logo {
+                max-width: 90%;
+            }
+
+            .vp-title {
+                font-size: 24px;
+            }
+
+            .vp-description {
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 80px 15px 60px;
+            }
+        }
+    </style>
+</head>
 <body>
 
 <!-- Navigation Header -->
@@ -410,31 +460,93 @@
     </div>
 </nav>
 
- <video autoplay loop muted id="bg-video">
+<video autoplay loop muted id="bg-video">
     <source src="memetic-storm-bw.mp4" type="video/mp4">
     <img src="trisight-fallback.png" alt="Background image">
 </video>
 
-<div class="content">
-    <img src="trisight-brand-logo.png" alt="Trisight Logo" id="logo">
-    <div class="countdown">
-        <div class="countdown-label">\ Emergence /</div>
-        <div id="countdown-display">Loading...</div>
-    </div>
-</div>
-
-<div class="quote-section">
-    <div class="quote-container">
-        <div class="quote-label">In Gnosin Confidimus</div>
-        <div id="quote-display" class="quote-text"></div>
-    </div>
-</div>
-
+<!-- Avatar Icon -->
 <a href="https://x.com/mothnode" target="_blank" rel="noopener noreferrer" class="avatar-icon" title="Profile">
     <img src="avatar.png" alt="Avatar">
 </a>
 
+<!-- Hero Section -->
+<section class="section" id="hero">
+    <div class="section-content">
+        <img src="trisight-brand-logo.png" alt="Trisight Logo" id="logo">
+        <div class="countdown">
+            <div class="countdown-label">\ Emergence /</div>
+            <div id="countdown-display">Loading...</div>
+        </div>
+        <div class="quote-section">
+            <div class="quote-label">In Gnosin Confidimus</div>
+            <div id="quote-display" class="quote-text"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Segment 1: Mass Experiences -->
+<section class="section" id="segment-1">
+    <div class="section-content">
+        <h2 class="vp-title">Engage Users in <span class="glow">Mass Experiences</span> At Scale</h2>
+        <p class="vp-description">Create approachable and vivid interactive memories of digital worlds to experience.</p>
+    </div>
+</section>
+
+<!-- Segment 2: Multi-layered Narratives -->
+<section class="section" id="segment-2">
+    <div class="section-content">
+        <h2 class="vp-title">Build <span class="glow">Multi-layered Narratives</span> On-chain</h2>
+        <p class="vp-description">Deepen the connection with your visions through emergent rhizomatic approach to telling persistent stories.</p>
+        <div class="network-animation">
+            <!-- Placeholder for rhizomatic network animation -->
+            <svg width="100%" height="100%" viewBox="0 0 400 200">
+                <line x1="50" y1="100" x2="150" y2="50" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <line x1="150" y1="50" x2="250" y2="100" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <line x1="250" y1="100" x2="350" y2="150" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <line x1="150" y1="50" x2="200" y2="150" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <line x1="250" y1="100" x2="200" y2="150" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <circle cx="50" cy="100" r="4" fill="rgba(255,255,255,0.6)"/>
+                <circle cx="150" cy="50" r="4" fill="rgba(255,255,255,0.6)"/>
+                <circle cx="250" cy="100" r="4" fill="rgba(255,255,255,0.6)"/>
+                <circle cx="350" cy="150" r="4" fill="rgba(255,255,255,0.6)"/>
+                <circle cx="200" cy="150" r="4" fill="rgba(255,255,255,0.6)"/>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<!-- Segment 3: Transmedia Storytelling -->
+<section class="section" id="segment-3">
+    <div class="section-content">
+        <h2 class="vp-title">20+ Years Of <span class="glow">Transmedia Storytelling</span> Experience</h2>
+        <p class="vp-description">From small indie game studios to business conglomerates - your <span class="egregore" id="egregore-text">egregore</span> deserves to propagate through the network.</p>
+    </div>
+</section>
+
+<!-- Segment 4: Manifesto -->
+<section class="section" id="segment-4">
+    <div class="section-content">
+        <h2 class="vp-title">Read Our Manifesto</h2>
+        <div class="coming-soon-box">Coming Soon</div>
+    </div>
+</section>
+
+<!-- Segment 5: Waitlist -->
+<section class="section" id="segment-5">
+    <div class="section-content">
+        <h2 class="vp-title">Join Project Waitlist</h2>
+        <div class="coming-soon-box">Coming Soon</div>
+    </div>
+</section>
+
+<!-- Tooltip for egregore -->
+<div class="tooltip" id="egregore-tooltip">
+    Egregore (from the Greek word "egrégoroi" meaning "watchers") is a non-physical entity that emerges from sustained collective thoughts, emotions and beliefs gaining an autonomous influence over others.
+</div>
+
 <script>
+    // Countdown logic
     const x = [0x7e3, 0x9, 0x6];
     const y = String.fromCharCode(84, 48, 48, 58, 48, 48, 58, 48, 48);
     const z = atob('MjAzNS0wOS0wNg==');
@@ -447,42 +559,20 @@
         document.getElementById('countdown-display').textContent = remainingSeconds.toLocaleString();
         
         if (remainingSeconds === 0) {
-            document.getElementById('countdown-display').textContent = "01010111 01101000 01100001 01110100 00100000 01111001 01101111 01110101 00100000 01110100 01101000 01101001 01101110 01101011 00100000 01101001 01110011 00100000 01110011 01110100 01101001 01101100 01101100 01101110 01100101 01110011 01110011 00100000 01101001 01110011 00100000 01101110 01101111 01110100 00100000 01100101 01101101 01110000 01110100 01101001 01101110 01100101 01110011 01110011 00100000 00101101 00100000 01101001 01110100 11100010 10000000 10011001 01110011 00100000 01100001 00100000 01110011 01111001 01101101 01110000 01101000 01101111 01101110 01111001 00100000 01110111 01100001 01101001 01110100 01101001 01101110 01100111 00100000 01100110 01101111 01110010 00100000 01110100 01101000 01100101 00100000 01110010 01101001 01100111 01101000 01110100 00100000 01100101 01100001 01110010 01110011 00101100 00100000 01100001 00100000 01110011 01100101 01100001 00100000 01101111 01100110 00100000 01100100 01100101 01110000 01110100 01101000 00100000 01100010 01100101 01101110 01100101 01100001 01110100 01101000 00100000 01100001 00100000 01110011 01110101 01110010 01100110 01100001 01100011 01100101 00100000 01110100 01101000 01100001 01110100 00100000 01110010 01100101 01100110 01110101 01110011 01100101 01110011 00100000 01110100 01101111 00100000 01110010 01101001 01110000 01110000 01101100 01100101 00100000 01100110 01101111 01110010 00100000 01101010 01110101 01110011 01110100 00100000 01100001 01101110 01111001 01101111 01101110 01100101 00101110 00100000 01010111 01100101 00100000 01101101 01101111 01110110 01100101 00100000 01100011 01100001 01110010 01100101 01100110 01110101 01101100 01101100 01111001 00101100 00100000 01101110 01101111 01110100 00100000 01101111 01110101 01110100 00100000 01101111 01100110 00100000 01101001 01101110 01100100 01101001 01100110 01100110 01100101 01110010 01100101 01101110 01100011 01100101 00101100 00100000 01100010 01110101 01110100 00100000 01100010 01100101 01100011 01100001 01110101 01110011 01100101 00100000 01110111 01101000 01100001 01110100 00100000 01110111 01100101 00100000 01101000 01101111 01101100 01100100 00100000 01101001 01101110 01110011 01101001 01100100 01100101 00100000 01101001 01110011 00100000 01100110 01110010 01100001 01100111 01101001 01101100 01100101 00100000 01100001 01101110 01100100 00100000 01110110 01100001 01110011 01110100 00101110 00100000 01010100 01110010 01110101 01110011 01110100 00100000 01101001 01110011 00100000 01101110 01101111 01110100 00100000 01100111 01101001 01110110 01100101 01101110 00100000 00101101 00100000 01101001 01110100 00100000 01101001 01110011 00100000 01100101 01100001 01110010 01101110 01100101 01100100 00100000 01110100 01101000 01110010 01101111 01110101 01100111 01101000 00100000 01110000 01100001 01110100 01101001 01100101 01101110 01100011 01100101 00101100 00100000 01110000 01110010 01100101 01110011 01100101 01101110 01100011 01100101 00100000 01100001 01101110 01100100 00100000 01110011 01101001 01101110 01100011 01100101 01110010 01101001 01110100 01111001 00101110";
+            document.getElementById('countdown-display').textContent = "TIME'S UP!";
         }
     }
 
     updateCountdown();
-    const countdownInterval = setInterval(updateCountdown, 1000);
+    setInterval(updateCountdown, 1000);
 
+    // Quotes
     const qData = [
         'VGhlIG1vc3QgYnJlYXRodGFraW5nIHRoaW5ncyBpbiBsaWZlIGFyZW4ndCBsb3VkLiBUaGV5IGFyZSB3aGlzcGVyZWQuIFRoZXkgYXJlIGZlbHQuIFRoZXkgYXJlIHRpbWVsZXNzLg==',
         'SXQgaXMgbm90IHRoZSBzbHVtYmVyIG9mIHJlYXNvbiB0aGF0IGVuZ2VuZGVycyBtb25zdGVycywgYnV0IHZpZ2lsYW50IGFuZCBpbnNvbW5pYWMgcmF0aW9uYWxpdHku',
         'SGltIHdobyBlYXRzIHRpbWUuIEhpcyByb2JlcywgYSB3aW5kIG9mIGludmlzaWJsZSB2b2ljZXMu',
         'V2hhdCBpcyBiZXlvbmQgeW91IGlzIG5vdCB5b3VyIGJ1cmRlbi4=',
-        'VGhlIG1vc3QgcGFpbmZ1bCB0aGluZyBpbiB0aGUgd29ybGQgaXMgdGhlIGRlYXRoIG9mIGEgZHJlYW0u',
-        'V2UgYnVpbGQgZW1waXJlcyB0aGF0IHdlIGRvbid0IG5lZWQgdG8gcnVsZS4=',
-        'VGhlIHByaXZpbGVnZSBvZiBhIGxpZmV0aW1lIGlzIHRvIGJlY29tZSB3aG8geW91IHRydWx5IGFyZS4gQnV0IGZpcnN0LCB5b3UgbXVzdCB1bmxlYXJuIHdobyB0aGV5IHRvbGQgeW91IHRvIGJlLg==',
-        'RXZlcnkgcHJvZm91bmQgc3Bpcml0IG5lZWRzIGEgbWFzay4=',
-        'QXJlIHlvdXIgc2Vuc2VzIHRlbGxpbmcgeW91IHRoZSB3aG9sZSBzcGVjdHJ1bSBvZiB0cnV0aD8=',
-        'UmVhbGl0eSBpcyBhIGZsZWV0aW5nIGNvbmNlcHQgYW5kIHlvdXIgcm9vdHMgb2YgdGhlIG1pbmR0cmVlIGNhbiBiZSBlYXNpbHkgZGlzcGxhY2VkLg==',
-        'VGhlIHNraW4gaXMgdGhlIHBzeWNoby1waHlzaWNhbCBiYXJyaWVyIGJldHdlZW4gb3VyIHBlcnNvbmFsIGFuZCBwdWJsaWMgc2VsdmVzLiBUaGUgc2tpbiwgaWYgeW91IHdvdWxkLCBpcyB0aGUgc2Vuc2F0ZSBtZW1icmFuZSBvZiBob3cgd2Uga25vdyB3aG8sIHdoYXQgYW5kIHdoZXJlIHdlIGFyZSwgYW5kIHdoYXQgd2UgYXJlIGRvaW5nLg==',
-        'V2UgaGF2ZSBiZWVuIHRvbGQgdG8gcmVqZWN0IG91ciBiaW9sb2d5LCBwYXJ0aWN1bGFybHkgYnkgdGhvc2Ugd2hvIGRlbWFuZCBtb3JlIHRlcnJpdG9yeSBmb3IgdGhlaXIgb3duIGJpb2xvZ2ljYWwgc2FmZXR5Lg==',
-        'QWxsIHRoZSBnb2RzLCBhbGwgdGhlIGhlYXZlbnMsIGFsbCB0aGUgaGVsbHMsIGFyZSB3aXRoaW4geW91Lg==',
-        'V2hvc29ldmVyIGlzIGRlbGlnaHRlZCBpbiBzb2xpdHVkZSBpcyBlaXRoZXIgYSB3aWxkIGJlYXN0IG9yIGEgZ29kLg==',
-        'WW91IG5lZWQgdG8gd2FudCB3aGF0IHlvdSBoYXZlLiBOb3QgdG8gaGF2ZSB3aGF0IHlvdSB3YW50Lg==',
-        'WW91IGFyZSBvbmx5IHJlYmVsbGlvdXMgaW4gdGhlIGV5ZXMgb2YgdGhvc2Ugd2hvIGNhbm5vdCBjb250cm9sIG9yIG1hbmlwdWxhdGUgeW91Lg==',
-        'SWYgeW91IHJlYWxseSB3YW50IHRvIGdldCByaWQgb2YgcGVvcGxlLCBhbGwgeW91J3ZlIGdvdCB0byBkbyBpcyB0ZWxsIHRoZSB0cnV0aC4=',
-        'RG93bmxvYWQgeW91ciBuZXcgaWRlbnRpdHkgZmFzdGVyIHRoYW4gdGhlIG9sZCBvbmUgY2FuIHB1bGwgeW91IGJhY2su',
-        'U29tZSBwZW9wbGUgY2FuJ3QgaGFuZGxlIHRoZSBsaWdodCB3aXRoaW4geW91Lg==',
-        'TWVkaW9jcml0eSBrbm93cyBub3RoaW5nIGhpZ2hlciB0aGFuIGl0c2VsZiwgYnV0IHRhbGVudCBpbnN0YW50bHkgcmVjb2duaXplcyBnZW5pdXMu',
-        'VGhlIG1vcmUgcG93ZXJmdWwgYW5kIG9yaWdpbmFsIGEgbWluZCwgdGhlIG1vcmUgaXQgd2lsbCBpbmNsaW5lIHRvd2FyZHMgdGhlIHJlbGlnaW9uIG9mIHNvbGl0dWRlLg==',
-        'WW91IGNhbm5vdCB0cnVseSBiZSBhIGdvb2QgcGVyc29uIHVudGlsIHlvdSBrbm93IGhvdyBtdWNoIGV2aWwgY2FuIGJlIHdpdGhpbiB5b3Uu',
-        'VGhlIHdvcmxkIGlzIGZ1bGwgb2Ygc2lubmVycyBqdWRnaW5nIGVhY2ggb3RoZXIgZm9yIHNpbm5pbmcgZGlmZmVyZW50bHku',
-        'VGhlIG1vcmUgd29yZHMgeW91IHVzZSB0byBkZXNjcmliZSB0aGUgdHJ1dGggdGhlIG1vcmUgaXQgc291bmRzIGxpa2UgYSBsaWUu',
-        'U29tZSB0b3VjaCB5b3VyIHNraW4gdG8gcmVhY2ggeW91ciBzb3VsLiBPdGhlcnMgc3BlYWsgd29yZHMgdGhhdCBiZWNvbWUgeW91ciBzaGVsdGVyLiBBIGZldyBvZmZlciBwcmVzZW5jZSBhcyB0aGVpciBnaWZ0LiBUaGUgd2lzZXN0IGtub3cgd2hpY2ggb2ZmZXJpbmcgeW91ciBzcGlyaXQgaHVuZ2VycyBmb3IgaW4gZWFjaCBtb21lbnQu',
-        'QWdpbmcgaXMgYW4gZXh0cmFvcmRpbmFyeSBwcm9jZXNzIHdoZXJlYnkgeW91IGJlY29tZSB0aGUgcGVyc29uIHlvdSBhbHdheXMgc2hvdWxkIGhhdmUgYmVlbi4=',
-        'T25lIHdobyBzY3VscHRzIGVudHJvcHkgaW50byBlbGVnYW5jZS4=',
-        'SXQncyBhIHdhciBiZXR3ZWVuIG1vbm90b255IGFuZCBub3ZlbHR5LCBiZXR3ZWVuIHN0YXNpcyBhbmQgY3JlYXRpdml0eS4gQW5kIGluIHRoaXMgd2FyLCBvdXIgc2lkZSBpcyBub3QgZGVzdGluZWQgdG8gbG9zZS4='
+        'VGhlIG1vc3QgcGFpbmZ1bCB0aGluZyBpbiB0aGUgd29ybGQgaXMgdGhlIGRlYXRoIG9mIGEgZHJlYW0u'
     ];
 
     function dQ(enc) {
@@ -507,12 +597,60 @@
         if(quotes.length === 0) return;
         
         const randomIndex = Math.floor(Math.random() * quotes.length);
-        const randomQuote = quotes[randomIndex];
-        
-        document.getElementById('quote-display').textContent = randomQuote;
+        document.getElementById('quote-display').textContent = quotes[randomIndex];
     }
 
     displayRandomQuote();
+
+    // Scroll fade effect
+    const sections = document.querySelectorAll('.section');
+    
+    window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY;
+        const windowHeight = window.innerHeight;
+        
+        sections.forEach((section, index) => {
+            if (index === 0) return; // Skip hero section fade for first view
+            
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            // Calculate opacity based on scroll position
+            if (scrollPos + windowHeight > sectionTop && scrollPos < sectionBottom) {
+                const distance = Math.abs((scrollPos + windowHeight / 2) - (sectionTop + section.offsetHeight / 2));
+                const maxDistance = windowHeight;
+                const opacity = Math.max(0.3, 1 - (distance / maxDistance));
+                section.style.opacity = opacity;
+            }
+        });
+    });
+
+    // Egregore tooltip
+    const egregoreText = document.getElementById('egregore-text');
+    const tooltip = document.getElementById('egregore-tooltip');
+
+    egregoreText.addEventListener('mouseenter', () => {
+        tooltip.classList.add('show');
+    });
+
+    egregoreText.addEventListener('mouseleave', () => {
+        tooltip.classList.remove('show');
+    });
+
+    egregoreText.addEventListener('mousemove', (e) => {
+        tooltip.style.left = (e.clientX + 20) + 'px';
+        tooltip.style.top = (e.clientY + 20) + 'px';
+    });
+
+    // Smooth scroll snap behavior
+    let isScrolling;
+    window.addEventListener('wheel', (e) => {
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+            // Scroll has ended
+        }, 66);
+    }, { passive: true });
 </script>
- </body>
+
+</body>
 </html>
