@@ -247,6 +247,7 @@
 
         #hero {
             flex-direction: column;
+            position: relative;
         }
 
         .hero-content {
@@ -284,7 +285,7 @@
         }
 
         .quote-section {
-            position: fixed;
+            position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
@@ -296,7 +297,6 @@
             align-items: center;
             z-index: 1;
             padding: 20px;
-            transition: opacity 0.3s ease;
         }
 
         .quote-container {
@@ -606,19 +606,19 @@
     <img src="avatar.png" alt="Avatar">
 </a>
 
-<div class="quote-section" id="quote-section">
-    <div class="quote-container">
-        <div class="quote-label">In Gnosin Confidimus</div>
-        <div id="quote-display" class="quote-text"></div>
-    </div>
-</div>
-
 <section class="section" id="hero">
     <div class="hero-content">
         <img src="trisight-brand-logo.png" alt="Trisight Logo" id="logo">
         <div class="countdown">
             <div class="countdown-label">\ Emergence /</div>
             <div id="countdown-display">Loading...</div>
+        </div>
+    </div>
+    
+    <div class="quote-section" id="quote-section">
+        <div class="quote-container">
+            <div class="quote-label">In Gnosin Confidimus</div>
+            <div id="quote-display" class="quote-text"></div>
         </div>
     </div>
 </section>
@@ -635,7 +635,7 @@
     </div>
 
     <div class="segment-item">
-        <h2 class="vp-title">20+ Years Of <span class="glow">Transmedia Storytelling</span> Experience</h2>
+        <h2 class="vp-title">20+ Years of <span class="glow">Transmedia Storytelling</span> Experience</h2>
         <p class="vp-description">From small indie game studios to business conglomerates - your <span class="egregore" id="egregore-text">egregore</span> deserves to propagate through the network.</p>
     </div>
 </section>
@@ -734,26 +734,11 @@
 
     displayRandomQuote();
 
-    // Quote section fade on scroll
-    const quoteSection = document.getElementById('quote-section');
-    
+    // Scroll fade effect for sections
     window.addEventListener('scroll', () => {
-        const scrollPos = window.scrollY;
-        const fadeStart = 50;
-        const fadeEnd = 300;
-        
-        if (scrollPos <= fadeStart) {
-            quoteSection.style.opacity = 1;
-        } else if (scrollPos >= fadeEnd) {
-            quoteSection.style.opacity = 0;
-        } else {
-            const opacity = 1 - ((scrollPos - fadeStart) / (fadeEnd - fadeStart));
-            quoteSection.style.opacity = opacity;
-        }
-        
-        // Scroll fade effect for other sections
         const sections = document.querySelectorAll('.section');
         const windowHeight = window.innerHeight;
+        const scrollPos = window.scrollY;
         
         sections.forEach((section, index) => {
             if (index === 0) return;
