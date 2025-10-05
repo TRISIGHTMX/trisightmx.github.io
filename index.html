@@ -325,42 +325,31 @@
             word-break: break-word;
         }
 
-        /* Glitch effect for titles */
-        @keyframes glitch {
-            0% {
-                text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-                            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-                            -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+        /* Distortion Glitch - white only */
+        @keyframes glitch-distort {
+            0%, 100% {
+                text-shadow: 
+                    2px 0 0 rgba(255, 255, 255, 0.7),
+                    -2px 0 0 rgba(255, 255, 255, 0.7);
+                transform: scale(1, 1);
             }
-            14% {
-                text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-                            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-                            -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            15% {
-                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-                            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-                            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            49% {
-                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-                            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-                            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+            25% {
+                text-shadow: 
+                    -2px 0 0 rgba(255, 255, 255, 0.7),
+                    2px 0 0 rgba(255, 255, 255, 0.7);
+                transform: scale(1.02, 0.98);
             }
             50% {
-                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-                            0.05em 0 0 rgba(0, 255, 0, 0.75),
-                            0 -0.05em 0 rgba(0, 0, 255, 0.75);
+                text-shadow: 
+                    2px 0 0 rgba(255, 255, 255, 0.7),
+                    -2px 0 0 rgba(255, 255, 255, 0.7);
+                transform: scale(0.98, 1.02);
             }
-            99% {
-                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-                            0.05em 0 0 rgba(0, 255, 0, 0.75),
-                            0 -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            100% {
-                text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
-                            -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
-                            -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+            75% {
+                text-shadow: 
+                    -2px 0 0 rgba(255, 255, 255, 0.7),
+                    2px 0 0 rgba(255, 255, 255, 0.7);
+                transform: scale(1.01, 0.99);
             }
         }
 
@@ -393,11 +382,11 @@
         }
 
         .vp-title.glitch-title {
-            animation: glitch 1s linear infinite;
+            animation: glitch-distort 2s linear infinite;
         }
 
         .vp-description {
-            font-size: 18px;
+            font-size: 9px;
             font-weight: 400;
             opacity: 0.7;
             line-height: 1.8;
@@ -496,7 +485,7 @@
             }
 
             .vp-description {
-                font-size: 16px;
+                font-size: 8px;
             }
 
             .boxed-segment .vp-title {
@@ -510,7 +499,7 @@
             }
 
             .vp-description {
-                font-size: 14px;
+                font-size: 7px;
             }
 
             .boxed-segment .vp-title {
@@ -548,7 +537,7 @@
             }
 
             .vp-description {
-                font-size: 12px;
+                font-size: 6px;
             }
 
             #combined-segments {
@@ -609,7 +598,7 @@
             }
 
             .vp-description {
-                font-size: 11px;
+                font-size: 5.5px;
             }
 
             #combined-segments {
@@ -672,7 +661,7 @@
 <section class="section" id="combined-segments">
     <div class="segment-item">
         <h2 class="vp-title glitch-title">Build <span class="glow">Multi-layered Narratives</span> On-chain</h2>
-        <p class="vp-description">\ Spark a unique connection with your visions through emergent and persistent stories /</p>
+        <p class="vp-description">\ Spark a unique connection with your story through emergence. /</p>
     </div>
 
     <div class="segment-item">
