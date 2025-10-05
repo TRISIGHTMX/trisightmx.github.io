@@ -236,11 +236,11 @@
             align-items: center;
             padding: 100px 20px 80px;
             position: relative;
-            transition: opacity 0.5s ease;
         }
 
         .section-content {
-            max-width: 800px;
+            max-width: 900px;
+            width: 100%;
             text-align: center;
             z-index: 1;
         }
@@ -296,7 +296,7 @@
             align-items: center;
             z-index: 1;
             padding: 20px;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease;
         }
 
         .quote-container {
@@ -325,10 +325,27 @@
             word-break: break-word;
         }
 
+        /* Combined segments section */
+        #combined-segments {
+            padding: 120px 20px 80px;
+        }
+
+        .segments-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .segment-item {
+            text-align: center;
+        }
+
         .vp-title {
             font-size: 42px;
             font-weight: 700;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             line-height: 1.3;
             white-space: nowrap;
         }
@@ -338,8 +355,6 @@
             font-weight: 400;
             opacity: 0.8;
             line-height: 1.8;
-            max-width: 700px;
-            margin: 0 auto;
             white-space: nowrap;
         }
 
@@ -382,17 +397,30 @@
             opacity: 1;
         }
 
-        /* Boxed segments for Manifesto and Waitlist */
+        /* Final segments side by side */
+        #final-segments {
+            padding: 80px 20px;
+        }
+
+        .final-segments-wrapper {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: stretch;
+        }
+
         .boxed-segment {
             border: 2px solid rgba(255, 255, 255, 0.4);
             border-radius: 0;
             padding: 40px 60px;
             background: transparent;
-            max-width: 1200px;
-            width: 100%;
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             transition: all 0.3s ease;
         }
 
@@ -403,6 +431,7 @@
 
         .boxed-segment .vp-title {
             margin-bottom: 0;
+            font-size: 36px;
         }
 
         .coming-soon-text {
@@ -414,114 +443,20 @@
             text-transform: uppercase;
         }
 
-        /* Animation containers */
-        .animation-container {
-            margin: 40px 0;
-            height: 150px;
-            position: relative;
-            opacity: 0.6;
-        }
-
-        /* Blinking eye animation */
-        @keyframes eyeBlink {
-            0%, 90%, 100% { 
-                transform: scaleY(1);
-            }
-            95% { 
-                transform: scaleY(0.1);
-            }
-        }
-
-        .eye-animation {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        .eye {
-            width: 120px;
-            height: 60px;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            position: relative;
-            animation: eyeBlink 4s infinite;
-        }
-
-        .pupil {
-            width: 30px;
-            height: 30px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Rotating globe animation */
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .globe-animation {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        .globe {
-            width: 100px;
-            height: 100px;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            position: relative;
-            animation: rotate 10s linear infinite;
-        }
-
-        .globe::before,
-        .globe::after {
-            content: '';
-            position: absolute;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-        }
-
-        .globe::before {
-            width: 100%;
-            height: 60%;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-        }
-
-        .globe::after {
-            width: 60%;
-            height: 100%;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
-        }
-
-        /* Rhizomatic network animation */
-        .network-animation {
-            margin: 40px 0;
-            height: 150px;
-            position: relative;
-            opacity: 0.6;
-        }
-
         @media (max-width: 1024px) {
             .vp-title {
-                font-size: 28px;
+                font-size: 32px;
                 white-space: normal;
             }
 
             .vp-description {
                 font-size: 16px;
                 white-space: normal;
+            }
+
+            .final-segments-wrapper {
+                flex-direction: column;
+                gap: 20px;
             }
         }
 
@@ -547,7 +482,7 @@
             }
 
             .vp-title {
-                font-size: 24px;
+                font-size: 26px;
             }
 
             .vp-description {
@@ -556,6 +491,14 @@
 
             .boxed-segment {
                 padding: 30px 40px;
+            }
+
+            .boxed-segment .vp-title {
+                font-size: 28px;
+            }
+
+            .segments-wrapper {
+                gap: 60px;
             }
         }
 
@@ -601,12 +544,16 @@
                 font-size: 13px;
             }
 
-            .section {
-                padding: 80px 15px 60px;
+            .boxed-segment {
+                padding: 25px 30px;
             }
 
-            .boxed-segment {
-                padding: 20px 30px;
+            .boxed-segment .vp-title {
+                font-size: 22px;
+            }
+
+            .segments-wrapper {
+                gap: 50px;
             }
         }
     </style>
@@ -643,6 +590,7 @@
     </div>
 </div>
 
+<!-- Hero Section -->
 <section class="section" id="hero">
     <div class="hero-content">
         <img src="trisight-brand-logo.png" alt="Trisight Logo" id="logo">
@@ -653,64 +601,38 @@
     </div>
 </section>
 
-<section class="section" id="segment-1">
-    <div class="section-content">
-        <h2 class="vp-title">Engage Users in <span class="glow">Mass Experiences</span> At Scale</h2>
-        <p class="vp-description">Create approachable and vivid interactive memories of digital worlds to experience.</p>
-        <div class="animation-container">
-            <div class="eye-animation">
-                <div class="eye">
-                    <div class="pupil"></div>
-                </div>
-            </div>
+<!-- Combined Segments 1, 2, 3 -->
+<section class="section" id="combined-segments">
+    <div class="segments-wrapper">
+        <div class="segment-item">
+            <h2 class="vp-title">Engage Users in <span class="glow">Mass Experiences</span> At Scale</h2>
+            <p class="vp-description">Create approachable and vivid interactive memories of digital worlds to experience.</p>
+        </div>
+
+        <div class="segment-item">
+            <h2 class="vp-title">Build <span class="glow">Multi-layered Narratives</span> On-chain</h2>
+            <p class="vp-description">Deepen the connection with your visions through emergent rhizomatic approach to telling persistent stories.</p>
+        </div>
+
+        <div class="segment-item">
+            <h2 class="vp-title">20+ Years Of <span class="glow">Transmedia Storytelling</span> Experience</h2>
+            <p class="vp-description">From small indie game studios to business conglomerates - your <span class="egregore" id="egregore-text">egregore</span> deserves to propagate through the network.</p>
         </div>
     </div>
 </section>
 
-<section class="section" id="segment-2">
-    <div class="section-content">
-        <h2 class="vp-title">Build <span class="glow">Multi-layered Narratives</span> On-chain</h2>
-        <p class="vp-description">Deepen the connection with your visions through emergent rhizomatic approach to telling persistent stories.</p>
-        <div class="network-animation">
-            <svg width="100%" height="100%" viewBox="0 0 400 150">
-                <line x1="50" y1="75" x2="150" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                <line x1="150" y1="40" x2="250" y2="75" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                <line x1="250" y1="75" x2="350" y2="110" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                <line x1="150" y1="40" x2="200" y2="110" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                <line x1="250" y1="75" x2="200" y2="110" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                <circle cx="50" cy="75" r="4" fill="rgba(255,255,255,0.6)"/>
-                <circle cx="150" cy="40" r="4" fill="rgba(255,255,255,0.6)"/>
-                <circle cx="250" cy="75" r="4" fill="rgba(255,255,255,0.6)"/>
-                <circle cx="350" cy="110" r="4" fill="rgba(255,255,255,0.6)"/>
-                <circle cx="200" cy="110" r="4" fill="rgba(255,255,255,0.6)"/>
-            </svg>
+<!-- Final Segments Side by Side -->
+<section class="section" id="final-segments">
+    <div class="final-segments-wrapper">
+        <div class="boxed-segment">
+            <h2 class="vp-title">Read Our Manifesto</h2>
+            <div class="coming-soon-text">Coming Soon</div>
         </div>
-    </div>
-</section>
 
-<section class="section" id="segment-3">
-    <div class="section-content">
-        <h2 class="vp-title">20+ Years Of <span class="glow">Transmedia Storytelling</span> Experience</h2>
-        <p class="vp-description">From small indie game studios to business conglomerates - your <span class="egregore" id="egregore-text">egregore</span> deserves to propagate through the network.</p>
-        <div class="animation-container">
-            <div class="globe-animation">
-                <div class="globe"></div>
-            </div>
+        <div class="boxed-segment">
+            <h2 class="vp-title">Join Project Waitlist</h2>
+            <div class="coming-soon-text">Coming Soon</div>
         </div>
-    </div>
-</section>
-
-<section class="section" id="segment-4">
-    <div class="boxed-segment">
-        <h2 class="vp-title">Read Our Manifesto</h2>
-        <div class="coming-soon-text">Coming Soon</div>
-    </div>
-</section>
-
-<section class="section" id="segment-5">
-    <div class="boxed-segment">
-        <h2 class="vp-title">Join Project Waitlist</h2>
-        <div class="coming-soon-text">Coming Soon</div>
     </div>
 </section>
 
@@ -796,58 +718,71 @@
 
     displayRandomQuote();
 
-    // Quote section fade on scroll
+    // Quote section fade on scroll - improved
     const quoteSection = document.getElementById('quote-section');
+    let lastScrollTop = 0;
     
-    window.addEventListener('scroll', () => {
-        const scrollPos = window.scrollY;
-        const fadeStart = 50; // Start fading after 50px
-        const fadeEnd = 300; // Completely transparent at 300px
+    function handleScroll() {
+        const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        const fadeStart = 10;
+        const fadeEnd = 200;
         
         if (scrollPos <= fadeStart) {
-            quoteSection.style.opacity = 1;
+            quoteSection.style.opacity = '1';
         } else if (scrollPos >= fadeEnd) {
-            quoteSection.style.opacity = 0;
+            quoteSection.style.opacity = '0';
         } else {
             const opacity = 1 - ((scrollPos - fadeStart) / (fadeEnd - fadeStart));
-            quoteSection.style.opacity = opacity;
+            quoteSection.style.opacity = opacity.toString();
         }
         
-        // Scroll fade effect for other sections
+        // Faster fade for other sections - fade completely
         const sections = document.querySelectorAll('.section');
         const windowHeight = window.innerHeight;
         
         sections.forEach((section, index) => {
-            if (index === 0) return;
+            if (index === 0) return; // Skip hero
             
-            const sectionTop = section.offsetTop;
-            const sectionBottom = sectionTop + section.offsetHeight;
+            const rect = section.getBoundingClientRect();
+            const sectionCenter = rect.top + (rect.height / 2);
+            const windowCenter = windowHeight / 2;
+            const distance = Math.abs(sectionCenter - windowCenter);
+            const fadeDistance = windowHeight * 0.4; // Faster fade
             
-            if (scrollPos + windowHeight > sectionTop && scrollPos < sectionBottom) {
-                const distance = Math.abs((scrollPos + windowHeight / 2) - (sectionTop + section.offsetHeight / 2));
-                const maxDistance = windowHeight;
-                const opacity = Math.max(0.3, 1 - (distance / maxDistance));
-                section.style.opacity = opacity;
+            let opacity;
+            if (distance < fadeDistance) {
+                opacity = 1 - (distance / fadeDistance);
+            } else {
+                opacity = 0;
             }
+            
+            section.style.opacity = Math.max(0, Math.min(1, opacity));
         });
-    });
+        
+        lastScrollTop = scrollPos;
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
 
     // Egregore tooltip
     const egregoreText = document.getElementById('egregore-text');
     const tooltip = document.getElementById('egregore-tooltip');
 
-    egregoreText.addEventListener('mouseenter', () => {
-        tooltip.classList.add('show');
-    });
+    if (egregoreText) {
+        egregoreText.addEventListener('mouseenter', () => {
+            tooltip.classList.add('show');
+        });
 
-    egregoreText.addEventListener('mouseleave', () => {
-        tooltip.classList.remove('show');
-    });
+        egregoreText.addEventListener('mouseleave', () => {
+            tooltip.classList.remove('show');
+        });
 
-    egregoreText.addEventListener('mousemove', (e) => {
-        tooltip.style.left = (e.clientX + 20) + 'px';
-        tooltip.style.top = (e.clientY + 20) + 'px';
-    });
+        egregoreText.addEventListener('mousemove', (e) => {
+            tooltip.style.left = (e.clientX + 20) + 'px';
+            tooltip.style.top = (e.clientY + 20) + 'px';
+        });
+    }
 </script>
 
 </body>
