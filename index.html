@@ -325,32 +325,24 @@
             word-break: break-word;
         }
 
-        /* Distortion Glitch - white only */
-        @keyframes glitch-distort {
-            0%, 100% {
-                text-shadow: 
-                    2px 0 0 rgba(255, 255, 255, 0.7),
-                    -2px 0 0 rgba(255, 255, 255, 0.7);
-                transform: scale(1, 1);
+        /* Delicate Scan Lines Glitch */
+        @keyframes glitch-scanlines {
+            0% {
+                background-position: 0 0;
             }
-            25% {
-                text-shadow: 
-                    -2px 0 0 rgba(255, 255, 255, 0.7),
-                    2px 0 0 rgba(255, 255, 255, 0.7);
-                transform: scale(1.02, 0.98);
+            100% {
+                background-position: 0 100%;
             }
-            50% {
-                text-shadow: 
-                    2px 0 0 rgba(255, 255, 255, 0.7),
-                    -2px 0 0 rgba(255, 255, 255, 0.7);
-                transform: scale(0.98, 1.02);
-            }
-            75% {
-                text-shadow: 
-                    -2px 0 0 rgba(255, 255, 255, 0.7),
-                    2px 0 0 rgba(255, 255, 255, 0.7);
-                transform: scale(1.01, 0.99);
-            }
+        }
+
+        .glitch-scanlines {
+            position: relative;
+            background: linear-gradient(
+                transparent 50%, 
+                rgba(255, 255, 255, 0.03) 50%
+            );
+            background-size: 100% 3px;
+            animation: glitch-scanlines 0.3s linear infinite;
         }
 
         /* Combined segments section - now includes boxed segments */
@@ -381,12 +373,8 @@
             white-space: nowrap;
         }
 
-        .vp-title.glitch-title {
-            animation: glitch-distort 2s linear infinite;
-        }
-
         .vp-description {
-            font-size: 9px;
+            font-size: 12px;
             font-weight: 400;
             opacity: 0.7;
             line-height: 1.8;
@@ -485,7 +473,7 @@
             }
 
             .vp-description {
-                font-size: 8px;
+                font-size: 11px;
             }
 
             .boxed-segment .vp-title {
@@ -499,7 +487,7 @@
             }
 
             .vp-description {
-                font-size: 7px;
+                font-size: 10px;
             }
 
             .boxed-segment .vp-title {
@@ -537,7 +525,7 @@
             }
 
             .vp-description {
-                font-size: 6px;
+                font-size: 9px;
             }
 
             #combined-segments {
@@ -598,7 +586,7 @@
             }
 
             .vp-description {
-                font-size: 5.5px;
+                font-size: 8px;
             }
 
             #combined-segments {
@@ -660,17 +648,17 @@
 
 <section class="section" id="combined-segments">
     <div class="segment-item">
-        <h2 class="vp-title glitch-title">Build <span class="glow">Multi-layered Narratives</span> On-chain</h2>
-        <p class="vp-description">\ Spark a unique connection with your story through emergence. /</p>
+        <h2 class="vp-title glitch-scanlines">Build <span class="glow">Multi-layered Narratives</span> On-chain</h2>
+        <p class="vp-description">\ Spark a unique connection with your story through rhizomatic emergence /</p>
     </div>
 
     <div class="segment-item">
-        <h2 class="vp-title glitch-title">Engage Users in <span class="glow">Mass Experiences</span> at Scale</h2>
+        <h2 class="vp-title glitch-scanlines">Engage Users in <span class="glow">Mass Experiences</span> at Scale</h2>
         <p class="vp-description">\ Create approachable and lasting memory imprints /</p>
     </div>
 
     <div class="segment-item">
-        <h2 class="vp-title glitch-title">20+ Years of <span class="glow">Transmedia Storytelling</span> Experience</h2>
+        <h2 class="vp-title glitch-scanlines">20+ Years of <span class="glow">Transmedia Storytelling</span> Experience</h2>
         <p class="vp-description">\ Your <span class="egregore" id="egregore-text">egregore</span> deserves to propagate through the network /</p>
     </div>
 
@@ -689,7 +677,7 @@
 </section>
 
 <div class="tooltip" id="egregore-tooltip">
-    Egregore (from the Greek word "egrégoroi" meaning "watchers") is a non-physical entity that emerges from sustained collective thoughts, emotions and beliefs gaining an autonomous influence over others.
+    Egregore - from the Greek "egrégoroi" meaning "watchers" is a non-physical entity that emerges from sustained collective thoughts, emotions and beliefs gaining an autonomous influence.
 </div>
 
 <script>
