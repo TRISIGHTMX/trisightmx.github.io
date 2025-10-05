@@ -325,18 +325,43 @@
             word-break: break-word;
         }
 
-        /* Vertical guide line */
-        .guide-line {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            height: 160px;
-            background: rgba(255, 255, 255, 0.75);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
-                        0 0 20px rgba(255, 255, 255, 0.3);
-            z-index: 2;
+        /* Glitch effect for titles */
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                            -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            14% {
+                text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                            -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            15% {
+                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            50% {
+                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                            0.05em 0 0 rgba(0, 255, 0, 0.75),
+                            0 -0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            99% {
+                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                            0.05em 0 0 rgba(0, 255, 0, 0.75),
+                            0 -0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            100% {
+                text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+                            -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+                            -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+            }
         }
 
         /* Combined segments section - now includes boxed segments */
@@ -367,12 +392,18 @@
             white-space: nowrap;
         }
 
+        .vp-title.glitch-title {
+            animation: glitch 1s linear infinite;
+        }
+
         .vp-description {
             font-size: 18px;
             font-weight: 400;
-            opacity: 0.8;
+            opacity: 0.7;
             line-height: 1.8;
             white-space: nowrap;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .glow {
@@ -489,10 +520,6 @@
             #combined-segments {
                 gap: 40px;
             }
-
-            .guide-line {
-                height: 140px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -540,10 +567,6 @@
 
             .boxed-segment .vp-title {
                 font-size: 20px;
-            }
-
-            .guide-line {
-                height: 120px;
             }
         }
 
@@ -601,10 +624,6 @@
             .boxed-segment .vp-title {
                 font-size: 16px;
             }
-
-            .guide-line {
-                height: 100px;
-            }
         }
     </style>
 </head>
@@ -648,25 +667,22 @@
             <div id="quote-display" class="quote-text"></div>
         </div>
     </div>
-    
-    <!-- Vertical guide line -->
-    <div class="guide-line"></div>
 </section>
 
 <section class="section" id="combined-segments">
     <div class="segment-item">
-        <h2 class="vp-title">Build <span class="glow">Multi-layered Narratives</span> On-chain</h2>
-        <p class="vp-description">Spark a unique connection with your visions through emergent and persistent stories.</p>
+        <h2 class="vp-title glitch-title">Build <span class="glow">Multi-layered Narratives</span> On-chain</h2>
+        <p class="vp-description">\ Spark a unique connection with your visions through emergent and persistent stories /</p>
     </div>
 
     <div class="segment-item">
-        <h2 class="vp-title">Engage Users in <span class="glow">Mass Experiences</span> at Scale</h2>
-        <p class="vp-description">Create approachable and lasting memory imprints.</p>
+        <h2 class="vp-title glitch-title">Engage Users in <span class="glow">Mass Experiences</span> at Scale</h2>
+        <p class="vp-description">\ Create approachable and lasting memory imprints /</p>
     </div>
 
     <div class="segment-item">
-        <h2 class="vp-title">20+ Years of <span class="glow">Transmedia Storytelling</span> Experience</h2>
-        <p class="vp-description">Your <span class="egregore" id="egregore-text">egregore</span> deserves to propagate through the network.</p>
+        <h2 class="vp-title glitch-title">20+ Years of <span class="glow">Transmedia Storytelling</span> Experience</h2>
+        <p class="vp-description">\ Your <span class="egregore" id="egregore-text">egregore</span> deserves to propagate through the network /</p>
     </div>
 
     <!-- Boxed segments now directly below -->
