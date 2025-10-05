@@ -34,8 +34,10 @@
 
         html {
             scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
             overflow-y: scroll;
             overflow-x: hidden;
+            height: 100%;
         }
 
         body {
@@ -45,6 +47,7 @@
             background-color: #000;
             cursor: crosshair;
             overflow-x: hidden;
+            height: 100%;
         }
 
         #bg-video {
@@ -227,10 +230,11 @@
             border-radius: 50%;
         }
 
-        /* Section styles */
+        /* Section styles with scroll snap */
         .section {
-            min-height: 100vh;
+            height: 100vh;
             scroll-snap-align: start;
+            scroll-snap-stop: always;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -245,20 +249,31 @@
             z-index: 1;
         }
 
-        /* Hero Section (First section) */
+        /* Hero Section (First section) - Restored original styling */
         #hero {
             flex-direction: column;
         }
 
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: scale(0.67);
+        }
+
         #logo {
-            max-width: 50%;
+            max-width: 75%;
             height: auto;
             margin-bottom: 30px;
         }
 
         .countdown {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             font-size: 32px;
             font-weight: 400;
+            color: #fff;
             opacity: 0.9;
             text-align: center;
             letter-spacing: 2px;
@@ -273,26 +288,46 @@
             text-transform: uppercase;
         }
 
+        /* Quote Section - Restored original styling */
         .quote-section {
-            margin-top: 60px;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 33.33vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .quote-container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            transform: scale(0.67);
         }
 
         .quote-label {
             font-size: 11px;
             opacity: 0.6;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         .quote-text {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             font-size: 16px;
             font-weight: 400;
+            color: #fff;
             opacity: 0.8;
             letter-spacing: 0.5px;
             line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
+            word-break: break-word;
         }
 
         /* Value Proposition Sections */
@@ -395,8 +430,12 @@
                 font-size: 12px;
             }
 
-            #logo {
-                max-width: 70%;
+            .hero-content {
+                transform: scale(0.85);
+            }
+
+            .quote-container {
+                transform: scale(0.85);
             }
 
             .vp-title {
@@ -405,10 +444,6 @@
 
             .vp-description {
                 font-size: 16px;
-            }
-
-            .countdown {
-                font-size: 24px;
             }
         }
 
@@ -425,8 +460,25 @@
                 font-size: 11px;
             }
 
+            .hero-content {
+                transform: scale(1);
+            }
+
+            .countdown {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
             #logo {
                 max-width: 90%;
+            }
+
+            .quote-container {
+                transform: scale(1);
+            }
+
+            .quote-section {
+                padding: 15px;
             }
 
             .vp-title {
@@ -470,17 +522,21 @@
     <img src="avatar.png" alt="Avatar">
 </a>
 
+<!-- Quote Section (Fixed at bottom) -->
+<div class="quote-section">
+    <div class="quote-container">
+        <div class="quote-label">In Gnosin Confidimus</div>
+        <div id="quote-display" class="quote-text"></div>
+    </div>
+</div>
+
 <!-- Hero Section -->
 <section class="section" id="hero">
-    <div class="section-content">
+    <div class="hero-content">
         <img src="trisight-brand-logo.png" alt="Trisight Logo" id="logo">
         <div class="countdown">
             <div class="countdown-label">\ Emergence /</div>
             <div id="countdown-display">Loading...</div>
-        </div>
-        <div class="quote-section">
-            <div class="quote-label">In Gnosin Confidimus</div>
-            <div id="quote-display" class="quote-text"></div>
         </div>
     </div>
 </section>
@@ -572,7 +628,30 @@
         'SXQgaXMgbm90IHRoZSBzbHVtYmVyIG9mIHJlYXNvbiB0aGF0IGVuZ2VuZGVycyBtb25zdGVycywgYnV0IHZpZ2lsYW50IGFuZCBpbnNvbW5pYWMgcmF0aW9uYWxpdHku',
         'SGltIHdobyBlYXRzIHRpbWUuIEhpcyByb2JlcywgYSB3aW5kIG9mIGludmlzaWJsZSB2b2ljZXMu',
         'V2hhdCBpcyBiZXlvbmQgeW91IGlzIG5vdCB5b3VyIGJ1cmRlbi4=',
-        'VGhlIG1vc3QgcGFpbmZ1bCB0aGluZyBpbiB0aGUgd29ybGQgaXMgdGhlIGRlYXRoIG9mIGEgZHJlYW0u'
+        'VGhlIG1vc3QgcGFpbmZ1bCB0aGluZyBpbiB0aGUgd29ybGQgaXMgdGhlIGRlYXRoIG9mIGEgZHJlYW0u',
+        'V2UgYnVpbGQgZW1waXJlcyB0aGF0IHdlIGRvbid0IG5lZWQgdG8gcnVsZS4=',
+        'VGhlIHByaXZpbGVnZSBvZiBhIGxpZmV0aW1lIGlzIHRvIGJlY29tZSB3aG8geW91IHRydWx5IGFyZS4gQnV0IGZpcnN0LCB5b3UgbXVzdCB1bmxlYXJuIHdobyB0aGV5IHRvbGQgeW91IHRvIGJlLg==',
+        'RXZlcnkgcHJvZm91bmQgc3Bpcml0IG5lZWRzIGEgbWFzay4=',
+        'QXJlIHlvdXIgc2Vuc2VzIHRlbGxpbmcgeW91IHRoZSB3aG9sZSBzcGVjdHJ1bSBvZiB0cnV0aD8=',
+        'UmVhbGl0eSBpcyBhIGZsZWV0aW5nIGNvbmNlcHQgYW5kIHlvdXIgcm9vdHMgb2YgdGhlIG1pbmR0cmVlIGNhbiBiZSBlYXNpbHkgZGlzcGxhY2VkLg==',
+        'VGhlIHNraW4gaXMgdGhlIHBzeWNoby1waHlzaWNhbCBiYXJyaWVyIGJldHdlZW4gb3VyIHBlcnNvbmFsIGFuZCBwdWJsaWMgc2VsdmVzLiBUaGUgc2tpbiwgaWYgeW91IHdvdWxkLCBpcyB0aGUgc2Vuc2F0ZSBtZW1icmFuZSBvZiBob3cgd2Uga25vdyB3aG8sIHdoYXQgYW5kIHdoZXJlIHdlIGFyZSwgYW5kIHdoYXQgd2UgYXJlIGRvaW5nLg==',
+        'V2UgaGF2ZSBiZWVuIHRvbGQgdG8gcmVqZWN0IG91ciBiaW9sb2d5LCBwYXJ0aWN1bGFybHkgYnkgdGhvc2Ugd2hvIGRlbWFuZCBtb3JlIHRlcnJpdG9yeSBmb3IgdGhlaXIgb3duIGJpb2xvZ2ljYWwgc2FmZXR5Lg==',
+        'QWxsIHRoZSBnb2RzLCBhbGwgdGhlIGhlYXZlbnMsIGFsbCB0aGUgaGVsbHMsIGFyZSB3aXRoaW4geW91Lg==',
+        'V2hvc29ldmVyIGlzIGRlbGlnaHRlZCBpbiBzb2xpdHVkZSBpcyBlaXRoZXIgYSB3aWxkIGJlYXN0IG9yIGEgZ29kLg==',
+        'WW91IG5lZWQgdG8gd2FudCB3aGF0IHlvdSBoYXZlLiBOb3QgdG8gaGF2ZSB3aGF0IHlvdSB3YW50Lg==',
+        'WW91IGFyZSBvbmx5IHJlYmVsbGlvdXMgaW4gdGhlIGV5ZXMgb2YgdGhvc2Ugd2hvIGNhbm5vdCBjb250cm9sIG9yIG1hbmlwdWxhdGUgeW91Lg==',
+        'SWYgeW91IHJlYWxseSB3YW50IHRvIGdldCByaWQgb2YgcGVvcGxlLCBhbGwgeW91J3ZlIGdvdCB0byBkbyBpcyB0ZWxsIHRoZSB0cnV0aC4=',
+        'RG93bmxvYWQgeW91ciBuZXcgaWRlbnRpdHkgZmFzdGVyIHRoYW4gdGhlIG9sZCBvbmUgY2FuIHB1bGwgeW91IGJhY2su',
+        'U29tZSBwZW9wbGUgY2FuJ3QgaGFuZGxlIHRoZSBsaWdodCB3aXRoaW4geW91Lg==',
+        'TWVkaW9jcml0eSBrbm93cyBub3RoaW5nIGhpZ2hlciB0aGFuIGl0c2VsZiwgYnV0IHRhbGVudCBpbnN0YW50bHkgcmVjb2duaXplcyBnZW5pdXMu',
+        'VGhlIG1vcmUgcG93ZXJmdWwgYW5kIG9yaWdpbmFsIGEgbWluZCwgdGhlIG1vcmUgaXQgd2lsbCBpbmNsaW5lIHRvd2FyZHMgdGhlIHJlbGlnaW9uIG9mIHNvbGl0dWRlLg==',
+        'WW91IGNhbm5vdCB0cnVseSBiZSBhIGdvb2QgcGVyc29uIHVudGlsIHlvdSBrbm93IGhvdyBtdWNoIGV2aWwgY2FuIGJlIHdpdGhpbiB5b3Uu',
+        'VGhlIHdvcmxkIGlzIGZ1bGwgb2Ygc2lubmVycyBqdWRnaW5nIGVhY2ggb3RoZXIgZm9yIHNpbm5pbmcgZGlmZmVyZW50bHku',
+        'VGhlIG1vcmUgd29yZHMgeW91IHVzZSB0byBkZXNjcmliZSB0aGUgdHJ1dGggdGhlIG1vcmUgaXQgc291bmRzIGxpa2UgYSBsaWUu',
+        'U29tZSB0b3VjaCB5b3VyIHNraW4gdG8gcmVhY2ggeW91ciBzb3VsLiBPdGhlcnMgc3BlYWsgd29yZHMgdGhhdCBiZWNvbWUgeW91ciBzaGVsdGVyLiBBIGZldyBvZmZlciBwcmVzZW5jZSBhcyB0aGVpciBnaWZ0LiBUaGUgd2lzZXN0IGtub3cgd2hpY2ggb2ZmZXJpbmcgeW91ciBzcGlyaXQgaHVuZ2VycyBmb3IgaW4gZWFjaCBtb21lbnQu',
+        'QWdpbmcgaXMgYW4gZXh0cmFvcmRpbmFyeSBwcm9jZXNzIHdoZXJlYnkgeW91IGJlY29tZSB0aGUgcGVyc29uIHlvdSBhbHdheXMgc2hvdWxkIGhhdmUgYmVlbi4=',
+        'T25lIHdobyBzY3VscHRzIGVudHJvcHkgaW50byBlbGVnYW5jZS4=',
+        'SXQncyBhIHdhciBiZXR3ZWVuIG1vbm90b255IGFuZCBub3ZlbHR5LCBiZXR3ZWVuIHN0YXNpcyBhbmQgY3JlYXRpdml0eS4gQW5kIGluIHRoaXMgd2FyLCBvdXIgc2lkZSBpcyBub3QgZGVzdGluZWQgdG8gbG9zZS4='
     ];
 
     function dQ(enc) {
@@ -610,12 +689,11 @@
         const windowHeight = window.innerHeight;
         
         sections.forEach((section, index) => {
-            if (index === 0) return; // Skip hero section fade for first view
+            if (index === 0) return; // Skip hero section fade
             
             const sectionTop = section.offsetTop;
             const sectionBottom = sectionTop + section.offsetHeight;
             
-            // Calculate opacity based on scroll position
             if (scrollPos + windowHeight > sectionTop && scrollPos < sectionBottom) {
                 const distance = Math.abs((scrollPos + windowHeight / 2) - (sectionTop + section.offsetHeight / 2));
                 const maxDistance = windowHeight;
@@ -641,15 +719,6 @@
         tooltip.style.left = (e.clientX + 20) + 'px';
         tooltip.style.top = (e.clientY + 20) + 'px';
     });
-
-    // Smooth scroll snap behavior
-    let isScrolling;
-    window.addEventListener('wheel', (e) => {
-        window.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-            // Scroll has ended
-        }, 66);
-    }, { passive: true });
 </script>
 
 </body>
